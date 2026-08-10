@@ -1,0 +1,38 @@
+[
+    {
+      "clip_id": "TOS_S03_01",
+      "source": "tears_of_steel_finished",
+      "scene": "S03",
+      "slate": "2A",
+      "take": 1,
+      "location": "Rooftop lookout, Amsterdam",
+      "characters_expected": ["Bruno"],
+      "day_night": "NIGHT",
+      "int_ext": "EXT",
+      "notes": "Wide/establishing shot of stakeout position - sniper at railing, two crew lying in sleeping bags foreground. Green-screen stage plate, background TBD in comp."
+    },
+    {
+      "clip_id": "TOS_S03_02",
+      "source": "tears_of_steel_finished",
+      "scene": "S03",
+      "slate": "2C",
+      "take": 3,
+      "location": "Rooftop lookout, Amsterdam",
+      "characters_expected": ["Bruno"],
+      "day_night": "NIGHT",
+      "int_ext": "EXT",
+      "notes": "Close-up, sniper aiming rifle through railing. Green-screen stage plate."
+    },
+    {
+      "clip_id": "TOS_S03_03",
+      "source": "tears_of_steel_finished",
+      "scene": "S03",
+      "slate": "2E",
+      "take": 5,
+      "location": "Rooftop lookout, Amsterdam",
+      "characters_expected": ["Bruno", "Unidentified (newspaper reader)"],
+      "day_night": "NIGHT",
+      "int_ext": "EXT",
+      "notes": "Two-shot: figure lying down with newspaper ('De Amsterdammer - Roboticist Creates Killer Robots' prop) over face in foreground, sniper aiming in background. Green-screen stage plate."
+    }
+  ]
