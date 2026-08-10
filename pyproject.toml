@@ -17,7 +17,7 @@ dependencies = [
 dev = ["pytest", "pytest-asyncio", "ruff", "pre-commit"]
 
 [tool.setuptools.packages.find]
-include = ["Agent*", "Schema*", "Pipeline*"]
+include = ["agent*", "schema*", "pipeline*"]
 
 [tool.ruff]
 line-length = 100
