@@ -16,6 +16,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest", "pytest-asyncio", "ruff", "pre-commit"]
 
+[tool.setuptools.packages.find]
+include = ["Agent*", "Schema*", "Pipeline*"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py310"
