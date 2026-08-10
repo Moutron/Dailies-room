@@ -1,0 +1,962 @@
+2026.08.10 12:16:22.647974 [ 12107967 ] {} <Information> Application: Will watch for the process with pid 40528
+2026.08.10 12:16:22.648482 [ 12107982 ] {} <Information> Application: Forked a child process to watch
+2026.08.10 12:16:22.648614 [ 12107982 ] {} <Debug> CrashWriter: Sending crash reports is initialized with https://crash.clickhouse.com/ endpoint (anonymized)
+2026.08.10 12:16:22.648619 [ 12107982 ] {} <Debug> Application: Sending logical errors is enabled
+2026.08.10 12:16:23.390083 [ 12107982 ] {} <Information> Application: Starting ClickHouse 26.7.3.19 (revision: 54514, git hash: c3c4a420478c7e8fbbde863bba1b0dc4ae0eec6b, build id: 16F263D04B283886A37847C834051851), PID 40528
+2026.08.10 12:16:23.390609 [ 12107982 ] {} <Information> Application: starting up
+2026.08.10 12:16:23.390634 [ 12107982 ] {} <Information> Application: OS name: Darwin, version: 23.0.0, architecture: arm64
+2026.08.10 12:16:23.391296 [ 12107982 ] {} <Information> Application: Available RAM: 16.00 GiB; logical cores: 8; used cores: 8.
+2026.08.10 12:16:23.480491 [ 12107982 ] {} <Information> StatusFile: Writing pid 40528 to /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/status
+2026.08.10 12:16:23.482237 [ 12107982 ] {} <Information> MemoryWorker: Starting background memory thread with period of 100ms, using Jemalloc as source, purging dirty pages enabled (total memory threshold ratio: 0.9, dirty pages threshold ratio: 0.2, page size: 16384)
+2026.08.10 12:16:23.482336 [ 12108003 ] {} <Information> MemoryWorker: Default dirty pages decay period: 5000ms
+2026.08.10 12:16:23.482420 [ 12107982 ] {} <Information> BackgroundSchedulePool/BgSchPool: Create BackgroundSchedulePool with 16 initial threads (grows lazily up to 512)
+2026.08.10 12:16:23.483067 [ 12107982 ] {} <Debug> Application: Set max number of file descriptors to 9223372036854775807 (was 1048576).
+2026.08.10 12:16:23.483092 [ 12108020 ] {BgSchPool::a7f14270-6f0f-44d1-9b7e-718fed6788e5} <Trace> CancellationChecker: Started worker function
+2026.08.10 12:16:23.483194 [ 12107982 ] {} <Debug> Application: Set max number of threads to 4000 (was 2666).
+2026.08.10 12:16:23.483505 [ 12107982 ] {} <Warning> Context: Maximum number of threads is lower than 30000. There could be problems with handling a lot of simultaneous queries.
+2026.08.10 12:16:23.483526 [ 12107982 ] {} <Debug> Application: Initializing DateLUT.
+2026.08.10 12:16:23.483530 [ 12107982 ] {} <Trace> Application: Initialized DateLUT with time zone 'America/Detroit'.
+2026.08.10 12:16:23.484040 [ 12107982 ] {} <Information> UserDefinedSQLObjectsLoaderFromDisk: Loading user defined objects from /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/user_defined/
+2026.08.10 12:16:23.484047 [ 12107982 ] {} <Debug> UserDefinedSQLObjectsLoaderFromDisk: The directory for user defined objects (/Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/user_defined/) does not exist: nothing to load
+2026.08.10 12:16:23.484173 [ 12107982 ] {} <Debug> Application: Initializing interserver credentials.
+2026.08.10 12:16:23.486374 [ 12107982 ] {} <Trace> NamedCollectionsMetadataStorage: Using local storage for named collections at path: /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/named_collections
+2026.08.10 12:16:23.486390 [ 12107982 ] {} <Debug> FileCacheFactory: Will load 0 caches from default cache config
+2026.08.10 12:16:23.496359 [ 12107982 ] {} <Information> DNSCacheUpdater: Update period 15 seconds
+2026.08.10 12:16:23.496387 [ 12108005 ] {BgSchPool::743a6450-ea6f-420f-b766-02a12eeae351} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:16:23.496391 [ 12108005 ] {BgSchPool::743a6450-ea6f-420f-b766-02a12eeae351} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:16:23.496967 [ 12107982 ] {} <Debug> ConfigReloader: Loading config 'config.xml'
+2026.08.10 12:16:23.497500 [ 12107982 ] {} <Debug> ConfigProcessor: Saved preprocessed configuration to './data/preprocessed_configs/config.xml'.
+2026.08.10 12:16:23.497514 [ 12107982 ] {} <Debug> ConfigReloader: Loaded config 'config.xml', performing update on configuration
+2026.08.10 12:16:23.498390 [ 12107982 ] {} <Information> Application: Changed setting 'max_server_memory_usage' to 14.40 GiB (16.00 GiB available memory * 0.90 max_server_memory_usage_to_ram_ratio)
+2026.08.10 12:16:23.498403 [ 12107982 ] {} <Information> Application: Setting merges_mutations_memory_usage_soft_limit was set to 8.00 GiB (16.00 GiB available * 0.50 merges_mutations_memory_usage_to_ram_ratio)
+2026.08.10 12:16:23.498416 [ 12107982 ] {} <Information> Application: Merges and mutations memory limit is set to 8.00 GiB
+2026.08.10 12:16:23.499058 [ 12107982 ] {} <Information> Application: Setting max_remote_read_network_bandwidth_for_server was set to 0
+2026.08.10 12:16:23.499063 [ 12107982 ] {} <Information> Application: Setting max_remote_write_network_bandwidth_for_server was set to 0
+2026.08.10 12:16:23.499064 [ 12107982 ] {} <Information> Application: Setting max_local_read_bandwidth_for_server was set to 0
+2026.08.10 12:16:23.499064 [ 12107982 ] {} <Information> Application: Setting max_local_write_bandwidth_for_server was set to 0
+2026.08.10 12:16:23.499226 [ 12107982 ] {} <Information> Application: Setting max_remote_read_connections was set to 1000
+2026.08.10 12:16:23.499365 [ 12107982 ] {} <Information> Application: ConcurrencyControl limit is set to 16 CPU slots with 'max_min_fair' scheduler
+2026.08.10 12:16:23.499373 [ 12107982 ] {} <Information> BackgroundSchedulePool/BgBufSchPool: Create BackgroundSchedulePool with 16 initial threads (grows lazily up to 16)
+2026.08.10 12:16:23.499765 [ 12107982 ] {} <Information> BackgroundSchedulePool/BgMBSchPool: Create BackgroundSchedulePool with 16 initial threads (grows lazily up to 16)
+2026.08.10 12:16:23.500073 [ 12107982 ] {} <Information> BackgroundSchedulePool/BgDistSchPool: Create BackgroundSchedulePool with 16 initial threads (grows lazily up to 16)
+2026.08.10 12:16:23.500554 [ 12107982 ] {} <Information> BackgroundSchedulePool/BgStrmSchPool: Create BackgroundSchedulePool with 16 initial threads (grows lazily up to 16)
+2026.08.10 12:16:23.501124 [ 12107982 ] {} <Debug> WorkloadEntityStorage: Refreshing workload entities from configuration
+2026.08.10 12:16:23.501149 [ 12107982 ] {} <Debug> WorkloadEntityStorage: Loaded 0 workload entities from configuration
+2026.08.10 12:16:23.501152 [ 12107982 ] {} <Information> WorkloadEntityDiskStorage: Loading workload entities from /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/workload/
+2026.08.10 12:16:23.501157 [ 12107982 ] {} <Debug> WorkloadEntityDiskStorage: The directory for workload entities (/Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/workload/) does not exist: nothing to load
+2026.08.10 12:16:23.501158 [ 12107982 ] {} <Debug> WorkloadEntityDiskStorage: Workload entities loaded
+2026.08.10 12:16:23.501183 [ 12107982 ] {} <Debug> Context: UNIQUE KEY delete-bitmap cache size set to 1.00 GiB
+2026.08.10 12:16:23.501584 [ 12107982 ] {} <Debug> ConnectionGroup: Socket buffer sizes updated for group Disk: rcvbuf=204800, sndbuf=0
+2026.08.10 12:16:23.501592 [ 12107982 ] {} <Debug> ConfigReloader: Loaded config 'config.xml', performed update on configuration
+2026.08.10 12:16:23.501600 [ 12107982 ] {} <Trace> ConfigReloader: Config reload interval set to 2000ms
+2026.08.10 12:16:23.501803 [ 12107982 ] {} <Information> CertificateReloader: One of paths is empty. Cannot apply new configuration for certificates. Fill all paths and try again.
+2026.08.10 12:16:23.501807 [ 12107982 ] {} <Information> CertificateReloader: One of paths is empty. Cannot apply new configuration for certificates. Fill all paths and try again.
+2026.08.10 12:16:23.501900 [ 12107982 ] {} <Debug> Context: Setting up temporary data storage at disk '_tmp_default' with path '/Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/tmp/'
+2026.08.10 12:16:23.503139 [ 12107982 ] {} <Debug> ConfigReloader: Loading config 'config.xml'
+2026.08.10 12:16:23.503500 [ 12107982 ] {} <Debug> ConfigProcessor: Saved preprocessed configuration to './data/preprocessed_configs/config.xml'.
+2026.08.10 12:16:23.503525 [ 12107982 ] {} <Debug> ConfigReloader: Loaded config 'config.xml', performing update on configuration
+2026.08.10 12:16:23.508557 [ 12107982 ] {} <Debug> ConfigReloader: Loaded config 'config.xml', performed update on configuration
+2026.08.10 12:16:23.508575 [ 12107982 ] {} <Trace> ConfigReloader: Config reload interval set to 2000ms
+2026.08.10 12:16:23.509000 [ 12107982 ] {} <Debug> Access(user directories): Added users_xml access storage 'users_xml', path: config.xml
+2026.08.10 12:16:23.509243 [ 12107982 ] {} <Debug> Access(local_directory): File need_rebuild_lists.mark not found in /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/
+2026.08.10 12:16:23.509251 [ 12107982 ] {} <Warning> Access(local_directory): File /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/users.list doesn't exist
+2026.08.10 12:16:23.509260 [ 12107982 ] {} <Warning> Access(local_directory): Recovering lists in directory /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/
+2026.08.10 12:16:23.509771 [ 12107982 ] {} <Debug> Access(user directories): Added local_directory access storage 'local_directory', path: /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/
+2026.08.10 12:16:23.511172 [ 12107982 ] {} <Information> Context: Initialized background executor for merges and mutations with num_threads=16, num_tasks=32, scheduling_policy=round_robin
+2026.08.10 12:16:23.511438 [ 12107982 ] {} <Information> Context: Initialized background executor for move operations with num_threads=8, num_tasks=8
+2026.08.10 12:16:23.511889 [ 12107982 ] {} <Information> Context: Initialized background executor for fetches with num_threads=16, num_tasks=16
+2026.08.10 12:16:23.512011 [ 12107982 ] {} <Information> Context: Initialized background executor for common operations (e.g. clearing old parts) with num_threads=8, num_tasks=8
+2026.08.10 12:16:23.521130 [ 12107982 ] {} <Information> Application: Loading metadata from /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:16:23.521548 [ 12107982 ] {} <Information> Context: Database disk name: default
+2026.08.10 12:16:23.521552 [ 12107982 ] {} <Information> Context: Database disk name: default, path: /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:16:23.523387 [ 12107982 ] {} <Information> DatabaseAtomic (system): Metadata disk default, path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:16:23.525233 [ 12107982 ] {} <Information> DatabaseAtomic (system): Metadata processed, database system has 0 tables, 0 dictionaries and 0 materialized views in total.
+2026.08.10 12:16:23.525416 [ 12107982 ] {} <Information> TablesLoader: Parsed metadata of 0 tables in 1 databases in 0.001 sec
+2026.08.10 12:16:23.525583 [ 12107982 ] {} <Trace> ReferentialDeps: No tables
+2026.08.10 12:16:23.525586 [ 12107982 ] {} <Trace> LoadingDeps: No tables
+2026.08.10 12:16:23.525586 [ 12107982 ] {} <Trace> MaterializedViewFromDeps: No tables
+2026.08.10 12:16:23.525587 [ 12107982 ] {} <Trace> MaterializedViewToDeps: No tables
+2026.08.10 12:16:23.525647 [ 12107982 ] {} <Debug> AsyncLoader: Prioritize load job 'startup Atomic database system': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:16:23.525650 [ 12107982 ] {} <Debug> AsyncLoader: Prioritize load job 'startup Ordinary database system': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:16:23.525653 [ 12107982 ] {} <Debug> AsyncLoader: Schedule load job 'startup Ordinary database system' into ForegroundLoad
+2026.08.10 12:16:23.525654 [ 12107982 ] {} <Debug> AsyncLoader: Schedule load job 'startup Atomic database system' into ForegroundLoad
+2026.08.10 12:16:23.525656 [ 12107982 ] {} <Debug> AsyncLoader: Change current priority: none -> 0
+2026.08.10 12:16:23.525657 [ 12107982 ] {} <Debug> AsyncLoader: Spawn loader worker #1 in ForegroundLoad
+2026.08.10 12:16:23.525673 [ 12107982 ] {} <Debug> AsyncLoader: Wait load job 'startup Atomic database system' in ForegroundLoad
+2026.08.10 12:16:23.525717 [ 12108154 ] {} <Debug> AsyncLoader: Execute load job 'startup Ordinary database system' in ForegroundLoad
+2026.08.10 12:16:23.525722 [ 12108154 ] {} <Debug> AsyncLoader: Finish load job 'startup Ordinary database system' with status OK
+2026.08.10 12:16:23.525724 [ 12108154 ] {} <Debug> AsyncLoader: Spawn loader worker #2 in ForegroundLoad
+2026.08.10 12:16:23.525738 [ 12108154 ] {} <Debug> AsyncLoader: Execute load job 'startup Atomic database system' in ForegroundLoad
+2026.08.10 12:16:23.525777 [ 12108155 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:16:23.525799 [ 12108154 ] {} <Debug> AsyncLoader: Finish load job 'startup Atomic database system' with status OK
+2026.08.10 12:16:23.525802 [ 12108154 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:16:23.525804 [ 12108154 ] {} <Debug> AsyncLoader: Change current priority: 0 -> none
+2026.08.10 12:16:23.526167 [ 12107982 ] {} <Debug> SystemLog: Not creating system.query_log since corresponding section 'query_log' is missing from config
+2026.08.10 12:16:23.526180 [ 12107982 ] {} <Debug> SystemLog: Not creating system.query_thread_log since corresponding section 'query_thread_log' is missing from config
+2026.08.10 12:16:23.526192 [ 12107982 ] {} <Debug> SystemLog: Not creating system.part_log since corresponding section 'part_log' is missing from config
+2026.08.10 12:16:23.526367 [ 12107982 ] {} <Debug> SystemLog: Not creating system.background_schedule_pool_log since corresponding section 'background_schedule_pool_log' is missing from config
+2026.08.10 12:16:23.526384 [ 12107982 ] {} <Debug> SystemLog: Not creating system.trace_log since corresponding section 'trace_log' is missing from config
+2026.08.10 12:16:23.526396 [ 12107982 ] {} <Debug> SystemLog: Not creating system.crash_log since corresponding section 'crash_log' is missing from config
+2026.08.10 12:16:23.526410 [ 12107982 ] {} <Debug> SystemLog: Not creating system.text_log since corresponding section 'text_log' is missing from config
+2026.08.10 12:16:23.526596 [ 12107982 ] {} <Debug> SystemLog: Not creating system.metric_log since corresponding section 'metric_log' is missing from config
+2026.08.10 12:16:23.526603 [ 12107982 ] {} <Debug> SystemLog: Not creating system.transposed_metric_log since corresponding section 'transposed_metric_log' is missing from config
+2026.08.10 12:16:23.526614 [ 12107982 ] {} <Debug> SystemLog: Not creating system.error_log since corresponding section 'error_log' is missing from config
+2026.08.10 12:16:23.526627 [ 12107982 ] {} <Debug> SystemLog: Not creating system.filesystem_cache_log since corresponding section 'filesystem_cache_log' is missing from config
+2026.08.10 12:16:23.526644 [ 12107982 ] {} <Debug> SystemLog: Not creating system.filesystem_read_prefetches_log since corresponding section 'filesystem_read_prefetches_log' is missing from config
+2026.08.10 12:16:23.526656 [ 12107982 ] {} <Debug> SystemLog: Not creating system.s3queue_log since corresponding section 's3queue_log' is missing from config
+2026.08.10 12:16:23.526660 [ 12107982 ] {} <Debug> SystemLog: Not creating system.azure_queue_log since corresponding section 'azure_queue_log' is missing from config
+2026.08.10 12:16:23.526898 [ 12107982 ] {} <Debug> SystemLog: Not creating system.asynchronous_metric_log since corresponding section 'asynchronous_metric_log' is missing from config
+2026.08.10 12:16:23.526911 [ 12107982 ] {} <Debug> SystemLog: Not creating system.opentelemetry_span_log since corresponding section 'opentelemetry_span_log' is missing from config
+2026.08.10 12:16:23.526914 [ 12107982 ] {} <Debug> SystemLog: Not creating system.query_views_log since corresponding section 'query_views_log' is missing from config
+2026.08.10 12:16:23.526925 [ 12107982 ] {} <Debug> SystemLog: Not creating system.zookeeper_log since corresponding section 'zookeeper_log' is missing from config
+2026.08.10 12:16:23.526937 [ 12107982 ] {} <Debug> SystemLog: Not creating system.session_log since corresponding section 'session_log' is missing from config
+2026.08.10 12:16:23.526951 [ 12107982 ] {} <Debug> SystemLog: Not creating system.transactions_info_log since corresponding section 'transactions_info_log' is missing from config
+2026.08.10 12:16:23.526964 [ 12107982 ] {} <Debug> SystemLog: Not creating system.processors_profile_log since corresponding section 'processors_profile_log' is missing from config
+2026.08.10 12:16:23.526978 [ 12107982 ] {} <Debug> SystemLog: Not creating system.asynchronous_insert_log since corresponding section 'asynchronous_insert_log' is missing from config
+2026.08.10 12:16:23.526981 [ 12107982 ] {} <Debug> SystemLog: Not creating system.backup_log since corresponding section 'backup_log' is missing from config
+2026.08.10 12:16:23.526993 [ 12107982 ] {} <Debug> SystemLog: Not creating system.blob_storage_log since corresponding section 'blob_storage_log' is missing from config
+2026.08.10 12:16:23.527117 [ 12107982 ] {} <Debug> SystemLog: Not creating system.query_metric_log since corresponding section 'query_metric_log' is missing from config
+2026.08.10 12:16:23.527130 [ 12107982 ] {} <Debug> SystemLog: Not creating system.dead_letter_queue since corresponding section 'dead_letter_queue' is missing from config
+2026.08.10 12:16:23.527144 [ 12107982 ] {} <Debug> SystemLog: Not creating system.zookeeper_connection_log since corresponding section 'zookeeper_connection_log' is missing from config
+2026.08.10 12:16:23.527161 [ 12107982 ] {} <Debug> SystemLog: Not creating system.aggregated_zookeeper_log since corresponding section 'aggregated_zookeeper_log' is missing from config
+2026.08.10 12:16:23.527164 [ 12107982 ] {} <Debug> SystemLog: Not creating system.iceberg_metadata_log since corresponding section 'iceberg_metadata_log' is missing from config
+2026.08.10 12:16:23.527179 [ 12107982 ] {} <Debug> SystemLog: Not creating system.delta_lake_metadata_log since corresponding section 'delta_lake_metadata_log' is missing from config
+2026.08.10 12:16:23.527195 [ 12107982 ] {} <Debug> SystemLog: Not creating system.predicate_statistics_log since corresponding section 'predicate_statistics_log' is missing from config
+2026.08.10 12:16:23.529460 [ 12107982 ] {} <Debug> DatabaseAtomic (system): Creating directory symlink, path_to_metadata_symlink: metadata/system, metadata_path: store/fa7/fa72a463-c6cb-49de-97c5-d86c506ebdd5/
+2026.08.10 12:16:23.557272 [ 12107982 ] {} <Information> DatabaseAtomic (default): Metadata disk default, path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:16:23.557443 [ 12107982 ] {} <Information> DatabaseAtomic (default): Metadata processed, database default has 0 tables, 0 dictionaries and 0 materialized views in total.
+2026.08.10 12:16:23.557449 [ 12107982 ] {} <Information> TablesLoader: Parsed metadata of 0 tables in 1 databases in 0.000 sec
+2026.08.10 12:16:23.557451 [ 12107982 ] {} <Trace> ReferentialDeps: No tables
+2026.08.10 12:16:23.557452 [ 12107982 ] {} <Trace> LoadingDeps: No tables
+2026.08.10 12:16:23.557453 [ 12107982 ] {} <Trace> MaterializedViewFromDeps: No tables
+2026.08.10 12:16:23.557453 [ 12107982 ] {} <Trace> MaterializedViewToDeps: No tables
+2026.08.10 12:16:23.557462 [ 12107982 ] {} <Information> loadMetadata: Start asynchronous loading of databases
+2026.08.10 12:16:23.557465 [ 12107982 ] {} <Debug> AsyncLoader: Schedule load job 'startup Ordinary database default' into BackgrndStartup
+2026.08.10 12:16:23.557466 [ 12107982 ] {} <Debug> AsyncLoader: Schedule load job 'startup Atomic database default' into BackgrndStartup
+2026.08.10 12:16:23.557468 [ 12107982 ] {} <Debug> AsyncLoader: Change current priority: none -> 2
+2026.08.10 12:16:23.557469 [ 12107982 ] {} <Debug> AsyncLoader: Spawn loader worker #1 in BackgrndStartup
+2026.08.10 12:16:23.557487 [ 12108154 ] {} <Debug> AsyncLoader: Execute load job 'startup Ordinary database default' in BackgrndStartup
+2026.08.10 12:16:23.557489 [ 12108154 ] {} <Debug> AsyncLoader: Finish load job 'startup Ordinary database default' with status OK
+2026.08.10 12:16:23.557490 [ 12108154 ] {} <Debug> AsyncLoader: Spawn loader worker #2 in BackgrndStartup
+2026.08.10 12:16:23.557508 [ 12108154 ] {} <Debug> AsyncLoader: Execute load job 'startup Atomic database default' in BackgrndStartup
+2026.08.10 12:16:23.557511 [ 12108154 ] {} <Debug> AsyncLoader: Finish load job 'startup Atomic database default' with status OK
+2026.08.10 12:16:23.557512 [ 12108154 ] {} <Debug> AsyncLoader: Stop worker in BackgrndStartup
+2026.08.10 12:16:23.557517 [ 12108154 ] {} <Debug> AsyncLoader: Stop worker in BackgrndStartup
+2026.08.10 12:16:23.557519 [ 12108154 ] {} <Debug> AsyncLoader: Change current priority: 2 -> none
+2026.08.10 12:16:23.557838 [ 12107982 ] {} <Information> UserDefinedSQLObjectsLoaderFromDisk: Loading user defined objects from /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/user_defined/
+2026.08.10 12:16:23.557844 [ 12107982 ] {} <Debug> UserDefinedSQLObjectsLoaderFromDisk: The directory for user defined objects (/Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/user_defined/) does not exist: nothing to load
+2026.08.10 12:16:23.557851 [ 12107982 ] {} <Debug> Application: Loaded metadata.
+2026.08.10 12:16:23.557852 [ 12107982 ] {} <Information> Application: TaskStats is not implemented for this OS. IO accounting will be disabled.
+2026.08.10 12:16:23.586024 [ 12108002 ] {} <Information> MemoryTracker: Correcting the value of global memory tracker from 99.90 MiB to 166.41 MiB
+2026.08.10 12:16:23.652614 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Failed to create SSL context. SSL will be disabled. Error: Poco::Exception. Code: 1000, e.code() = 0, SSL Exception: Configuration error: no certificate file has been specified (version 26.7.3.19 (official build))
+2026.08.10 12:16:23.652648 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Failed to read RSA key pair from server certificate. Error: Poco::Exception. Code: 1000, e.code() = 0, Not found: openSSL.server.privateKeyFile (version 26.7.3.19 (official build))
+2026.08.10 12:16:23.652651 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Generating new RSA key pair.
+2026.08.10 12:16:23.750592 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Failed to create SSL context. SSL will be disabled. Error: Poco::Exception. Code: 1000, e.code() = 0, SSL Exception: Configuration error: no certificate file has been specified (version 26.7.3.19 (official build))
+2026.08.10 12:16:23.750616 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Failed to read RSA key pair from server certificate. Error: Poco::Exception. Code: 1000, e.code() = 0, Not found: openSSL.server.privateKeyFile (version 26.7.3.19 (official build))
+2026.08.10 12:16:23.750617 [ 12107982 ] {} <Trace> MySQLHandlerFactory: Generating new RSA key pair.
+2026.08.10 12:16:23.823084 [ 12107982 ] {} <Information> CertificateReloader: One of paths is empty. Cannot apply new configuration for certificates. Fill all paths and try again.
+2026.08.10 12:16:23.823144 [ 12107982 ] {} <Information> CertificateReloader: One of paths is empty. Cannot apply new configuration for certificates. Fill all paths and try again.
+2026.08.10 12:16:23.824363 [ 12107982 ] {} <Debug> ExternalDictionariesLoader: Periodic updates enabled
+2026.08.10 12:16:23.824495 [ 12108170 ] {} <Debug> ExternalDictionariesLoader: Starting periodic updates
+2026.08.10 12:16:23.825064 [ 12107982 ] {} <Debug> ExternalUserDefinedExecutableFunctionsLoader: Periodic updates enabled
+2026.08.10 12:16:23.825116 [ 12108171 ] {} <Debug> ExternalUserDefinedExecutableFunctionsLoader: Starting periodic updates
+2026.08.10 12:16:23.825536 [ 12107982 ] {} <Information> Application: Listening for http://[::1]:8123
+2026.08.10 12:16:23.825549 [ 12107982 ] {} <Information> Application: Listening for native protocol (tcp): [::1]:9000
+2026.08.10 12:16:23.825557 [ 12107982 ] {} <Information> Application: Listening for MySQL compatibility protocol: [::1]:9004
+2026.08.10 12:16:23.825567 [ 12107982 ] {} <Information> Application: Listening for PostgreSQL compatibility protocol: [::1]:9005
+2026.08.10 12:16:23.825575 [ 12107982 ] {} <Information> Application: Listening for http://127.0.0.1:8123
+2026.08.10 12:16:23.825582 [ 12107982 ] {} <Information> Application: Listening for native protocol (tcp): 127.0.0.1:9000
+2026.08.10 12:16:23.825589 [ 12107982 ] {} <Information> Application: Listening for MySQL compatibility protocol: 127.0.0.1:9004
+2026.08.10 12:16:23.825594 [ 12107982 ] {} <Information> Application: Listening for PostgreSQL compatibility protocol: 127.0.0.1:9005
+2026.08.10 12:16:23.825595 [ 12107982 ] {} <Information> Application: Ready for connections.
+2026.08.10 12:16:27.188394 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64244
+2026.08.10 12:16:27.190381 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:16:27.190885 [ 12107999 ] {} <Debug> TCP-Session-f6cd27e8-1b60-4222-b914-eec457c7491d: Authenticating user 'default' from 127.0.0.1:64244
+2026.08.10 12:16:27.191566 [ 12107999 ] {} <Debug> TCP-Session-f6cd27e8-1b60-4222-b914-eec457c7491d: f6cd27e8-1b60-4222-b914-eec457c7491d Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:27.191573 [ 12107999 ] {} <Debug> TCP-Session-f6cd27e8-1b60-4222-b914-eec457c7491d: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:27.191973 [ 12107999 ] {} <Trace> ContextAccess (default): Settings: readonly = 0, allow_ddl = true, allow_introspection_functions = false
+2026.08.10 12:16:27.192990 [ 12107999 ] {} <Trace> ContextAccess (default): List of all grants: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:16:27.193010 [ 12107999 ] {} <Trace> ContextAccess (default): List of all grants including implicit: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:16:27.197283 [ 12107999 ] {} <Trace> TCP-Session-f6cd27e8-1b60-4222-b914-eec457c7491d: f6cd27e8-1b60-4222-b914-eec457c7491d Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:27.199687 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Debug> executeQuery: (from 127.0.0.1:64244) (query 1, line 1) SELECT 1 (stage: Complete)
+2026.08.10 12:16:27.209200 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Trace> Planner: Query to stage Complete
+2026.08.10 12:16:27.214921 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:16:27.233790 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.035 sec., 28.873 rows/sec., 28.87 B/sec.
+2026.08.10 12:16:27.234239 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Debug> MemoryTracker: Query peak memory usage: 181.70 KiB.
+2026.08.10 12:16:27.234254 [ 12107999 ] {82a37313-8447-47d0-aa8a-19f960b9e423} <Debug> TCPHandler: Processed in 0.037 sec.
+2026.08.10 12:16:27.239038 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:16:27.239052 [ 12107999 ] {} <Debug> TCP-Session-f6cd27e8-1b60-4222-b914-eec457c7491d: f6cd27e8-1b60-4222-b914-eec457c7491d Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.312012 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64245
+2026.08.10 12:16:33.312063 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:16:33.312075 [ 12107999 ] {} <Debug> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: Authenticating user 'default' from 127.0.0.1:64245
+2026.08.10 12:16:33.312099 [ 12107999 ] {} <Debug> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.312102 [ 12107999 ] {} <Debug> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.313791 [ 12107999 ] {} <Trace> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:33.313881 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> executeQuery: (from 127.0.0.1:64245) (query 1, line 1) CREATE DATABASE IF NOT EXISTS dailies; (stage: Complete)
+2026.08.10 12:16:33.314222 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Information> DatabaseAtomic (dailies): Metadata disk default, path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:16:33.314447 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Information> DatabaseAtomic (dailies): Metadata processed, database dailies has 0 tables, 0 dictionaries and 0 materialized views in total.
+2026.08.10 12:16:33.314455 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Information> TablesLoader: Parsed metadata of 0 tables in 1 databases in 0.000 sec
+2026.08.10 12:16:33.314457 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Trace> ReferentialDeps: No tables
+2026.08.10 12:16:33.314458 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Trace> LoadingDeps: No tables
+2026.08.10 12:16:33.314465 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Trace> MaterializedViewFromDeps: No tables
+2026.08.10 12:16:33.314466 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Trace> MaterializedViewToDeps: No tables
+2026.08.10 12:16:33.314484 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Prioritize load job 'startup Atomic database dailies': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:16:33.314484 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Prioritize load job 'startup Ordinary database dailies': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:16:33.314487 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Schedule load job 'startup Ordinary database dailies' into ForegroundLoad
+2026.08.10 12:16:33.314488 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Schedule load job 'startup Atomic database dailies' into ForegroundLoad
+2026.08.10 12:16:33.314490 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Change current priority: none -> 0
+2026.08.10 12:16:33.314491 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Spawn loader worker #1 in ForegroundLoad
+2026.08.10 12:16:33.314499 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> AsyncLoader: Wait load job 'startup Atomic database dailies' in ForegroundLoad
+2026.08.10 12:16:33.314524 [ 12108172 ] {} <Debug> AsyncLoader: Execute load job 'startup Ordinary database dailies' in ForegroundLoad
+2026.08.10 12:16:33.314526 [ 12108172 ] {} <Debug> AsyncLoader: Finish load job 'startup Ordinary database dailies' with status OK
+2026.08.10 12:16:33.314528 [ 12108172 ] {} <Debug> AsyncLoader: Spawn loader worker #2 in ForegroundLoad
+2026.08.10 12:16:33.314552 [ 12108172 ] {} <Debug> AsyncLoader: Execute load job 'startup Atomic database dailies' in ForegroundLoad
+2026.08.10 12:16:33.314558 [ 12108172 ] {} <Debug> AsyncLoader: Finish load job 'startup Atomic database dailies' with status OK
+2026.08.10 12:16:33.314560 [ 12108172 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:16:33.314607 [ 12108333 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:16:33.314611 [ 12108333 ] {} <Debug> AsyncLoader: Change current priority: 0 -> none
+2026.08.10 12:16:33.314631 [ 12107999 ] {9c764ebe-95cc-45b8-b308-6e3278f83fcd} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:16:33.314910 [ 12107999 ] {} <Trace> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:33.315089 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> executeQuery: (from 127.0.0.1:64245) (query 2, line 3) -- One row per clip. Small table, joined for context.
+ CREATE TABLE IF NOT EXISTS dailies.clips ( clip_id String, source String, scene String, slate String, take UInt8, location String, day_night String, int_ext String, duration_s Float32, summary String, dominant_mood String, characters_present Array(String), characters_expected Array(String), technical_notes Array(String), gcs_uri String, processed_at DateTime DEFAULT now() ) ENGINE = MergeTree ORDER BY (scene, slate, take); (stage: Complete)
+2026.08.10 12:16:33.324045 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:16:33.330080 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Trace> StoragePolicy (default): Storage policy default created, total volumes 1
+2026.08.10 12:16:33.330544 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Loading data parts
+2026.08.10 12:16:33.331538 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Loaded data parts (0 items) took 0.001 seconds
+2026.08.10 12:16:33.332460 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> DatabaseAtomic (dailies): Creating directory symlink, path_to_metadata_symlink: metadata/dailies, metadata_path: store/43b/43b4fd22-1abd-4cf3-8105-5831e22152cb/
+2026.08.10 12:16:33.332804 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> DatabaseAtomic (dailies): Trying to create a symlink for table dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/2dc/2dc4252d-bd82-4c08-9c29-ccc3650c7e9d/, link data/dailies/clips
+2026.08.10 12:16:33.333320 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Information> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Start to refresh statistics
+2026.08.10 12:16:33.333607 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> MemoryTracker: Query peak memory usage: 130.80 KiB.
+2026.08.10 12:16:33.333654 [ 12107999 ] {71cc9083-cf69-41d7-8845-09f669c82704} <Debug> TCPHandler: Processed in 0.019 sec.
+2026.08.10 12:16:33.333658 [ 12108019 ] {BgSchPool::0c5fb5b3-2cc2-462f-8c35-f1b66d00b2b6} <Debug> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Refreshing statistics
+2026.08.10 12:16:33.334250 [ 12107999 ] {} <Trace> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:33.334602 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Debug> executeQuery: (from 127.0.0.1:64245) (query 3, line 25) -- One row per line of dialogue. This is the table search hits most.
+ CREATE TABLE IF NOT EXISTS dailies.dialogue ( clip_id String, segment_idx UInt16, scene String, take UInt8, start_s Float32, end_s Float32, speaker String, text String, delivery String, intensity Float32, embedding Array(Float32) ) ENGINE = MergeTree ORDER BY (scene, clip_id, start_s); (stage: Complete)
+2026.08.10 12:16:33.334661 [ 12108008 ] {BgSchPool::0530edb1-38e5-48b0-8d77-0e607269deda} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:16:33.335306 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:16:33.335857 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Debug> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Loading data parts
+2026.08.10 12:16:33.335916 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Debug> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Loaded data parts (0 items) took 0.000 seconds
+2026.08.10 12:16:33.336228 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Debug> DatabaseAtomic (dailies): Trying to create a symlink for table dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/949/949532f1-4dd2-45ce-a719-3878c8f0225e/, link data/dailies/dialogue
+2026.08.10 12:16:33.336365 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Information> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Start to refresh statistics
+2026.08.10 12:16:33.336451 [ 12108018 ] {BgSchPool::2d96c91d-99db-489f-bf70-2c6f18dd931b} <Debug> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Refreshing statistics
+2026.08.10 12:16:33.336464 [ 12107999 ] {8849bbf2-4451-4745-b92a-fe79f42f3339} <Debug> TCPHandler: Processed in 0.002 sec.
+2026.08.10 12:16:33.336494 [ 12108009 ] {BgSchPool::47be9685-2b57-4a31-8a6b-7aac8295393d} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:16:33.336717 [ 12107999 ] {} <Trace> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:33.336826 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Debug> executeQuery: (from 127.0.0.1:64245) (query 4, line 42) -- One row per visual beat.
+ CREATE TABLE IF NOT EXISTS dailies.visuals ( clip_id String, segment_idx UInt16, scene String, take UInt8, start_s Float32, end_s Float32, description String, shot_type String, camera_movement String, characters_visible Array(String), notable_elements Array(String), embedding Array(Float32) ) ENGINE = MergeTree ORDER BY (scene, clip_id, start_s); (stage: Complete)
+2026.08.10 12:16:33.337074 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:16:33.337530 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Debug> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Loading data parts
+2026.08.10 12:16:33.337585 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Debug> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Loaded data parts (0 items) took 0.000 seconds
+2026.08.10 12:16:33.337781 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Debug> DatabaseAtomic (dailies): Trying to create a symlink for table dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/f4b/f4b06b05-d86e-4dd3-825a-2d95c2b9adc9/, link data/dailies/visuals
+2026.08.10 12:16:33.337884 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Information> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Start to refresh statistics
+2026.08.10 12:16:33.337926 [ 12108006 ] {BgSchPool::cbbe4c3d-a967-4992-a6f9-433c033bdd9c} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:16:33.337942 [ 12107999 ] {574e705a-f1cd-45a3-8b1a-a7e0474cdc6d} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:16:33.337951 [ 12108010 ] {BgSchPool::58c0be0b-1302-414c-b2f2-851239364841} <Debug> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Refreshing statistics
+2026.08.10 12:16:33.338170 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:16:33.338178 [ 12107999 ] {} <Debug> TCP-Session-d633f0b6-9995-4bae-bfd2-2d917bf734ac: d633f0b6-9995-4bae-bfd2-2d917bf734ac Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.377776 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64246
+2026.08.10 12:16:33.377820 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:16:33.377836 [ 12107999 ] {} <Debug> TCP-Session-0cbe8f3b-b34d-4bb7-a6e4-ea960644a619: Authenticating user 'default' from 127.0.0.1:64246
+2026.08.10 12:16:33.377860 [ 12107999 ] {} <Debug> TCP-Session-0cbe8f3b-b34d-4bb7-a6e4-ea960644a619: 0cbe8f3b-b34d-4bb7-a6e4-ea960644a619 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.377868 [ 12107999 ] {} <Debug> TCP-Session-0cbe8f3b-b34d-4bb7-a6e4-ea960644a619: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:33.378234 [ 12107999 ] {} <Trace> TCP-Session-0cbe8f3b-b34d-4bb7-a6e4-ea960644a619: 0cbe8f3b-b34d-4bb7-a6e4-ea960644a619 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:16:33.378310 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Debug> executeQuery: (from 127.0.0.1:64246) (query 1, line 1) SHOW TABLES FROM dailies (stage: Complete)
+2026.08.10 12:16:33.378672 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Debug> executeQuery: (internal) SELECT name FROM system.tables WHERE database = 'dailies' ORDER BY name  (stage: Complete)
+2026.08.10 12:16:33.379896 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Trace> Planner: Query to stage Complete
+2026.08.10 12:16:33.381301 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:16:33.382389 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Trace> SortingStep: Adjusting memory limit before external sort with 7.12 GiB (ratio: 0.500, available system memory: 14.23 GiB)
+2026.08.10 12:16:33.387056 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Debug> executeQuery: Read 3 rows, 89.00 B in 0.009 sec., 342.661 rows/sec., 9.93 KiB/sec.
+2026.08.10 12:16:33.387063 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Debug> MemoryTracker: Query peak memory usage: 136.38 KiB.
+2026.08.10 12:16:33.387070 [ 12107999 ] {21ea3819-76d1-4f76-a1b7-7abb0292f128} <Debug> TCPHandler: Processed in 0.009 sec.
+2026.08.10 12:16:33.392505 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:16:33.392522 [ 12107999 ] {} <Debug> TCP-Session-0cbe8f3b-b34d-4bb7-a6e4-ea960644a619: 0cbe8f3b-b34d-4bb7-a6e4-ea960644a619 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:16:38.499254 [ 12108018 ] {BgSchPool::4252d42c-5734-46a2-8364-72197599d159} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:16:38.499272 [ 12108018 ] {BgSchPool::4252d42c-5734-46a2-8364-72197599d159} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:16:53.514135 [ 12108008 ] {BgSchPool::71182013-4434-4930-b925-8e1d4986d449} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:16:53.514155 [ 12108008 ] {BgSchPool::71182013-4434-4930-b925-8e1d4986d449} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:17:05.225572 [ 12108006 ] {BgSchPool::5628f96c-8331-488e-a7f4-157e90db2ff7} <Trace> dailies.dialogue (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 31889ms, ratio: 0, points per minute: 0)
+2026.08.10 12:17:05.346063 [ 12108010 ] {BgSchPool::e68aceb1-6bc3-4632-bf3e-328cf795b651} <Trace> dailies.visuals (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 32008ms, ratio: 0, points per minute: 0)
+2026.08.10 12:17:08.520996 [ 12108004 ] {BgSchPool::29082f71-bb23-4536-b0aa-edcc85d44bff} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:17:08.521010 [ 12108004 ] {BgSchPool::29082f71-bb23-4536-b0aa-edcc85d44bff} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:17:08.994561 [ 12108005 ] {BgSchPool::e9f4be9d-834b-4716-aa56-55715d812b30} <Trace> dailies.clips (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 35661ms, ratio: 0, points per minute: 0)
+2026.08.10 12:17:23.532265 [ 12108007 ] {BgSchPool::2b7d02c0-8c1a-477b-b0c1-499b16362e6b} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:17:23.532288 [ 12108007 ] {BgSchPool::2b7d02c0-8c1a-477b-b0c1-499b16362e6b} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:17:38.544492 [ 12108017 ] {BgSchPool::998ced70-7646-4c4e-b944-534ca0d623c8} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:17:38.544509 [ 12108017 ] {BgSchPool::998ced70-7646-4c4e-b944-534ca0d623c8} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:17:53.556288 [ 12108006 ] {BgSchPool::d418de48-0524-4b90-b5fc-cc227b563db0} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:17:53.556320 [ 12108006 ] {BgSchPool::d418de48-0524-4b90-b5fc-cc227b563db0} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:18:08.571309 [ 12108005 ] {BgSchPool::f39ca7b1-dc4d-4ae8-9dba-184dac4ae975} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:18:08.571342 [ 12108005 ] {BgSchPool::f39ca7b1-dc4d-4ae8-9dba-184dac4ae975} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:18:09.467238 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64264
+2026.08.10 12:18:09.467341 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:18:09.467377 [ 12107999 ] {} <Debug> TCP-Session-59770c90-4fc1-4d3f-ac10-dc31ab048fff: Authenticating user 'default' from 127.0.0.1:64264
+2026.08.10 12:18:09.467444 [ 12107999 ] {} <Debug> TCP-Session-59770c90-4fc1-4d3f-ac10-dc31ab048fff: 59770c90-4fc1-4d3f-ac10-dc31ab048fff Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.467450 [ 12107999 ] {} <Debug> TCP-Session-59770c90-4fc1-4d3f-ac10-dc31ab048fff: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.468314 [ 12107999 ] {} <Trace> TCP-Session-59770c90-4fc1-4d3f-ac10-dc31ab048fff: 59770c90-4fc1-4d3f-ac10-dc31ab048fff Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.468530 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Debug> executeQuery: (from 127.0.0.1:64264) (query 1, line 1) DROP DATABASE IF EXISTS dailies (stage: Complete)
+2026.08.10 12:18:09.469344 [ 12108172 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Start preparing for shutdown
+2026.08.10 12:18:09.469353 [ 12108623 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Start preparing for shutdown
+2026.08.10 12:18:09.469345 [ 12108333 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Start preparing for shutdown
+2026.08.10 12:18:09.469525 [ 12108172 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Finished preparing for shutdown
+2026.08.10 12:18:09.469527 [ 12108623 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Finished preparing for shutdown
+2026.08.10 12:18:09.469526 [ 12108333 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Finished preparing for shutdown
+2026.08.10 12:18:09.469769 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Start preparing for shutdown
+2026.08.10 12:18:09.469776 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): Start preparing for shutdown
+2026.08.10 12:18:09.470305 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Start preparing for shutdown
+2026.08.10 12:18:09.470320 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): Start preparing for shutdown
+2026.08.10 12:18:09.470424 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Start preparing for shutdown
+2026.08.10 12:18:09.470428 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): Start preparing for shutdown
+2026.08.10 12:18:09.470832 [ 12107999 ] {078e4190-9497-498c-97b4-4a7ac0254e54} <Debug> TCPHandler: Processed in 0.003 sec.
+2026.08.10 12:18:09.471055 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:18:09.471073 [ 12107999 ] {} <Debug> TCP-Session-59770c90-4fc1-4d3f-ac10-dc31ab048fff: 59770c90-4fc1-4d3f-ac10-dc31ab048fff Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.509926 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64265
+2026.08.10 12:18:09.509981 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:18:09.509992 [ 12107999 ] {} <Debug> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: Authenticating user 'default' from 127.0.0.1:64265
+2026.08.10 12:18:09.510008 [ 12107999 ] {} <Debug> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.510012 [ 12107999 ] {} <Debug> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.510392 [ 12107999 ] {} <Trace> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.510468 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> executeQuery: (from 127.0.0.1:64265) (query 1, line 1) CREATE DATABASE IF NOT EXISTS DailiesRoom; (stage: Complete)
+2026.08.10 12:18:09.510567 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Information> DatabaseAtomic (DailiesRoom): Metadata disk default, path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/
+2026.08.10 12:18:09.510827 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Information> DatabaseAtomic (DailiesRoom): Metadata processed, database DailiesRoom has 0 tables, 0 dictionaries and 0 materialized views in total.
+2026.08.10 12:18:09.510838 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Information> TablesLoader: Parsed metadata of 0 tables in 1 databases in 0.000 sec
+2026.08.10 12:18:09.510841 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Trace> ReferentialDeps: No tables
+2026.08.10 12:18:09.510842 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Trace> LoadingDeps: No tables
+2026.08.10 12:18:09.510853 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Trace> MaterializedViewFromDeps: No tables
+2026.08.10 12:18:09.510854 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Trace> MaterializedViewToDeps: No tables
+2026.08.10 12:18:09.510898 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Prioritize load job 'startup Atomic database DailiesRoom': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:18:09.510901 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Prioritize load job 'startup Ordinary database DailiesRoom': BackgrndStartup -> ForegroundLoad
+2026.08.10 12:18:09.510905 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Schedule load job 'startup Ordinary database DailiesRoom' into ForegroundLoad
+2026.08.10 12:18:09.510906 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Schedule load job 'startup Atomic database DailiesRoom' into ForegroundLoad
+2026.08.10 12:18:09.510908 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Change current priority: none -> 0
+2026.08.10 12:18:09.510909 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Spawn loader worker #1 in ForegroundLoad
+2026.08.10 12:18:09.510937 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> AsyncLoader: Wait load job 'startup Atomic database DailiesRoom' in ForegroundLoad
+2026.08.10 12:18:09.510950 [ 12108333 ] {} <Debug> AsyncLoader: Execute load job 'startup Ordinary database DailiesRoom' in ForegroundLoad
+2026.08.10 12:18:09.510962 [ 12108333 ] {} <Debug> AsyncLoader: Finish load job 'startup Ordinary database DailiesRoom' with status OK
+2026.08.10 12:18:09.510967 [ 12108333 ] {} <Debug> AsyncLoader: Spawn loader worker #2 in ForegroundLoad
+2026.08.10 12:18:09.510976 [ 12108333 ] {} <Debug> AsyncLoader: Execute load job 'startup Atomic database DailiesRoom' in ForegroundLoad
+2026.08.10 12:18:09.510987 [ 12108333 ] {} <Debug> AsyncLoader: Finish load job 'startup Atomic database DailiesRoom' with status OK
+2026.08.10 12:18:09.511004 [ 12108333 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:18:09.511024 [ 12108172 ] {} <Debug> AsyncLoader: Stop worker in ForegroundLoad
+2026.08.10 12:18:09.511026 [ 12108172 ] {} <Debug> AsyncLoader: Change current priority: 0 -> none
+2026.08.10 12:18:09.511044 [ 12107999 ] {843dc21b-c626-457a-849c-16f4d8f3c064} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:18:09.511375 [ 12107999 ] {} <Trace> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.511605 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> executeQuery: (from 127.0.0.1:64265) (query 2, line 3) -- One row per clip. Small table, joined for context.
+ CREATE TABLE IF NOT EXISTS DailiesRoom.clips ( clip_id String, source String, scene String, slate String, take UInt8, location String, day_night String, int_ext String, duration_s Float32, summary String, dominant_mood String, characters_present Array(String), characters_expected Array(String), technical_notes Array(String), gcs_uri String, processed_at DateTime DEFAULT now() ) ENGINE = MergeTree ORDER BY (scene, slate, take); (stage: Complete)
+2026.08.10 12:18:09.512537 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:18:09.513349 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Loading data parts
+2026.08.10 12:18:09.513462 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Loaded data parts (0 items) took 0.000 seconds
+2026.08.10 12:18:09.513809 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> DatabaseAtomic (DailiesRoom): Creating directory symlink, path_to_metadata_symlink: metadata/DailiesRoom, metadata_path: store/9ea/9ea3dd5f-25f6-4d99-b9ed-2153870a99d2/
+2026.08.10 12:18:09.513931 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> DatabaseAtomic (DailiesRoom): Trying to create a symlink for table DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/6d8/6d8bc21c-b507-4bf9-8f1e-03bab8f5534b/, link data/DailiesRoom/clips
+2026.08.10 12:18:09.514067 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Information> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Start to refresh statistics
+2026.08.10 12:18:09.514099 [ 12108018 ] {BgSchPool::124c05e2-8755-4cdc-972c-fdb4d0d3c0e2} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Refreshing statistics
+2026.08.10 12:18:09.514100 [ 12108008 ] {BgSchPool::d1d08a2d-8623-411a-9479-d13c9f41c1a1} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:18:09.514116 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> MemoryTracker: Query peak memory usage: 128.40 KiB.
+2026.08.10 12:18:09.514128 [ 12107999 ] {d3e94231-40fc-4741-809d-131762ca65d0} <Debug> TCPHandler: Processed in 0.003 sec.
+2026.08.10 12:18:09.514378 [ 12107999 ] {} <Trace> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.514479 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Debug> executeQuery: (from 127.0.0.1:64265) (query 3, line 25) -- One row per line of dialogue. This is the table search hits most.
+ CREATE TABLE IF NOT EXISTS DailiesRoom.dialogue ( clip_id String, segment_idx UInt16, scene String, take UInt8, start_s Float32, end_s Float32, speaker String, text String, delivery String, intensity Float32, embedding Array(Float32) ) ENGINE = MergeTree ORDER BY (scene, clip_id, start_s); (stage: Complete)
+2026.08.10 12:18:09.514729 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:18:09.515219 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Loading data parts
+2026.08.10 12:18:09.515279 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Loaded data parts (0 items) took 0.000 seconds
+2026.08.10 12:18:09.515506 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Debug> DatabaseAtomic (DailiesRoom): Trying to create a symlink for table DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/7ec/7ec0acac-f9ad-46e7-a358-62a4bc9a98c8/, link data/DailiesRoom/dialogue
+2026.08.10 12:18:09.515612 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Information> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Start to refresh statistics
+2026.08.10 12:18:09.515625 [ 12108009 ] {BgSchPool::3aa8ca81-7f7d-4e8a-8929-e2251642e3a6} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Refreshing statistics
+2026.08.10 12:18:09.515633 [ 12108016 ] {BgSchPool::b1760489-e5fc-4845-a7e3-34066374bc0c} <Trace> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:18:09.515658 [ 12107999 ] {810a5220-5b96-4942-a80b-977a222fab55} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:18:09.515874 [ 12107999 ] {} <Trace> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.515972 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Debug> executeQuery: (from 127.0.0.1:64265) (query 4, line 42) -- One row per visual beat.
+ CREATE TABLE IF NOT EXISTS DailiesRoom.visuals ( clip_id String, segment_idx UInt16, scene String, take UInt8, start_s Float32, end_s Float32, description String, shot_type String, camera_movement String, characters_visible Array(String), notable_elements Array(String), embedding Array(Float32) ) ENGINE = MergeTree ORDER BY (scene, clip_id, start_s); (stage: Complete)
+2026.08.10 12:18:09.516204 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Trace> IInterpreterUnionOrSelectQuery: The analyzer is enabled, but the old interpreter is used. It can be a bug, please report it. Will disable 'allow_experimental_analyzer' setting (for query: SELECT min(scene), max(scene), count() SETTINGS aggregate_functions_null_for_empty = false, transform_null_in = false, legacy_column_name_of_tuple_literal = false)
+2026.08.10 12:18:09.516636 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Loading data parts
+2026.08.10 12:18:09.516702 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Loaded data parts (0 items) took 0.000 seconds
+2026.08.10 12:18:09.516916 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Debug> DatabaseAtomic (DailiesRoom): Trying to create a symlink for table DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963), data_path /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/data/store/204/204aef75-a7ca-4a3e-860d-8c660654c963/, link data/DailiesRoom/visuals
+2026.08.10 12:18:09.517012 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Information> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Start to refresh statistics
+2026.08.10 12:18:09.517022 [ 12108006 ] {BgSchPool::0a45e45e-683b-4bb0-b667-70c5b31d4367} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set)
+2026.08.10 12:18:09.517026 [ 12108010 ] {BgSchPool::3d8cb9e5-c8e4-46b9-81c0-bc2edca63cfa} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Refreshing statistics
+2026.08.10 12:18:09.517046 [ 12107999 ] {8678b338-424b-4623-a7e4-b0430eba2ab8} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:18:09.517205 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:18:09.517212 [ 12107999 ] {} <Debug> TCP-Session-de2c9e51-eaea-4c5a-9405-bb477e80e26a: de2c9e51-eaea-4c5a-9405-bb477e80e26a Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.552700 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64266
+2026.08.10 12:18:09.552737 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:18:09.552748 [ 12107999 ] {} <Debug> TCP-Session-bb1cae3c-2534-49dc-b3c0-42a21e9e6495: Authenticating user 'default' from 127.0.0.1:64266
+2026.08.10 12:18:09.552763 [ 12107999 ] {} <Debug> TCP-Session-bb1cae3c-2534-49dc-b3c0-42a21e9e6495: bb1cae3c-2534-49dc-b3c0-42a21e9e6495 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.552770 [ 12107999 ] {} <Debug> TCP-Session-bb1cae3c-2534-49dc-b3c0-42a21e9e6495: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:09.553237 [ 12107999 ] {} <Trace> TCP-Session-bb1cae3c-2534-49dc-b3c0-42a21e9e6495: bb1cae3c-2534-49dc-b3c0-42a21e9e6495 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:18:09.553314 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Debug> executeQuery: (from 127.0.0.1:64266) (query 1, line 1) SHOW TABLES FROM DailiesRoom (stage: Complete)
+2026.08.10 12:18:09.553427 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Debug> executeQuery: (internal) SELECT name FROM system.tables WHERE database = 'DailiesRoom' ORDER BY name  (stage: Complete)
+2026.08.10 12:18:09.553763 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Trace> Planner: Query to stage Complete
+2026.08.10 12:18:09.553860 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:18:09.553943 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Trace> SortingStep: Adjusting memory limit before external sort with 7.12 GiB (ratio: 0.500, available system memory: 14.23 GiB)
+2026.08.10 12:18:09.554539 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Debug> executeQuery: Read 3 rows, 101.00 B in 0.001 sec., 2435.065 rows/sec., 80.06 KiB/sec.
+2026.08.10 12:18:09.554546 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Debug> MemoryTracker: Query peak memory usage: 131.44 KiB.
+2026.08.10 12:18:09.554556 [ 12107999 ] {d1185f7e-a1b3-4921-985e-721e0b9c1406} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:18:09.560088 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:18:09.560098 [ 12107999 ] {} <Debug> TCP-Session-bb1cae3c-2534-49dc-b3c0-42a21e9e6495: bb1cae3c-2534-49dc-b3c0-42a21e9e6495 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:18:23.582539 [ 12108018 ] {BgSchPool::61b08042-7799-4f7b-9077-6897df5b0b21} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:18:23.582570 [ 12108018 ] {BgSchPool::61b08042-7799-4f7b-9077-6897df5b0b21} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:18:38.592828 [ 12108009 ] {BgSchPool::e6ddfd20-b6aa-4554-a43e-a43004770e63} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:18:38.592841 [ 12108009 ] {BgSchPool::e6ddfd20-b6aa-4554-a43e-a43004770e63} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:18:39.552129 [ 12108006 ] {BgSchPool::bd8a18b5-8c3d-4b07-aa0d-302b8497dc56} <Trace> DailiesRoom.dialogue (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 30037ms, ratio: 0, points per minute: 0)
+2026.08.10 12:18:43.381190 [ 12108004 ] {BgSchPool::34435446-3793-49af-90f9-fd86d4f887d7} <Trace> DailiesRoom.clips (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 33867ms, ratio: 0, points per minute: 0)
+2026.08.10 12:18:47.568243 [ 12108009 ] {BgSchPool::4e3ec040-5ea0-4f43-aefe-bae5b76dc6d5} <Trace> DailiesRoom.visuals (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 38051ms, ratio: 0, points per minute: 0)
+2026.08.10 12:18:53.600434 [ 12108014 ] {BgSchPool::cac74f3e-9579-4cd7-b9bb-c6a1e6b5b1b4} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:18:53.600483 [ 12108014 ] {BgSchPool::cac74f3e-9579-4cd7-b9bb-c6a1e6b5b1b4} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:19:08.617494 [ 12108010 ] {BgSchPool::64833fa6-d052-4949-a4ac-b6ec29a360e6} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:19:08.617521 [ 12108010 ] {BgSchPool::64833fa6-d052-4949-a4ac-b6ec29a360e6} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:19:23.629490 [ 12108009 ] {BgSchPool::19813268-1e94-4b09-ab24-0b69da631ef1} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:19:23.629503 [ 12108009 ] {BgSchPool::19813268-1e94-4b09-ab24-0b69da631ef1} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:19:38.641602 [ 12108014 ] {BgSchPool::5494f6bb-e9f4-49b5-bb8a-729c8a5e66ad} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:19:38.641617 [ 12108014 ] {BgSchPool::5494f6bb-e9f4-49b5-bb8a-729c8a5e66ad} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:19:53.649245 [ 12108018 ] {BgSchPool::cc321b86-8d81-4d87-9633-0c617106cfcb} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:19:53.649292 [ 12108018 ] {BgSchPool::cc321b86-8d81-4d87-9633-0c617106cfcb} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:20:08.663104 [ 12108015 ] {BgSchPool::c2e24776-d8f0-427a-8442-ea913a65cf9d} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:20:08.663143 [ 12108015 ] {BgSchPool::c2e24776-d8f0-427a-8442-ea913a65cf9d} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:20:23.674657 [ 12108007 ] {BgSchPool::3ab46224-2640-43cc-b119-b5addd64b490} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:20:23.674682 [ 12108007 ] {BgSchPool::3ab46224-2640-43cc-b119-b5addd64b490} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:20:38.684648 [ 12108009 ] {BgSchPool::5c3cd840-2974-41c0-abfa-163b04b05704} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:20:38.685235 [ 12108009 ] {BgSchPool::5c3cd840-2974-41c0-abfa-163b04b05704} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:20:53.697809 [ 12108011 ] {BgSchPool::9a3fb54a-f677-4b39-aadb-fa1aa3ac299d} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:20:53.697855 [ 12108011 ] {BgSchPool::9a3fb54a-f677-4b39-aadb-fa1aa3ac299d} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:21:08.712410 [ 12108004 ] {BgSchPool::b8ffdac0-5328-4936-900b-bf051b16e7ad} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:21:08.712429 [ 12108004 ] {BgSchPool::b8ffdac0-5328-4936-900b-bf051b16e7ad} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:21:23.723986 [ 12108008 ] {BgSchPool::a150d01f-2bd8-41ba-b02e-0da868724264} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:21:23.723999 [ 12108008 ] {BgSchPool::a150d01f-2bd8-41ba-b02e-0da868724264} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:21:38.738082 [ 12108016 ] {BgSchPool::ce16aedb-f535-4f9b-8355-c52863be1b46} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:21:38.738113 [ 12108016 ] {BgSchPool::ce16aedb-f535-4f9b-8355-c52863be1b46} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:21:53.750733 [ 12108011 ] {BgSchPool::ca97a1a7-56f4-479c-8c56-bf7fef90d0a0} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:21:53.750742 [ 12108011 ] {BgSchPool::ca97a1a7-56f4-479c-8c56-bf7fef90d0a0} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:22:08.763299 [ 12108004 ] {BgSchPool::82937b13-538f-4b14-a018-319d1fb18438} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:22:08.763308 [ 12108004 ] {BgSchPool::82937b13-538f-4b14-a018-319d1fb18438} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:22:23.773344 [ 12108007 ] {BgSchPool::22b81357-8d99-4ea4-b4bc-3bfba4025db3} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:22:23.773357 [ 12108007 ] {BgSchPool::22b81357-8d99-4ea4-b4bc-3bfba4025db3} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:22:38.784097 [ 12108018 ] {BgSchPool::49de6637-c84c-41dd-bd50-c35d6cdf0430} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:22:38.784115 [ 12108018 ] {BgSchPool::49de6637-c84c-41dd-bd50-c35d6cdf0430} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:22:53.794602 [ 12108013 ] {BgSchPool::a2d4079c-fcfc-41f8-bf2b-5efb5279e123} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:22:53.794639 [ 12108013 ] {BgSchPool::a2d4079c-fcfc-41f8-bf2b-5efb5279e123} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:23:08.805251 [ 12108010 ] {BgSchPool::a2782160-968b-44ec-9320-620925cfb873} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:23:08.805321 [ 12108010 ] {BgSchPool::a2782160-968b-44ec-9320-620925cfb873} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:23:09.519185 [ 12108011 ] {BgSchPool::e7f0acfd-7e01-432b-ac64-156b5ac326c7} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Refreshing statistics
+2026.08.10 12:23:09.519212 [ 12108014 ] {BgSchPool::84c7cd5c-bc94-4f79-b577-99719d7392c8} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Refreshing statistics
+2026.08.10 12:23:09.519213 [ 12108015 ] {BgSchPool::e003c83e-aad6-4257-8900-1ebd4de7ac8e} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Refreshing statistics
+2026.08.10 12:23:10.019683 [ 12108017 ] {BgSchPool::40ba338b-f89e-4caa-a0d9-1490f216a131} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 57 similar messages)
+2026.08.10 12:23:13.595899 [ 12108004 ] {BgSchPool::465fb7d4-350b-4f49-b3fd-6db09773f285} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 57 similar messages)
+2026.08.10 12:23:18.591746 [ 12108005 ] {BgSchPool::28415daa-8a6f-4c19-b5da-991b565ac589} <Trace> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 57 similar messages)
+2026.08.10 12:23:23.819039 [ 12108007 ] {BgSchPool::e1456b12-c984-4d03-986a-d802757a92f1} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:23:23.819052 [ 12108007 ] {BgSchPool::e1456b12-c984-4d03-986a-d802757a92f1} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:23:38.832167 [ 12108008 ] {BgSchPool::71493340-6f02-405f-b5eb-590f19309eb9} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:23:38.832184 [ 12108008 ] {BgSchPool::71493340-6f02-405f-b5eb-590f19309eb9} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:23:40.630932 [ 12108018 ] {BgSchPool::f0d7a403-9220-4b6c-b544-3c93f6c9549b} <Trace> DailiesRoom.dialogue (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 301076ms, ratio: 0, points per minute: 0)
+2026.08.10 12:23:48.691982 [ 12108006 ] {BgSchPool::d805024a-a445-4cd8-a774-80e844a9ec52} <Trace> DailiesRoom.clips (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 305308ms, ratio: 0, points per minute: 0)
+2026.08.10 12:23:53.845663 [ 12108013 ] {BgSchPool::7c739ea4-4eb7-4108-822d-b90a7a9e6ea4} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:23:53.845677 [ 12108013 ] {BgSchPool::7c739ea4-4eb7-4108-822d-b90a7a9e6ea4} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:23:56.877375 [ 12108010 ] {BgSchPool::10cd6035-f8a0-455e-b120-598c60c9681e} <Trace> DailiesRoom.visuals (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 309306ms, ratio: 0, points per minute: 0)
+2026.08.10 12:24:08.855294 [ 12108015 ] {BgSchPool::9f65ca3c-cce5-426f-865e-06e6b3ada332} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:24:08.855314 [ 12108015 ] {BgSchPool::9f65ca3c-cce5-426f-865e-06e6b3ada332} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:24:23.867169 [ 12108004 ] {BgSchPool::9b5c538a-2c93-4fd4-b992-667c6f001307} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:24:23.867242 [ 12108004 ] {BgSchPool::9b5c538a-2c93-4fd4-b992-667c6f001307} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:24:38.877851 [ 12108005 ] {BgSchPool::185119a5-f92e-4abf-a7af-3b6b21e09a6d} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:24:38.877870 [ 12108005 ] {BgSchPool::185119a5-f92e-4abf-a7af-3b6b21e09a6d} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:24:53.891395 [ 12108018 ] {BgSchPool::b74dd9b3-af07-4f33-a43d-bcb4be050488} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:24:53.891407 [ 12108018 ] {BgSchPool::b74dd9b3-af07-4f33-a43d-bcb4be050488} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:25:08.901594 [ 12108009 ] {BgSchPool::38476d56-b043-44e2-9e3e-5b21e3570786} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:25:08.901602 [ 12108009 ] {BgSchPool::38476d56-b043-44e2-9e3e-5b21e3570786} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:25:23.910780 [ 12108013 ] {BgSchPool::9d11b6a2-3016-42a2-937c-dff0bb0d6545} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:25:23.910788 [ 12108013 ] {BgSchPool::9d11b6a2-3016-42a2-937c-dff0bb0d6545} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:25:38.920028 [ 12108014 ] {BgSchPool::7d1f2f5a-8570-4ea9-9e0a-704373651dae} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:25:38.920037 [ 12108014 ] {BgSchPool::7d1f2f5a-8570-4ea9-9e0a-704373651dae} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:25:53.933528 [ 12108015 ] {BgSchPool::c564252a-8dd5-438b-8021-f31ad0e9f983} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:25:53.933543 [ 12108015 ] {BgSchPool::c564252a-8dd5-438b-8021-f31ad0e9f983} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:26:08.941652 [ 12108004 ] {BgSchPool::6ca86176-c43c-4bc7-b12a-cd9e13e99bb9} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:26:08.941664 [ 12108004 ] {BgSchPool::6ca86176-c43c-4bc7-b12a-cd9e13e99bb9} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:26:09.473467 [ 12108007 ] {BgSchPool::b98e9a1e-d6ef-44a6-9540-a7324839dcb2} <Information> DatabaseCatalog: Have 3 tables in drop queue (0 of them are in use), will try drop 3 tables
+2026.08.10 12:26:09.473852 [ 12108333 ] {} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: waiting for locks.
+2026.08.10 12:26:09.473859 [ 12108172 ] {} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: waiting for locks.
+2026.08.10 12:26:09.473869 [ 12108623 ] {} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: waiting for locks.
+2026.08.10 12:26:09.474432 [ 12108623 ] {} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: removing data parts (count 0) from filesystem.
+2026.08.10 12:26:09.474446 [ 12108333 ] {} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: removing data parts (count 0) from filesystem.
+2026.08.10 12:26:09.474449 [ 12108623 ] {} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: removing all data parts from memory.
+2026.08.10 12:26:09.474450 [ 12108333 ] {} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: removing all data parts from memory.
+2026.08.10 12:26:09.474453 [ 12108333 ] {} <Information> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: clearing temporary directories
+2026.08.10 12:26:09.474453 [ 12108623 ] {} <Information> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: clearing temporary directories
+2026.08.10 12:26:09.474467 [ 12108172 ] {} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: removing data parts (count 0) from filesystem.
+2026.08.10 12:26:09.474483 [ 12108172 ] {} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: removing all data parts from memory.
+2026.08.10 12:26:09.474516 [ 12108172 ] {} <Information> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: clearing temporary directories
+2026.08.10 12:26:09.475388 [ 12108623 ] {} <Information> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: remove format_version.txt, detached, moving and write ahead logs
+2026.08.10 12:26:09.475391 [ 12108172 ] {} <Information> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: remove format_version.txt, detached, moving and write ahead logs
+2026.08.10 12:26:09.475392 [ 12108333 ] {} <Information> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: remove format_version.txt, detached, moving and write ahead logs
+2026.08.10 12:26:09.475978 [ 12108172 ] {} <Information> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: removing table directory recursive to cleanup garbage
+2026.08.10 12:26:09.475980 [ 12108623 ] {} <Information> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: removing table directory recursive to cleanup garbage
+2026.08.10 12:26:09.476047 [ 12108333 ] {} <Information> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: removing table directory recursive to cleanup garbage
+2026.08.10 12:26:09.476107 [ 12108623 ] {} <Trace> dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9): dropAllData: done.
+2026.08.10 12:26:09.476144 [ 12108623 ] {} <Information> DatabaseCatalog: Removing metadata metadata_dropped/dailies.visuals.f4b06b05-d86e-4dd3-825a-2d95c2b9adc9.sql of dropped table dailies.visuals (f4b06b05-d86e-4dd3-825a-2d95c2b9adc9)
+2026.08.10 12:26:09.476164 [ 12108333 ] {} <Trace> dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e): dropAllData: done.
+2026.08.10 12:26:09.476204 [ 12108333 ] {} <Information> DatabaseCatalog: Removing metadata metadata_dropped/dailies.dialogue.949532f1-4dd2-45ce-a719-3878c8f0225e.sql of dropped table dailies.dialogue (949532f1-4dd2-45ce-a719-3878c8f0225e)
+2026.08.10 12:26:09.476349 [ 12108172 ] {} <Trace> dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d): dropAllData: done.
+2026.08.10 12:26:09.476367 [ 12108172 ] {} <Information> DatabaseCatalog: Removing metadata metadata_dropped/dailies.clips.2dc4252d-bd82-4c08-9c29-ccc3650c7e9d.sql of dropped table dailies.clips (2dc4252d-bd82-4c08-9c29-ccc3650c7e9d)
+2026.08.10 12:26:23.952837 [ 12108019 ] {BgSchPool::19452f6f-df4c-4414-aefb-fd58e5646b07} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:26:23.952854 [ 12108019 ] {BgSchPool::19452f6f-df4c-4414-aefb-fd58e5646b07} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:26:38.966474 [ 12108008 ] {BgSchPool::122cb5e2-ab6e-4ec0-81b7-37bb7dee90ab} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:26:38.966530 [ 12108008 ] {BgSchPool::122cb5e2-ab6e-4ec0-81b7-37bb7dee90ab} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:26:53.979532 [ 12108016 ] {BgSchPool::0a69cf4f-fb95-4dbf-9c36-656bf8ac4925} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:26:53.979603 [ 12108016 ] {BgSchPool::0a69cf4f-fb95-4dbf-9c36-656bf8ac4925} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:27:09.003176 [ 12108013 ] {BgSchPool::fbbeeaa9-76f8-49e4-84cf-901275e7a482} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:27:09.003205 [ 12108013 ] {BgSchPool::fbbeeaa9-76f8-49e4-84cf-901275e7a482} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:27:24.043402 [ 12108010 ] {BgSchPool::dc8192b4-cb5d-4d0e-89d4-eac827f99e2a} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:27:24.043421 [ 12108010 ] {BgSchPool::dc8192b4-cb5d-4d0e-89d4-eac827f99e2a} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:27:39.054874 [ 12108011 ] {BgSchPool::c834efc4-5bc7-487a-90d4-be20271d64b0} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:27:39.054893 [ 12108011 ] {BgSchPool::c834efc4-5bc7-487a-90d4-be20271d64b0} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:27:54.066345 [ 12108004 ] {BgSchPool::04699ab9-8011-43f8-b127-9d5d3904aeb1} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:27:54.066760 [ 12108004 ] {BgSchPool::04699ab9-8011-43f8-b127-9d5d3904aeb1} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:28:09.083062 [ 12108005 ] {BgSchPool::b2dd4907-5878-4fed-9ffe-e8c2f202a973} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:28:09.083073 [ 12108005 ] {BgSchPool::b2dd4907-5878-4fed-9ffe-e8c2f202a973} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:28:09.520405 [ 12108007 ] {BgSchPool::1b9ec346-58f1-4a04-8997-f968e8befe87} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Refreshing statistics
+2026.08.10 12:28:09.520513 [ 12108008 ] {BgSchPool::c81b0304-be2f-473c-b81a-4719eb8ac306} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Refreshing statistics
+2026.08.10 12:28:09.520567 [ 12108019 ] {BgSchPool::ab3489db-51bb-428d-9dbf-6a849a601516} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Refreshing statistics
+2026.08.10 12:28:24.096402 [ 12108018 ] {BgSchPool::80ea4125-d35d-4bfe-82c7-feb48569de3a} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:28:24.096419 [ 12108018 ] {BgSchPool::80ea4125-d35d-4bfe-82c7-feb48569de3a} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:28:28.133651 [ 12108009 ] {BgSchPool::8f4d0751-5c51-400a-be57-06e1e20f03ea} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 7 similar messages)
+2026.08.10 12:28:33.161915 [ 12108016 ] {BgSchPool::735f00d3-cee2-47bf-86d5-60274e636762} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 7 similar messages)
+2026.08.10 12:28:38.590625 [ 12108006 ] {BgSchPool::f46bd4d8-298d-4252-a5d8-3a2654b931b1} <Trace> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 7 similar messages)
+2026.08.10 12:28:39.103025 [ 12108013 ] {BgSchPool::22d49ab0-2e76-467a-8e99-47e401c0ccde} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:28:39.103081 [ 12108013 ] {BgSchPool::22d49ab0-2e76-467a-8e99-47e401c0ccde} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:28:43.139328 [ 12108010 ] {BgSchPool::dc47e27f-b763-483d-a964-4e355a2371ef} <Trace> DailiesRoom.dialogue (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 302506ms, ratio: 0, points per minute: 0)
+2026.08.10 12:28:52.355258 [ 12108014 ] {BgSchPool::9b1136fa-a23c-46c3-9099-0a1f3ab20ca0} <Trace> DailiesRoom.clips (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 303661ms, ratio: 0, points per minute: 0)
+2026.08.10 12:28:54.114554 [ 12108015 ] {BgSchPool::d8e5ac9d-7010-46da-83d0-f9b01b0dcb12} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:28:54.114574 [ 12108015 ] {BgSchPool::d8e5ac9d-7010-46da-83d0-f9b01b0dcb12} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:28:57.832215 [ 12108011 ] {BgSchPool::4a1e5134-1067-49dc-922c-12d10a79ed83} <Trace> DailiesRoom.visuals (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 300953ms, ratio: 0, points per minute: 0)
+2026.08.10 12:29:09.123315 [ 12108017 ] {BgSchPool::f04926d6-e317-4393-9b80-bd1d199321e4} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:29:09.123329 [ 12108017 ] {BgSchPool::f04926d6-e317-4393-9b80-bd1d199321e4} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:29:24.134192 [ 12108004 ] {BgSchPool::c8165fe6-019f-4d70-94f1-5c02fd237cd7} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:29:24.134258 [ 12108004 ] {BgSchPool::c8165fe6-019f-4d70-94f1-5c02fd237cd7} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:29:39.146818 [ 12108019 ] {BgSchPool::2f0d7507-4a4d-4ff8-adeb-f29df7c860e9} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:29:39.146857 [ 12108019 ] {BgSchPool::2f0d7507-4a4d-4ff8-adeb-f29df7c860e9} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:29:54.162871 [ 12108018 ] {BgSchPool::4708494f-8657-44ec-a384-a9f85fc390c0} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:29:54.162926 [ 12108018 ] {BgSchPool::4708494f-8657-44ec-a384-a9f85fc390c0} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:30:09.177654 [ 12108009 ] {BgSchPool::0363a928-0af1-4dea-8705-bcc1b0f47cdf} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:30:09.177995 [ 12108009 ] {BgSchPool::0363a928-0af1-4dea-8705-bcc1b0f47cdf} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:30:24.205036 [ 12108016 ] {BgSchPool::62e7e5c8-767a-44cb-a72b-8bb70741a10a} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:30:24.205065 [ 12108016 ] {BgSchPool::62e7e5c8-767a-44cb-a72b-8bb70741a10a} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:30:39.217611 [ 12108010 ] {BgSchPool::df8384c6-d8e5-473c-ab0d-733dbd8a54e2} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:30:39.217622 [ 12108010 ] {BgSchPool::df8384c6-d8e5-473c-ab0d-733dbd8a54e2} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:30:54.230153 [ 12108015 ] {BgSchPool::052eb85b-f748-4401-b499-c1eec985dbad} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:30:54.230180 [ 12108015 ] {BgSchPool::052eb85b-f748-4401-b499-c1eec985dbad} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:31:09.242152 [ 12108011 ] {BgSchPool::11f0b690-5610-417b-870e-7d556fa7a081} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:31:09.242167 [ 12108011 ] {BgSchPool::11f0b690-5610-417b-870e-7d556fa7a081} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:31:24.254348 [ 12108017 ] {BgSchPool::a5d3faf6-fd55-4fc9-a74b-1534c22ddde2} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:31:24.254374 [ 12108017 ] {BgSchPool::a5d3faf6-fd55-4fc9-a74b-1534c22ddde2} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:31:39.265731 [ 12108004 ] {BgSchPool::289d2ead-5e74-4115-b5dd-0aa3a41b915c} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:31:39.265763 [ 12108004 ] {BgSchPool::289d2ead-5e74-4115-b5dd-0aa3a41b915c} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:31:54.281633 [ 12108008 ] {BgSchPool::44e95507-9391-4a66-88ff-5137b1f025ff} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:31:54.281656 [ 12108008 ] {BgSchPool::44e95507-9391-4a66-88ff-5137b1f025ff} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:32:01.141326 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64466
+2026.08.10 12:32:01.141463 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:32:01.141687 [ 12107999 ] {} <Debug> TCP-Session-c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22: Authenticating user 'default' from 127.0.0.1:64466
+2026.08.10 12:32:01.141753 [ 12107999 ] {} <Debug> TCP-Session-c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22: c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.141764 [ 12107999 ] {} <Debug> TCP-Session-c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.143672 [ 12107999 ] {} <Trace> ContextAccess (default): Settings: readonly = 0, allow_ddl = true, allow_introspection_functions = false
+2026.08.10 12:32:01.144236 [ 12107999 ] {} <Trace> ContextAccess (default): List of all grants: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:32:01.144256 [ 12107999 ] {} <Trace> ContextAccess (default): List of all grants including implicit: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:32:01.145062 [ 12107999 ] {} <Trace> TCP-Session-c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22: c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:32:01.145232 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Debug> executeQuery: (from 127.0.0.1:64466) (query 1, line 1) SHOW DATABASES (stage: Complete)
+2026.08.10 12:32:01.145399 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Debug> executeQuery: (internal) SELECT name FROM system.databases ORDER BY name (stage: Complete)
+2026.08.10 12:32:01.146796 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Trace> Planner: Query to stage Complete
+2026.08.10 12:32:01.147044 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:32:01.147095 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Trace> SortingStep: Adjusting memory limit before external sort with 7.12 GiB (ratio: 0.500, available system memory: 14.23 GiB)
+2026.08.10 12:32:01.148909 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Debug> executeQuery: Read 5 rows, 100.00 B in 0.004 sec., 1344.809 rows/sec., 26.27 KiB/sec.
+2026.08.10 12:32:01.148928 [ 12107999 ] {41ee16da-5fa3-4fe5-96e9-9bd105c977da} <Debug> TCPHandler: Processed in 0.004 sec.
+2026.08.10 12:32:01.154804 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:32:01.154831 [ 12107999 ] {} <Debug> TCP-Session-c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22: c6bb1e8c-5c9c-49d7-a16c-bd2bf0b4dd22 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.193889 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64467
+2026.08.10 12:32:01.193986 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:32:01.194010 [ 12107999 ] {} <Debug> TCP-Session-ac95505a-e87d-4b05-bfe6-e6cc1d982c60: Authenticating user 'default' from 127.0.0.1:64467
+2026.08.10 12:32:01.194033 [ 12107999 ] {} <Debug> TCP-Session-ac95505a-e87d-4b05-bfe6-e6cc1d982c60: ac95505a-e87d-4b05-bfe6-e6cc1d982c60 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.194040 [ 12107999 ] {} <Debug> TCP-Session-ac95505a-e87d-4b05-bfe6-e6cc1d982c60: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.195040 [ 12107999 ] {} <Trace> TCP-Session-ac95505a-e87d-4b05-bfe6-e6cc1d982c60: ac95505a-e87d-4b05-bfe6-e6cc1d982c60 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:32:01.195134 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Debug> executeQuery: (from 127.0.0.1:64467) (query 1, line 1) SHOW TABLES FROM DailiesRoom (stage: Complete)
+2026.08.10 12:32:01.195269 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Debug> executeQuery: (internal) SELECT name FROM system.tables WHERE database = 'DailiesRoom' ORDER BY name  (stage: Complete)
+2026.08.10 12:32:01.196100 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Trace> Planner: Query to stage Complete
+2026.08.10 12:32:01.196203 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:32:01.196283 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Trace> SortingStep: Adjusting memory limit before external sort with 7.12 GiB (ratio: 0.500, available system memory: 14.23 GiB)
+2026.08.10 12:32:01.196939 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Debug> executeQuery: Read 3 rows, 101.00 B in 0.002 sec., 1649.258 rows/sec., 54.22 KiB/sec.
+2026.08.10 12:32:01.196950 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Debug> MemoryTracker: Query peak memory usage: 131.44 KiB.
+2026.08.10 12:32:01.196959 [ 12107999 ] {dd66edaf-ae38-4f75-8e7b-8aa77fac74dc} <Debug> TCPHandler: Processed in 0.002 sec.
+2026.08.10 12:32:01.205150 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:32:01.205169 [ 12107999 ] {} <Debug> TCP-Session-ac95505a-e87d-4b05-bfe6-e6cc1d982c60: ac95505a-e87d-4b05-bfe6-e6cc1d982c60 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.240267 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64468
+2026.08.10 12:32:01.240306 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:32:01.240317 [ 12107999 ] {} <Debug> TCP-Session-8accfe16-dfc6-4f53-b4f5-495f58a4cdd5: Authenticating user 'default' from 127.0.0.1:64468
+2026.08.10 12:32:01.240333 [ 12107999 ] {} <Debug> TCP-Session-8accfe16-dfc6-4f53-b4f5-495f58a4cdd5: 8accfe16-dfc6-4f53-b4f5-495f58a4cdd5 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.240336 [ 12107999 ] {} <Debug> TCP-Session-8accfe16-dfc6-4f53-b4f5-495f58a4cdd5: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.240726 [ 12107999 ] {} <Trace> TCP-Session-8accfe16-dfc6-4f53-b4f5-495f58a4cdd5: 8accfe16-dfc6-4f53-b4f5-495f58a4cdd5 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:32:01.240828 [ 12107999 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Debug> executeQuery: (from 127.0.0.1:64468) (query 1, line 1) SELECT count() FROM DailiesRoom.dialogue (stage: Complete)
+2026.08.10 12:32:01.243018 [ 12107999 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> Planner: Query to stage Complete
+2026.08.10 12:32:01.244379 [ 12107999 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> Planner: Query from stage WithMergeableState to stage Complete
+2026.08.10 12:32:01.245469 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> MergingAggregatedTransform: Reading blocks of partially aggregated data.
+2026.08.10 12:32:01.245510 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Debug> MergingAggregatedTransform: Read 1 blocks of partially aggregated data, total 1 rows.
+2026.08.10 12:32:01.246108 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> Aggregator: Merging partially aggregated single-level data.
+2026.08.10 12:32:01.246858 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> Aggregator: Merged partially aggregated single-level data.
+2026.08.10 12:32:01.246863 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Trace> Aggregator: Converting aggregated data to chunks
+2026.08.10 12:32:01.246909 [ 12108172 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Debug> Aggregator: Converted aggregated data to chunks. 1 rows, 8.00 B in 0.000 sec. (27459.703 rows/sec., 214.53 KiB/sec.)
+2026.08.10 12:32:01.247108 [ 12107999 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Debug> executeQuery: Read 1 rows, 16.00 B in 0.006 sec., 158.353 rows/sec., 2.47 KiB/sec.
+2026.08.10 12:32:01.247125 [ 12107999 ] {00941e7a-f6b2-4c42-b825-e812ab2ff71b} <Debug> TCPHandler: Processed in 0.006 sec.
+2026.08.10 12:32:01.253048 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:32:01.253064 [ 12107999 ] {} <Debug> TCP-Session-8accfe16-dfc6-4f53-b4f5-495f58a4cdd5: 8accfe16-dfc6-4f53-b4f5-495f58a4cdd5 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.290951 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64469
+2026.08.10 12:32:01.291041 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:32:01.291052 [ 12107999 ] {} <Debug> TCP-Session-cc53935c-3be9-47b0-a05d-a40ec7b2080d: Authenticating user 'default' from 127.0.0.1:64469
+2026.08.10 12:32:01.291067 [ 12107999 ] {} <Debug> TCP-Session-cc53935c-3be9-47b0-a05d-a40ec7b2080d: cc53935c-3be9-47b0-a05d-a40ec7b2080d Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.291070 [ 12107999 ] {} <Debug> TCP-Session-cc53935c-3be9-47b0-a05d-a40ec7b2080d: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.291500 [ 12107999 ] {} <Trace> TCP-Session-cc53935c-3be9-47b0-a05d-a40ec7b2080d: cc53935c-3be9-47b0-a05d-a40ec7b2080d Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:32:01.291615 [ 12107999 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Debug> executeQuery: (from 127.0.0.1:64469) (query 1, line 1) SELECT count() FROM DailiesRoom.visuals (stage: Complete)
+2026.08.10 12:32:01.291831 [ 12107999 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> Planner: Query to stage Complete
+2026.08.10 12:32:01.291935 [ 12107999 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> Planner: Query from stage WithMergeableState to stage Complete
+2026.08.10 12:32:01.292141 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> MergingAggregatedTransform: Reading blocks of partially aggregated data.
+2026.08.10 12:32:01.292164 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Debug> MergingAggregatedTransform: Read 1 blocks of partially aggregated data, total 1 rows.
+2026.08.10 12:32:01.292170 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> Aggregator: Merging partially aggregated single-level data.
+2026.08.10 12:32:01.292173 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> Aggregator: Merged partially aggregated single-level data.
+2026.08.10 12:32:01.292174 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Trace> Aggregator: Converting aggregated data to chunks
+2026.08.10 12:32:01.292185 [ 12108172 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Debug> Aggregator: Converted aggregated data to chunks. 1 rows, 8.00 B in 0.000 sec. (533333.333 rows/sec., 4.07 MiB/sec.)
+2026.08.10 12:32:01.292390 [ 12107999 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Debug> executeQuery: Read 1 rows, 16.00 B in 0.001 sec., 1219.512 rows/sec., 19.05 KiB/sec.
+2026.08.10 12:32:01.292404 [ 12107999 ] {a13bc040-f720-4df9-baf7-bdf2712ee1ac} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:32:01.298140 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:32:01.298151 [ 12107999 ] {} <Debug> TCP-Session-cc53935c-3be9-47b0-a05d-a40ec7b2080d: cc53935c-3be9-47b0-a05d-a40ec7b2080d Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.335781 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64470
+2026.08.10 12:32:01.335812 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:32:01.335820 [ 12107999 ] {} <Debug> TCP-Session-8e325ab9-5ef7-4d0a-b91b-748016c75af4: Authenticating user 'default' from 127.0.0.1:64470
+2026.08.10 12:32:01.335834 [ 12107999 ] {} <Debug> TCP-Session-8e325ab9-5ef7-4d0a-b91b-748016c75af4: 8e325ab9-5ef7-4d0a-b91b-748016c75af4 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.335838 [ 12107999 ] {} <Debug> TCP-Session-8e325ab9-5ef7-4d0a-b91b-748016c75af4: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:01.336248 [ 12107999 ] {} <Trace> TCP-Session-8e325ab9-5ef7-4d0a-b91b-748016c75af4: 8e325ab9-5ef7-4d0a-b91b-748016c75af4 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:32:01.336338 [ 12107999 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Debug> executeQuery: (from 127.0.0.1:64470) (query 1, line 1) SELECT count() FROM DailiesRoom.clips (stage: Complete)
+2026.08.10 12:32:01.336522 [ 12107999 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> Planner: Query to stage Complete
+2026.08.10 12:32:01.336630 [ 12107999 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> Planner: Query from stage WithMergeableState to stage Complete
+2026.08.10 12:32:01.336892 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> MergingAggregatedTransform: Reading blocks of partially aggregated data.
+2026.08.10 12:32:01.336913 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Debug> MergingAggregatedTransform: Read 1 blocks of partially aggregated data, total 1 rows.
+2026.08.10 12:32:01.336918 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> Aggregator: Merging partially aggregated single-level data.
+2026.08.10 12:32:01.336922 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> Aggregator: Merged partially aggregated single-level data.
+2026.08.10 12:32:01.336923 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Trace> Aggregator: Converting aggregated data to chunks
+2026.08.10 12:32:01.336935 [ 12108172 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Debug> Aggregator: Converted aggregated data to chunks. 1 rows, 8.00 B in 0.000 sec. (480076.812 rows/sec., 3.66 MiB/sec.)
+2026.08.10 12:32:01.337142 [ 12107999 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Debug> executeQuery: Read 1 rows, 16.00 B in 0.001 sec., 1199.041 rows/sec., 18.74 KiB/sec.
+2026.08.10 12:32:01.337156 [ 12107999 ] {3261cf38-6da1-4bb8-9a91-34fd1f333618} <Debug> TCPHandler: Processed in 0.001 sec.
+2026.08.10 12:32:01.343665 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:32:01.343676 [ 12107999 ] {} <Debug> TCP-Session-8e325ab9-5ef7-4d0a-b91b-748016c75af4: 8e325ab9-5ef7-4d0a-b91b-748016c75af4 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:32:09.292593 [ 12108018 ] {BgSchPool::de6cc2dd-c4f9-49db-be3d-528eb7010764} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:32:09.292609 [ 12108018 ] {BgSchPool::de6cc2dd-c4f9-49db-be3d-528eb7010764} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:32:24.304312 [ 12108009 ] {BgSchPool::571b8f6d-842a-46f5-a8d3-3ec5f75fbe52} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:32:24.304351 [ 12108009 ] {BgSchPool::571b8f6d-842a-46f5-a8d3-3ec5f75fbe52} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:32:39.314266 [ 12108016 ] {BgSchPool::46175af7-5d85-4bab-a338-de6db060f310} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:32:39.314285 [ 12108016 ] {BgSchPool::46175af7-5d85-4bab-a338-de6db060f310} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:32:54.323492 [ 12108006 ] {BgSchPool::85429c03-8840-4029-b6ce-7d87d6548cde} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:32:54.323534 [ 12108006 ] {BgSchPool::85429c03-8840-4029-b6ce-7d87d6548cde} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:33:09.335794 [ 12108010 ] {BgSchPool::327f0440-212b-4d4d-8bea-6cbddcc8b385} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:33:09.335812 [ 12108010 ] {BgSchPool::327f0440-212b-4d4d-8bea-6cbddcc8b385} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:33:09.525315 [ 12108014 ] {BgSchPool::6884504d-e0e0-44d6-92e6-8f1ee317d379} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Refreshing statistics
+2026.08.10 12:33:09.525359 [ 12108014 ] {BgSchPool::c9d9c33a-e344-4e30-bf2c-a664aedbd646} <Debug> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Refreshing statistics
+2026.08.10 12:33:09.525374 [ 12108014 ] {BgSchPool::6687de1c-48f7-4b1a-9280-3bdb5595d766} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Refreshing statistics
+2026.08.10 12:33:24.346468 [ 12108005 ] {BgSchPool::4d6b2860-7f1a-409c-9c4b-2dce8bcf162c} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:33:24.346529 [ 12108005 ] {BgSchPool::4d6b2860-7f1a-409c-9c4b-2dce8bcf162c} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:33:39.378070 [ 12108007 ] {BgSchPool::8d939160-b127-4585-8aa1-0e92c776b5e8} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:33:39.378081 [ 12108007 ] {BgSchPool::8d939160-b127-4585-8aa1-0e92c776b5e8} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:33:51.757877 [ 12108008 ] {BgSchPool::7227927a-720a-4693-915d-e6781439c5e3} <Trace> DailiesRoom.dialogue (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 308617ms, ratio: 0, points per minute: 0)
+2026.08.10 12:33:54.403925 [ 12108019 ] {BgSchPool::d6b39fa2-010e-4e56-95d9-24f94c6b9388} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:33:54.403941 [ 12108019 ] {BgSchPool::d6b39fa2-010e-4e56-95d9-24f94c6b9388} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:33:56.431053 [ 12108018 ] {BgSchPool::c5d608c0-523f-4aa4-b72a-866dae37eb9f} <Trace> DailiesRoom.clips (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 304074ms, ratio: 0, points per minute: 0)
+2026.08.10 12:33:59.886859 [ 12107999 ] {} <Trace> TCPHandlerFactory: TCP Request. Address: 127.0.0.1:64485
+2026.08.10 12:33:59.886963 [ 12107999 ] {} <Debug> TCPHandler: Connected ClickHouse client version 26.7.0, revision: 54488, user: default.
+2026.08.10 12:33:59.886991 [ 12107999 ] {} <Debug> TCP-Session-b4242dd7-9565-4b08-b9d1-bddcaa883805: Authenticating user 'default' from 127.0.0.1:64485
+2026.08.10 12:33:59.887060 [ 12107999 ] {} <Debug> TCP-Session-b4242dd7-9565-4b08-b9d1-bddcaa883805: b4242dd7-9565-4b08-b9d1-bddcaa883805 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:33:59.887066 [ 12107999 ] {} <Debug> TCP-Session-b4242dd7-9565-4b08-b9d1-bddcaa883805: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:33:59.887591 [ 12107999 ] {} <Trace> TCP-Session-b4242dd7-9565-4b08-b9d1-bddcaa883805: b4242dd7-9565-4b08-b9d1-bddcaa883805 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:33:59.887762 [ 12107999 ] {f2e86ec9-4df3-49d8-8d93-83600e6b058b} <Debug> executeQuery: (from 127.0.0.1:64485) (query 1, line 1) SELECT tcpPort(), version() (stage: Complete)
+2026.08.10 12:33:59.889286 [ 12107999 ] {f2e86ec9-4df3-49d8-8d93-83600e6b058b} <Trace> Planner: Query to stage Complete
+2026.08.10 12:33:59.889517 [ 12107999 ] {f2e86ec9-4df3-49d8-8d93-83600e6b058b} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:33:59.890555 [ 12107999 ] {f2e86ec9-4df3-49d8-8d93-83600e6b058b} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.003 sec., 350.140 rows/sec., 350.14 B/sec.
+2026.08.10 12:33:59.890578 [ 12107999 ] {f2e86ec9-4df3-49d8-8d93-83600e6b058b} <Debug> TCPHandler: Processed in 0.003 sec.
+2026.08.10 12:33:59.896290 [ 12107999 ] {} <Debug> TCPHandler: Done processing connection.
+2026.08.10 12:33:59.896307 [ 12107999 ] {} <Debug> TCP-Session-b4242dd7-9565-4b08-b9d1-bddcaa883805: b4242dd7-9565-4b08-b9d1-bddcaa883805 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:33:59.920770 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: GET, Address: 127.0.0.1:64486, User-Agent: curl/8.1.2, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:33:59.927535 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64487, User-Agent: curl/8.1.2, Length: 8, Content Type: application/x-www-form-urlencoded, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:33:59.927849 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /
+2026.08.10 12:33:59.927979 [ 12108000 ] {} <Debug> HTTP-Session-5e6d9fff-99fe-42f0-b295-d5e8cb85e134: Authenticating user 'default' from 127.0.0.1:64487
+2026.08.10 12:33:59.927996 [ 12108000 ] {} <Debug> HTTP-Session-5e6d9fff-99fe-42f0-b295-d5e8cb85e134: 5e6d9fff-99fe-42f0-b295-d5e8cb85e134 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:33:59.928001 [ 12108000 ] {} <Debug> HTTP-Session-5e6d9fff-99fe-42f0-b295-d5e8cb85e134: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:33:59.928262 [ 12108000 ] {} <Trace> ContextAccess (default): Settings: readonly = 0, allow_ddl = true, allow_introspection_functions = false
+2026.08.10 12:33:59.928619 [ 12108000 ] {} <Trace> ContextAccess (default): List of all grants: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:33:59.928631 [ 12108000 ] {} <Trace> ContextAccess (default): List of all grants including implicit: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:33:59.928656 [ 12108000 ] {} <Trace> HTTP-Session-5e6d9fff-99fe-42f0-b295-d5e8cb85e134: 5e6d9fff-99fe-42f0-b295-d5e8cb85e134 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:33:59.928696 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Debug> HTTPServerRequest: creating in_post id 5508694608
+2026.08.10 12:33:59.929276 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Debug> executeQuery: (from 127.0.0.1:64487) SELECT 1 (stage: Complete)
+2026.08.10 12:33:59.929417 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Trace> Planner: Query to stage Complete
+2026.08.10 12:33:59.929466 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:33:59.930550 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.001 sec., 777.001 rows/sec., 777.00 B/sec.
+2026.08.10 12:33:59.930597 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:33:59.930604 [ 12108000 ] {35494a96-19ca-4cc6-9edd-0ee3ba4648d8} <Debug> MemoryTracker: Query peak memory usage: 5.08 MiB.
+2026.08.10 12:33:59.930608 [ 12108000 ] {} <Debug> HTTP-Session-5e6d9fff-99fe-42f0-b295-d5e8cb85e134: 5e6d9fff-99fe-42f0-b295-d5e8cb85e134 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:04.878762 [ 12108009 ] {BgSchPool::f34bea5e-b348-49a7-b42e-04084b7ff00f} <Trace> DailiesRoom.visuals (CleanupThread): Scheduling next cleanup after 300000ms (points: 0, interval: 307045ms, ratio: 0, points per minute: 0)
+2026.08.10 12:34:06.067157 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64489, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 28, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:06.067304 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?query_id=38c94731-a852-4291-9d48-7f6b35091158
+2026.08.10 12:34:06.067319 [ 12108000 ] {} <Debug> HTTP-Session-9ff870fa-55df-41f3-bb9e-20d4c10850ec: Authenticating user 'default' from 127.0.0.1:64489
+2026.08.10 12:34:06.067344 [ 12108000 ] {} <Debug> HTTP-Session-9ff870fa-55df-41f3-bb9e-20d4c10850ec: 9ff870fa-55df-41f3-bb9e-20d4c10850ec Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.067348 [ 12108000 ] {} <Debug> HTTP-Session-9ff870fa-55df-41f3-bb9e-20d4c10850ec: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.067377 [ 12108000 ] {} <Trace> HTTP-Session-9ff870fa-55df-41f3-bb9e-20d4c10850ec: 9ff870fa-55df-41f3-bb9e-20d4c10850ec Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:06.067570 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Debug> HTTPServerRequest: creating in_post id 5214289920
+2026.08.10 12:34:06.067636 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Debug> executeQuery: (from 127.0.0.1:64489) SELECT version(), timezone() (stage: Complete)
+2026.08.10 12:34:06.068278 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:06.068333 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:06.068743 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.001 sec., 870.322 rows/sec., 870.32 B/sec.
+2026.08.10 12:34:06.068777 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:06.068785 [ 12108000 ] {38c94731-a852-4291-9d48-7f6b35091158} <Debug> MemoryTracker: Query peak memory usage: 5.09 MiB.
+2026.08.10 12:34:06.068788 [ 12108000 ] {} <Debug> HTTP-Session-9ff870fa-55df-41f3-bb9e-20d4c10850ec: 9ff870fa-55df-41f3-bb9e-20d4c10850ec Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.081522 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64489, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 88, Content Type: text/plain; charset=utf-8, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:06.081552 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?wait_end_of_query=1&database=DailiesRoom&query_id=2e212c59-2f56-4a4e-88aa-537fd2e1bcab
+2026.08.10 12:34:06.081564 [ 12108000 ] {} <Debug> HTTP-Session-518292d8-f059-474a-a5c1-023139c95542: Authenticating user 'default' from 127.0.0.1:64489
+2026.08.10 12:34:06.081575 [ 12108000 ] {} <Debug> HTTP-Session-518292d8-f059-474a-a5c1-023139c95542: 518292d8-f059-474a-a5c1-023139c95542 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.081579 [ 12108000 ] {} <Debug> HTTP-Session-518292d8-f059-474a-a5c1-023139c95542: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.081599 [ 12108000 ] {} <Trace> HTTP-Session-518292d8-f059-474a-a5c1-023139c95542: 518292d8-f059-474a-a5c1-023139c95542 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:06.081773 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmpfd728cb8-bc54-4eef-9865-0439ba3309e3'
+2026.08.10 12:34:06.082086 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Debug> HTTPServerRequest: creating in_post id 5214290592
+2026.08.10 12:34:06.082170 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Debug> executeQuery: (from 127.0.0.1:64489) SELECT name, value, readonly as readonly FROM system.settings LIMIT 10000 FORMAT Native (stage: Complete)
+2026.08.10 12:34:06.082381 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:06.082450 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> ContextAccess (default): Settings: readonly = 0, allow_ddl = true, allow_introspection_functions = false
+2026.08.10 12:34:06.082469 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> ContextAccess (default): List of all grants: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:34:06.082479 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> ContextAccess (default): List of all grants including implicit: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:34:06.082523 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:06.087852 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmpfd728cb8-bc54-4eef-9865-0439ba3309e3'
+2026.08.10 12:34:06.088000 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Debug> executeQuery: Read 1715 rows, 645.72 KiB in 0.006 sec., 290973.872 rows/sec., 106.99 MiB/sec.
+2026.08.10 12:34:06.088015 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:06.088021 [ 12108000 ] {2e212c59-2f56-4a4e-88aa-537fd2e1bcab} <Debug> MemoryTracker: Query peak memory usage: 3.10 MiB.
+2026.08.10 12:34:06.088024 [ 12108000 ] {} <Debug> HTTP-Session-518292d8-f059-474a-a5c1-023139c95542: 518292d8-f059-474a-a5c1-023139c95542 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.090317 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64489, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 32, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:06.090333 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?wait_end_of_query=1&client_protocol_version=54405&database=DailiesRoom&query_id=87b3fe3e-0a2d-4879-89ad-814d4dedf7b8
+2026.08.10 12:34:06.090339 [ 12108000 ] {} <Debug> HTTP-Session-71ced866-4ccf-43a1-a1ac-1841045ab3b3: Authenticating user 'default' from 127.0.0.1:64489
+2026.08.10 12:34:06.090346 [ 12108000 ] {} <Debug> HTTP-Session-71ced866-4ccf-43a1-a1ac-1841045ab3b3: 71ced866-4ccf-43a1-a1ac-1841045ab3b3 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.090348 [ 12108000 ] {} <Debug> HTTP-Session-71ced866-4ccf-43a1-a1ac-1841045ab3b3: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.090360 [ 12108000 ] {} <Trace> HTTP-Session-71ced866-4ccf-43a1-a1ac-1841045ab3b3: 71ced866-4ccf-43a1-a1ac-1841045ab3b3 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:06.090376 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmp2eb913af-c4e1-4383-82f5-f704e609b023'
+2026.08.10 12:34:06.090439 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Debug> HTTPServerRequest: creating in_post id 5214290032
+2026.08.10 12:34:06.090471 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Debug> executeQuery: (from 127.0.0.1:64489) SELECT 1 AS check FORMAT Native (stage: Complete)
+2026.08.10 12:34:06.090552 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:06.090584 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:06.090793 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmp2eb913af-c4e1-4383-82f5-f704e609b023'
+2026.08.10 12:34:06.090897 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.000 sec., 2247.191 rows/sec., 2.19 KiB/sec.
+2026.08.10 12:34:06.090906 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:06.090910 [ 12108000 ] {87b3fe3e-0a2d-4879-89ad-814d4dedf7b8} <Debug> MemoryTracker: Query peak memory usage: 3.08 MiB.
+2026.08.10 12:34:06.090913 [ 12108000 ] {} <Debug> HTTP-Session-71ced866-4ccf-43a1-a1ac-1841045ab3b3: 71ced866-4ccf-43a1-a1ac-1841045ab3b3 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.091465 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64489, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 40, Content Type: text/plain; charset=utf-8, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:06.091487 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=89004735-6e9d-481b-a1fd-9d1873b84b77&cancel_http_readonly_queries_on_client_close=1&wait_end_of_query=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&client_protocol_version=54405&query_id=9ccbe5f4-b09a-4412-b783-d7cb93c90754
+2026.08.10 12:34:06.091494 [ 12108000 ] {} <Debug> HTTP-Session-02d76032-15b0-4d97-a88f-79056b36c4ef: Authenticating user 'default' from 127.0.0.1:64489
+2026.08.10 12:34:06.091498 [ 12108000 ] {} <Debug> HTTP-Session-02d76032-15b0-4d97-a88f-79056b36c4ef: 02d76032-15b0-4d97-a88f-79056b36c4ef Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.091501 [ 12108000 ] {} <Debug> HTTP-Session-02d76032-15b0-4d97-a88f-79056b36c4ef: Creating named session context with name: 89004735-6e9d-481b-a1fd-9d1873b84b77, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.091509 [ 12108000 ] {} <Trace> NamedSessionsStorage: Create new session with session_id: 89004735-6e9d-481b-a1fd-9d1873b84b77, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:06.091525 [ 12108000 ] {} <Trace> HTTP-Session-02d76032-15b0-4d97-a88f-79056b36c4ef: 02d76032-15b0-4d97-a88f-79056b36c4ef Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:06.092293 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmpc2d91237-a012-419d-b64e-4277581f8c59'
+2026.08.10 12:34:06.092361 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> HTTPServerRequest: creating in_post id 5214291040
+2026.08.10 12:34:06.092406 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> executeQuery: (from 127.0.0.1:64489) SELECT count() FROM clips FORMAT Native (stage: Complete)
+2026.08.10 12:34:06.092559 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:06.092619 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> Planner: Query from stage WithMergeableState to stage Complete
+2026.08.10 12:34:06.092732 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> MergingAggregatedTransform: Reading blocks of partially aggregated data.
+2026.08.10 12:34:06.092753 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> MergingAggregatedTransform: Read 1 blocks of partially aggregated data, total 1 rows.
+2026.08.10 12:34:06.092762 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> Aggregator: Merging partially aggregated single-level data.
+2026.08.10 12:34:06.092773 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> Aggregator: Merged partially aggregated single-level data.
+2026.08.10 12:34:06.092774 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> Aggregator: Converting aggregated data to chunks
+2026.08.10 12:34:06.092782 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> Aggregator: Converted aggregated data to chunks. 1 rows, 8.00 B in 0.000 sec. (386996.904 rows/sec., 2.95 MiB/sec.)
+2026.08.10 12:34:06.092885 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmpc2d91237-a012-419d-b64e-4277581f8c59'
+2026.08.10 12:34:06.093585 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> executeQuery: Read 1 rows, 16.00 B in 0.001 sec., 825.083 rows/sec., 12.89 KiB/sec.
+2026.08.10 12:34:06.093599 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:06.093605 [ 12108000 ] {9ccbe5f4-b09a-4412-b783-d7cb93c90754} <Debug> MemoryTracker: Query peak memory usage: 4.11 MiB.
+2026.08.10 12:34:06.093608 [ 12108000 ] {} <Debug> HTTP-Session-02d76032-15b0-4d97-a88f-79056b36c4ef: 02d76032-15b0-4d97-a88f-79056b36c4ef Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:09.414868 [ 12108016 ] {BgSchPool::b5be3dec-16c9-4695-b22b-672c87c349fa} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:34:09.414895 [ 12108016 ] {BgSchPool::b5be3dec-16c9-4695-b22b-672c87c349fa} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:34:14.988210 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 28, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:14.988240 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?query_id=f0ba2891-991c-4dc2-aeec-9253c7b480df
+2026.08.10 12:34:14.988251 [ 12108000 ] {} <Debug> HTTP-Session-9323afd5-9b7f-4115-ac0c-745bae52c199: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:14.988264 [ 12108000 ] {} <Debug> HTTP-Session-9323afd5-9b7f-4115-ac0c-745bae52c199: 9323afd5-9b7f-4115-ac0c-745bae52c199 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:14.988267 [ 12108000 ] {} <Debug> HTTP-Session-9323afd5-9b7f-4115-ac0c-745bae52c199: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:14.988294 [ 12108000 ] {} <Trace> HTTP-Session-9323afd5-9b7f-4115-ac0c-745bae52c199: 9323afd5-9b7f-4115-ac0c-745bae52c199 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:14.988319 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Debug> HTTPServerRequest: creating in_post id 5214290816
+2026.08.10 12:34:14.988373 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Debug> executeQuery: (from 127.0.0.1:64491) SELECT version(), timezone() (stage: Complete)
+2026.08.10 12:34:14.988530 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:14.988582 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:14.988986 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.001 sec., 1545.595 rows/sec., 1.51 KiB/sec.
+2026.08.10 12:34:14.989031 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:14.989039 [ 12108000 ] {f0ba2891-991c-4dc2-aeec-9253c7b480df} <Debug> MemoryTracker: Query peak memory usage: 5.09 MiB.
+2026.08.10 12:34:14.989042 [ 12108000 ] {} <Debug> HTTP-Session-9323afd5-9b7f-4115-ac0c-745bae52c199: 9323afd5-9b7f-4115-ac0c-745bae52c199 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.001672 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 88, Content Type: text/plain; charset=utf-8, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:15.001699 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?wait_end_of_query=1&database=DailiesRoom&query_id=bd3a637a-70c9-417f-b566-8350d37c1d53
+2026.08.10 12:34:15.001709 [ 12108000 ] {} <Debug> HTTP-Session-35b95ca6-8f5b-4fc1-9764-d51f7ca084a2: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:15.001722 [ 12108000 ] {} <Debug> HTTP-Session-35b95ca6-8f5b-4fc1-9764-d51f7ca084a2: 35b95ca6-8f5b-4fc1-9764-d51f7ca084a2 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.001726 [ 12108000 ] {} <Debug> HTTP-Session-35b95ca6-8f5b-4fc1-9764-d51f7ca084a2: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.001748 [ 12108000 ] {} <Trace> HTTP-Session-35b95ca6-8f5b-4fc1-9764-d51f7ca084a2: 35b95ca6-8f5b-4fc1-9764-d51f7ca084a2 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:15.001771 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmp35018211-5c52-4f9a-89df-72496d4e55bd'
+2026.08.10 12:34:15.001879 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Debug> HTTPServerRequest: creating in_post id 5214291712
+2026.08.10 12:34:15.001944 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Debug> executeQuery: (from 127.0.0.1:64491) SELECT name, value, readonly as readonly FROM system.settings LIMIT 10000 FORMAT Native (stage: Complete)
+2026.08.10 12:34:15.002103 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:15.002169 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:15.003716 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmp35018211-5c52-4f9a-89df-72496d4e55bd'
+2026.08.10 12:34:15.003867 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Debug> executeQuery: Read 1715 rows, 645.72 KiB in 0.002 sec., 871443.089 rows/sec., 320.42 MiB/sec.
+2026.08.10 12:34:15.003883 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:15.003889 [ 12108000 ] {bd3a637a-70c9-417f-b566-8350d37c1d53} <Debug> MemoryTracker: Query peak memory usage: 3.09 MiB.
+2026.08.10 12:34:15.003892 [ 12108000 ] {} <Debug> HTTP-Session-35b95ca6-8f5b-4fc1-9764-d51f7ca084a2: 35b95ca6-8f5b-4fc1-9764-d51f7ca084a2 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.006000 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 32, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:15.006018 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?wait_end_of_query=1&client_protocol_version=54405&database=DailiesRoom&query_id=5e75feb8-339d-4e50-9722-3343ccedd2b0
+2026.08.10 12:34:15.006026 [ 12108000 ] {} <Debug> HTTP-Session-3ac8fa7a-9968-4494-81bd-0311b0001b73: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:15.006034 [ 12108000 ] {} <Debug> HTTP-Session-3ac8fa7a-9968-4494-81bd-0311b0001b73: 3ac8fa7a-9968-4494-81bd-0311b0001b73 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.006040 [ 12108000 ] {} <Debug> HTTP-Session-3ac8fa7a-9968-4494-81bd-0311b0001b73: Creating session context with user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:15.006054 [ 12108000 ] {} <Trace> HTTP-Session-3ac8fa7a-9968-4494-81bd-0311b0001b73: 3ac8fa7a-9968-4494-81bd-0311b0001b73 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:15.006073 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmpa6d271b0-b188-4063-8093-fabf25246e1e'
+2026.08.10 12:34:15.006140 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Debug> HTTPServerRequest: creating in_post id 5214290816
+2026.08.10 12:34:15.006167 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Debug> executeQuery: (from 127.0.0.1:64491) SELECT 1 AS check FORMAT Native (stage: Complete)
+2026.08.10 12:34:15.006272 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Trace> Planner: Query to stage Complete
+2026.08.10 12:34:15.006305 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Trace> Planner: Query from stage FetchColumns to stage Complete
+2026.08.10 12:34:15.006525 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmpa6d271b0-b188-4063-8093-fabf25246e1e'
+2026.08.10 12:34:15.006638 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Debug> executeQuery: Read 1 rows, 1.00 B in 0.000 sec., 2057.613 rows/sec., 2.01 KiB/sec.
+2026.08.10 12:34:15.006649 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:15.006653 [ 12108000 ] {5e75feb8-339d-4e50-9722-3343ccedd2b0} <Debug> MemoryTracker: Query peak memory usage: 3.08 MiB.
+2026.08.10 12:34:15.006656 [ 12108000 ] {} <Debug> HTTP-Session-3ac8fa7a-9968-4494-81bd-0311b0001b73: 3ac8fa7a-9968-4494-81bd-0311b0001b73 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.062267 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 42, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:18.062367 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&query_id=972a8ea0-e48c-4652-b34b-fff81e2a399e
+2026.08.10 12:34:18.062395 [ 12108000 ] {} <Debug> HTTP-Session-9e230014-6669-4416-ae17-979ffc5b6eb2: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.062510 [ 12108000 ] {} <Debug> HTTP-Session-9e230014-6669-4416-ae17-979ffc5b6eb2: 9e230014-6669-4416-ae17-979ffc5b6eb2 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.062528 [ 12108000 ] {} <Debug> HTTP-Session-9e230014-6669-4416-ae17-979ffc5b6eb2: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.062545 [ 12108000 ] {} <Trace> NamedSessionsStorage: Create new session with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.062591 [ 12108000 ] {} <Trace> HTTP-Session-9e230014-6669-4416-ae17-979ffc5b6eb2: 9e230014-6669-4416-ae17-979ffc5b6eb2 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.062660 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Debug> HTTPServerRequest: creating in_post id 5214290928
+2026.08.10 12:34:18.063788 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Debug> executeQuery: (from 127.0.0.1:64491) TRUNCATE TABLE IF EXISTS DailiesRoom.clips (stage: Complete)
+2026.08.10 12:34:18.064876 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Information> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Remove 0 parts by covering them with empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000).
+2026.08.10 12:34:18.065193 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Information> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Truncated table with 0 parts by replacing them with new empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000)
+2026.08.10 12:34:18.065744 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.065765 [ 12108000 ] {972a8ea0-e48c-4652-b34b-fff81e2a399e} <Debug> MemoryTracker: Query peak memory usage: 1.02 MiB.
+2026.08.10 12:34:18.065773 [ 12108000 ] {} <Debug> HTTP-Session-9e230014-6669-4416-ae17-979ffc5b6eb2: 9e230014-6669-4416-ae17-979ffc5b6eb2 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.066932 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 45, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:18.066992 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&query_id=fc0e53ae-6b5e-4a91-8094-00fc7449ba82
+2026.08.10 12:34:18.067015 [ 12108000 ] {} <Debug> HTTP-Session-a204b136-2dfb-4d37-b2c3-fd0dddf5054a: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.067036 [ 12108000 ] {} <Debug> HTTP-Session-a204b136-2dfb-4d37-b2c3-fd0dddf5054a: a204b136-2dfb-4d37-b2c3-fd0dddf5054a Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.067048 [ 12108000 ] {} <Debug> HTTP-Session-a204b136-2dfb-4d37-b2c3-fd0dddf5054a: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.067053 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.067074 [ 12108000 ] {} <Trace> HTTP-Session-a204b136-2dfb-4d37-b2c3-fd0dddf5054a: a204b136-2dfb-4d37-b2c3-fd0dddf5054a Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.067131 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Debug> HTTPServerRequest: creating in_post id 5214292048
+2026.08.10 12:34:18.067209 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Debug> executeQuery: (from 127.0.0.1:64491) TRUNCATE TABLE IF EXISTS DailiesRoom.dialogue (stage: Complete)
+2026.08.10 12:34:18.067276 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Information> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Remove 0 parts by covering them with empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000).
+2026.08.10 12:34:18.067299 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Information> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Truncated table with 0 parts by replacing them with new empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000)
+2026.08.10 12:34:18.067452 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.067469 [ 12108000 ] {fc0e53ae-6b5e-4a91-8094-00fc7449ba82} <Debug> MemoryTracker: Query peak memory usage: 1.02 MiB.
+2026.08.10 12:34:18.067477 [ 12108000 ] {} <Debug> HTTP-Session-a204b136-2dfb-4d37-b2c3-fd0dddf5054a: a204b136-2dfb-4d37-b2c3-fd0dddf5054a Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.068400 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 44, Content Type: , Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:18.068453 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&query_id=2b0f6ebb-5a13-4885-a01d-a7372bf0206d
+2026.08.10 12:34:18.068475 [ 12108000 ] {} <Debug> HTTP-Session-6829772c-c911-4cf5-991f-663445fc9a8d: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.068494 [ 12108000 ] {} <Debug> HTTP-Session-6829772c-c911-4cf5-991f-663445fc9a8d: 6829772c-c911-4cf5-991f-663445fc9a8d Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.068506 [ 12108000 ] {} <Debug> HTTP-Session-6829772c-c911-4cf5-991f-663445fc9a8d: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.068511 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.068530 [ 12108000 ] {} <Trace> HTTP-Session-6829772c-c911-4cf5-991f-663445fc9a8d: 6829772c-c911-4cf5-991f-663445fc9a8d Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.068581 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Debug> HTTPServerRequest: creating in_post id 5214290928
+2026.08.10 12:34:18.068652 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Debug> executeQuery: (from 127.0.0.1:64491) TRUNCATE TABLE IF EXISTS DailiesRoom.visuals (stage: Complete)
+2026.08.10 12:34:18.068709 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Information> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Remove 0 parts by covering them with empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000).
+2026.08.10 12:34:18.068732 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Information> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Truncated table with 0 parts by replacing them with new empty 0 parts. With txn (1, 1, 00000000-0000-0000-0000-000000000000)
+2026.08.10 12:34:18.068868 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.068885 [ 12108000 ] {2b0f6ebb-5a13-4885-a01d-a7372bf0206d} <Debug> MemoryTracker: Query peak memory usage: 1.02 MiB.
+2026.08.10 12:34:18.068892 [ 12108000 ] {} <Debug> HTTP-Session-6829772c-c911-4cf5-991f-663445fc9a8d: 6829772c-c911-4cf5-991f-663445fc9a8d Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.069895 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 37, Content Type: text/plain; charset=utf-8, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:18.069941 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&wait_end_of_query=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&client_protocol_version=54405&query_id=74f68f67-5e68-4412-aff0-315862c15d75
+2026.08.10 12:34:18.069958 [ 12108000 ] {} <Debug> HTTP-Session-609955f8-b05f-4937-a24b-30c931101354: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.069970 [ 12108000 ] {} <Debug> HTTP-Session-609955f8-b05f-4937-a24b-30c931101354: 609955f8-b05f-4937-a24b-30c931101354 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.069979 [ 12108000 ] {} <Debug> HTTP-Session-609955f8-b05f-4937-a24b-30c931101354: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.069984 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.070000 [ 12108000 ] {} <Trace> HTTP-Session-609955f8-b05f-4937-a24b-30c931101354: 609955f8-b05f-4937-a24b-30c931101354 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.070073 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmpc31a333a-0ca6-4a30-9d06-9d95dcc56a61'
+2026.08.10 12:34:18.070299 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Debug> HTTPServerRequest: creating in_post id 5214292048
+2026.08.10 12:34:18.070350 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Debug> executeQuery: (from 127.0.0.1:64491) DESCRIBE TABLE `clips` FORMAT Native (stage: Complete)
+2026.08.10 12:34:18.071368 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmpc31a333a-0ca6-4a30-9d06-9d95dcc56a61'
+2026.08.10 12:34:18.071804 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Debug> executeQuery: Read 16 rows, 1.15 KiB in 0.001 sec., 10884.354 rows/sec., 783.24 KiB/sec.
+2026.08.10 12:34:18.071831 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.071843 [ 12108000 ] {74f68f67-5e68-4412-aff0-315862c15d75} <Debug> MemoryTracker: Query peak memory usage: 4.01 MiB.
+2026.08.10 12:34:18.071849 [ 12108000 ] {} <Debug> HTTP-Session-609955f8-b05f-4937-a24b-30c931101354: 609955f8-b05f-4937-a24b-30c931101354 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.074281 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Content Type: application/octet-stream, Transfer Encoding: chunked, X-Forwarded-For: (none)
+2026.08.10 12:34:18.074319 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&query_id=df117d31-0c6f-42cc-be23-cee4b26bb5b8
+2026.08.10 12:34:18.074333 [ 12108000 ] {} <Debug> HTTP-Session-acea3dd4-3bfd-499a-afd3-6c2338c93b49: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.074344 [ 12108000 ] {} <Debug> HTTP-Session-acea3dd4-3bfd-499a-afd3-6c2338c93b49: acea3dd4-3bfd-499a-afd3-6c2338c93b49 Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.074350 [ 12108000 ] {} <Debug> HTTP-Session-acea3dd4-3bfd-499a-afd3-6c2338c93b49: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.074354 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.074370 [ 12108000 ] {} <Trace> HTTP-Session-acea3dd4-3bfd-499a-afd3-6c2338c93b49: acea3dd4-3bfd-499a-afd3-6c2338c93b49 Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.074666 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Debug> HTTPServerRequest: creating in_post id 5509174592
+2026.08.10 12:34:18.076391 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Debug> executeQuery: (from 127.0.0.1:64491) INSERT INTO `clips` (`clip_id`, `source`, `scene`, `slate`, `take`, `location`, `day_night`, `int_ext`, `duration_s`, `summary`, `dominant_mood`, `characters_present`, `characters_expected`, `technical_notes`, `gcs_uri`) FORMAT Native  (stage: Complete)
+2026.08.10 12:34:18.077279 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Trace> AsynchronousInsertQueue: Have 1 pending inserts in shard 0 with total 1290 bytes of data
+2026.08.10 12:34:18.131187 [ 12127797 ] {} <Trace> ContextAccess (default): Settings: readonly = 0, allow_ddl = true, allow_introspection_functions = false
+2026.08.10 12:34:18.131260 [ 12127797 ] {} <Trace> ContextAccess (default): List of all grants: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:34:18.131275 [ 12127797 ] {} <Trace> ContextAccess (default): List of all grants including implicit: GRANT CHECK, SHOW, SELECT, INSERT, ALTER, CREATE, DROP, UNDROP TABLE, TRUNCATE, OPTIMIZE, BACKUP, KILL QUERY, KILL TRANSACTION, MOVE PARTITION BETWEEN SHARDS, ROLE ADMIN, CREATE ROW POLICY, ALTER ROW POLICY, DROP ROW POLICY, CREATE MASKING POLICY, ALTER MASKING POLICY, DROP MASKING POLICY, CREATE QUOTA, ALTER QUOTA, DROP QUOTA, CREATE SETTINGS PROFILE, ALTER SETTINGS PROFILE, DROP SETTINGS PROFILE, ALLOW SQL SECURITY NONE, SHOW ACCESS, SYSTEM, dictGet, displaySecretsInShowAndSelect, INTROSPECTION, CLUSTER, FILE, URL, REMOTE, MONGO, REDIS, MYSQL, POSTGRES, SQLITE, ODBC, JDBC, HDFS, S3, HIVE, AZURE, KAFKA, NATS, RABBITMQ, YTSAURUS, ARROW FLIGHT, SOURCES ON *.* WITH GRANT OPTION, GRANT READ, WRITE ON * WITH GRANT OPTION, GRANT TABLE ENGINE ON * WITH GRANT OPTION, GRANT SET DEFINER ON * WITH GRANT OPTION, GRANT CREATE USER, ALTER USER, DROP USER, CREATE ROLE, ALTER ROLE, DROP ROLE, IMPERSONATE ON * WITH GRANT OPTION, GRANT ALTER NAMED COLLECTION, CREATE NAMED COLLECTION, DROP NAMED COLLECTION, SHOW NAMED COLLECTIONS, NAMED COLLECTION ON * WITH GRANT OPTION
+2026.08.10 12:34:18.131353 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Trace> AsynchronousInsertQueue: Processing batch insert of 1 async inserts with 1290 bytes of data
+2026.08.10 12:34:18.132352 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> InsertDependenciesBuilder: deduplicate_blocks : true
+2026.08.10 12:34:18.135079 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Create MergeTreeSink, deduplicate=false
+2026.08.10 12:34:18.136558 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> AsynchronousInsertQueue: Processed 3 rows with parsing them for 1 entries
+2026.08.10 12:34:18.138413 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Trying to reserve 1.00 MiB using storage policy from min volume index 0
+2026.08.10 12:34:18.138620 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Trace> DiskLocal: Reserved 1.00 MiB on local disk `default`, having unreserved 24.32 GiB.
+2026.08.10 12:34:18.140596 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> FakeDiskTransaction: Creating FakeDiskTransaction for disk default
+2026.08.10 12:34:18.144451 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Trace> MergedBlockOutputStream: filled checksums all_1_1_0 (state Temporary)
+2026.08.10 12:34:18.145741 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Wrote block with 3 rows and deduplication blocks: , deduplication info: instance_id: 1, async, enabled, level SOURCE, rows/tokens 3/1, in block: rows/cols 3/15, tokens: 1:[-/source-id-empty/source-number-0::3], visited views: 1:[<empty>], retried view id: <empty>, original block id: <empty>
+2026.08.10 12:34:18.146422 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Allocated block number 1
+2026.08.10 12:34:18.146432 [ 12110825 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Renaming temporary part tmp_insert_all_1_1_0 to all_1_1_0 with tid (1, 1, 00000000-0000-0000-0000-000000000000).
+2026.08.10 12:34:18.147462 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> AsynchronousInsertQueue: Flushed 3 rows, 1299 bytes
+2026.08.10 12:34:18.147472 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> AsynchronousInsertQueue: Asynchronous insert query logQueryFinish query_kind 'AsyncInsertFlush', 'query_id 462ff183-8c3d-4f68-90bc-d81dfe9ea12e'
+2026.08.10 12:34:18.147581 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> executeQuery: Read 3 rows, 1.27 KiB in 0.016 sec., 184.843 rows/sec., 78.16 KiB/sec.
+2026.08.10 12:34:18.147602 [ 12127797 ] {462ff183-8c3d-4f68-90bc-d81dfe9ea12e} <Debug> MemoryTracker: Query peak memory usage: 3.40 MiB.
+2026.08.10 12:34:18.147610 [ 12108006 ] {BgSchPool::faac515f-a259-4832-baae-a7228c4a902b} <Trace> DailiesRoom.clips (6d8bc21c-b507-4bf9-8f1e-03bab8f5534b): Didn't start merge: There is no need to merge parts according to merge selector algorithm (skipped 4 similar messages)
+2026.08.10 12:34:18.147771 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Debug> executeQuery: Read 3 rows, 1.26 KiB in 0.072 sec., 41.954 rows/sec., 17.62 KiB/sec.
+2026.08.10 12:34:18.147794 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.147800 [ 12108000 ] {df117d31-0c6f-42cc-be23-cee4b26bb5b8} <Debug> MemoryTracker: Query peak memory usage: 2.00 MiB.
+2026.08.10 12:34:18.147805 [ 12108000 ] {} <Debug> HTTP-Session-acea3dd4-3bfd-499a-afd3-6c2338c93b49: acea3dd4-3bfd-499a-afd3-6c2338c93b49 Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.148886 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Length: 39, Content Type: text/plain; charset=utf-8, Transfer Encoding: identity, X-Forwarded-For: (none)
+2026.08.10 12:34:18.148928 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&wait_end_of_query=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&client_protocol_version=54405&query_id=c7bcf3a9-99fa-4840-87c9-a8f7d7501d95
+2026.08.10 12:34:18.148944 [ 12108000 ] {} <Debug> HTTP-Session-f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.148962 [ 12108000 ] {} <Debug> HTTP-Session-f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef: f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.148971 [ 12108000 ] {} <Debug> HTTP-Session-f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.148974 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.148991 [ 12108000 ] {} <Trace> HTTP-Session-f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef: f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.149046 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Trace> TemporaryFileOnLocalDisk: Creating temporary file 'tmp22e0ba77-c0ab-4c0d-a161-aea56a54a840'
+2026.08.10 12:34:18.149135 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Debug> HTTPServerRequest: creating in_post id 5508694384
+2026.08.10 12:34:18.149180 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Debug> executeQuery: (from 127.0.0.1:64491) DESCRIBE TABLE `visuals` FORMAT Native (stage: Complete)
+2026.08.10 12:34:18.149495 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Trace> TemporaryFileOnLocalDisk: Removing temporary file 'tmp22e0ba77-c0ab-4c0d-a161-aea56a54a840'
+2026.08.10 12:34:18.149777 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Debug> executeQuery: Read 12 rows, 884.00 B in 0.001 sec., 19386.107 rows/sec., 1.36 MiB/sec.
+2026.08.10 12:34:18.149796 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.149804 [ 12108000 ] {c7bcf3a9-99fa-4840-87c9-a8f7d7501d95} <Debug> MemoryTracker: Query peak memory usage: 4.01 MiB.
+2026.08.10 12:34:18.149809 [ 12108000 ] {} <Debug> HTTP-Session-f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef: f6389fe9-c4aa-4a4e-89bd-f1e0eedcd1ef Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.150611 [ 12108000 ] {} <Trace> HTTPHandler-factory: HTTP Request for HTTPHandler-factory. Method: POST, Address: 127.0.0.1:64491, User-Agent: clickhouse-connect/1.6.0 (lv:py/3.12.3; mode:sync; os:darwin; os_user:corymouton), Content Type: application/octet-stream, Transfer Encoding: chunked, X-Forwarded-For: (none)
+2026.08.10 12:34:18.150644 [ 12108000 ] {} <Trace> DynamicQueryHandler: Request URI: /?date_time_input_format=best_effort&cast_string_to_dynamic_use_inference=1&session_id=6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6&cancel_http_readonly_queries_on_client_close=1&send_progress_in_http_headers=1&http_headers_progress_interval_ms=120000&database=DailiesRoom&query_id=40cb69e6-7ec8-4644-a5ca-6786f18080fd
+2026.08.10 12:34:18.150665 [ 12108000 ] {} <Debug> HTTP-Session-fff55301-9fc2-4cbb-92b7-da25abe89f7f: Authenticating user 'default' from 127.0.0.1:64491
+2026.08.10 12:34:18.150686 [ 12108000 ] {} <Debug> HTTP-Session-fff55301-9fc2-4cbb-92b7-da25abe89f7f: fff55301-9fc2-4cbb-92b7-da25abe89f7f Authenticated with global context as user 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.150691 [ 12108000 ] {} <Debug> HTTP-Session-fff55301-9fc2-4cbb-92b7-da25abe89f7f: Creating named session context with name: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.150694 [ 12108000 ] {} <Trace> NamedSessionsStorage: Reuse session from storage with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:18.150709 [ 12108000 ] {} <Trace> HTTP-Session-fff55301-9fc2-4cbb-92b7-da25abe89f7f: fff55301-9fc2-4cbb-92b7-da25abe89f7f Creating query context from session context, user_id: 94309d50-4f52-5250-31bd-74fecac179db, parent context user: default
+2026.08.10 12:34:18.150739 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Debug> HTTPServerRequest: creating in_post id 5509214592
+2026.08.10 12:34:18.151315 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Debug> executeQuery: (from 127.0.0.1:64491) INSERT INTO `visuals` (`clip_id`, `segment_idx`, `scene`, `take`, `start_s`, `end_s`, `description`, `shot_type`, `camera_movement`, `characters_visible`, `notable_elements`, `embedding`) FORMAT Native  (stage: Complete)
+2026.08.10 12:34:18.151494 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Trace> AsynchronousInsertQueue: Have 1 pending inserts in shard 11 with total 38810 bytes of data
+2026.08.10 12:34:18.202159 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Trace> AsynchronousInsertQueue: Processing batch insert of 1 async inserts with 38810 bytes of data
+2026.08.10 12:34:18.202364 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> InsertDependenciesBuilder: deduplicate_blocks : true
+2026.08.10 12:34:18.202638 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Create MergeTreeSink, deduplicate=false
+2026.08.10 12:34:18.203830 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> AsynchronousInsertQueue: Processed 3 rows with parsing them for 1 entries
+2026.08.10 12:34:18.204622 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Trying to reserve 1.00 MiB using storage policy from min volume index 0
+2026.08.10 12:34:18.204671 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Trace> DiskLocal: Reserved 1.00 MiB on local disk `default`, having unreserved 24.32 GiB.
+2026.08.10 12:34:18.204748 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> FakeDiskTransaction: Creating FakeDiskTransaction for disk default
+2026.08.10 12:34:18.205635 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Trace> MergedBlockOutputStream: filled checksums all_1_1_0 (state Temporary)
+2026.08.10 12:34:18.206230 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Wrote block with 3 rows and deduplication blocks: , deduplication info: instance_id: 3, async, enabled, level SOURCE, rows/tokens 3/1, in block: rows/cols 3/12, tokens: 1:[-/source-id-empty/source-number-0::3], visited views: 1:[<empty>], retried view id: <empty>, original block id: <empty>
+2026.08.10 12:34:18.206388 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Allocated block number 1
+2026.08.10 12:34:18.206397 [ 12108172 ] {62097256-c281-4e53-b772-4f55d69b5459} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Renaming temporary part tmp_insert_all_1_1_0 to all_1_1_0 with tid (1, 1, 00000000-0000-0000-0000-000000000000).
+2026.08.10 12:34:18.206677 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> AsynchronousInsertQueue: Flushed 3 rows, 38856 bytes
+2026.08.10 12:34:18.206677 [ 12108013 ] {BgSchPool::6f7ce947-0e19-4f19-8d5c-6378647f90ad} <Trace> DailiesRoom.visuals (204aef75-a7ca-4a3e-860d-8c660654c963): Didn't start merge: There is no need to merge parts according to merge selector algorithm (skipped 4 similar messages)
+2026.08.10 12:34:18.206683 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> AsynchronousInsertQueue: Asynchronous insert query logQueryFinish query_kind 'AsyncInsertFlush', 'query_id 62097256-c281-4e53-b772-4f55d69b5459'
+2026.08.10 12:34:18.206761 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> executeQuery: Read 3 rows, 37.95 KiB in 0.005 sec., 650.195 rows/sec., 8.03 MiB/sec.
+2026.08.10 12:34:18.206780 [ 12110825 ] {62097256-c281-4e53-b772-4f55d69b5459} <Debug> MemoryTracker: Query peak memory usage: 3.42 MiB.
+2026.08.10 12:34:18.206943 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Debug> executeQuery: Read 3 rows, 37.90 KiB in 0.056 sec., 53.650 rows/sec., 677.79 KiB/sec.
+2026.08.10 12:34:18.206968 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Debug> DynamicQueryHandler: Done processing query
+2026.08.10 12:34:18.206979 [ 12108000 ] {40cb69e6-7ec8-4644-a5ca-6786f18080fd} <Debug> MemoryTracker: Query peak memory usage: 2.00 MiB.
+2026.08.10 12:34:18.206985 [ 12108000 ] {} <Debug> HTTP-Session-fff55301-9fc2-4cbb-92b7-da25abe89f7f: fff55301-9fc2-4cbb-92b7-da25abe89f7f Logout, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:34:24.426805 [ 12108014 ] {BgSchPool::f97f1d41-333c-4798-985f-a6803cd06d4d} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:34:24.426820 [ 12108014 ] {BgSchPool::f97f1d41-333c-4798-985f-a6803cd06d4d} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:34:39.441840 [ 12108018 ] {BgSchPool::b3852d59-4b3b-470d-b809-12e556d5084c} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:34:39.441857 [ 12108018 ] {BgSchPool::b3852d59-4b3b-470d-b809-12e556d5084c} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:34:43.202647 [ 12108016 ] {BgSchPool::4d14440e-56c3-40f2-9b4c-754ff2dc06d3} <Trace> DailiesRoom.dialogue (7ec0acac-f9ad-46e7-a358-62a4bc9a98c8): Didn't start merge: There are no parts that can be merged. (Collector returned empty ranges set) (skipped 4 similar messages)
+2026.08.10 12:34:54.449658 [ 12108014 ] {BgSchPool::122b8cf6-d4f1-4662-a89c-b2061de8b5c9} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:34:54.449668 [ 12108014 ] {BgSchPool::122b8cf6-d4f1-4662-a89c-b2061de8b5c9} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:35:07.307505 [ 12127798 ] {} <Trace> NamedSessionsStorage: Close session with session_id: 89004735-6e9d-481b-a1fd-9d1873b84b77, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:35:09.463824 [ 12108007 ] {BgSchPool::9e2be5e0-e194-4694-806d-3f0371518782} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:35:09.463836 [ 12108007 ] {BgSchPool::9e2be5e0-e194-4694-806d-3f0371518782} <Debug> DNSResolver: Updated DNS cache
+2026.08.10 12:35:19.353665 [ 12127798 ] {} <Trace> NamedSessionsStorage: Close session with session_id: 6ecf1b69-0e49-490e-b3a7-14dc0f37d6c6, user_id: 94309d50-4f52-5250-31bd-74fecac179db
+2026.08.10 12:35:24.471155 [ 12108016 ] {BgSchPool::5ee0e6db-11ea-488c-8910-2c5e399fcfc2} <Debug> DNSResolver: Updating DNS cache
+2026.08.10 12:35:24.471165 [ 12108016 ] {BgSchPool::5ee0e6db-11ea-488c-8910-2c5e399fcfc2} <Debug> DNSResolver: Updated DNS cache

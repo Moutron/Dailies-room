@@ -1,0 +1,40 @@
+columns substreams version: 1
+12 columns:
+2 substreams for column `clip_id`:
+	clip_id.size
+	clip_id
+2 substreams for column `segment_idx`:
+	segment_idx.sparse.idx
+	segment_idx
+3 substreams for column `scene`:
+	scene.sparse.idx
+	scene.size
+	scene
+2 substreams for column `take`:
+	take.sparse.idx
+	take
+2 substreams for column `start_s`:
+	start_s.sparse.idx
+	start_s
+1 substreams for column `end_s`:
+	end_s
+2 substreams for column `description`:
+	description.size
+	description
+2 substreams for column `shot_type`:
+	shot_type.size
+	shot_type
+2 substreams for column `camera_movement`:
+	camera_movement.size
+	camera_movement
+3 substreams for column `characters_visible`:
+	characters_visible.size0
+	characters_visible.size
+	characters_visible
+3 substreams for column `notable_elements`:
+	notable_elements.size0
+	notable_elements.size
+	notable_elements
+2 substreams for column `embedding`:
+	embedding.size0
+	embedding
