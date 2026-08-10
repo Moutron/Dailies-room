@@ -1,0 +1,41 @@
+{
+  "clip_id": "03_2a_take",
+  "summary": "A wide shot captures a film set with a green screen background, featuring a raised platform with two actors and various production equipment.",
+  "dialogue": [],
+  "visuals": [
+    {
+      "start_s": 0.0,
+      "end_s": 9.0,
+      "description": "A wide shot of a film set shows a raised wooden platform with stone-like architectural elements and a railing against a large green screen. One actor is lying down, covered, on the platform, while another actor is sitting, holding a rifle. Various film lighting equipment, including large softboxes, are positioned around the set, and a crew member is visible in the foreground looking at a monitor.",
+      "shot_type": "wide",
+      "characters_visible": [
+        "ACTOR_LYING_DOWN",
+        "ACTOR_SITTING_WITH_RIFLE",
+        "CREW_MEMBER"
+      ],
+      "camera_movement": "static",
+      "notable_elements": [
+        "green screen",
+        "raised wooden platform",
+        "stone-like architectural elements (pillars, railing)",
+        "softbox lights",
+        "candles on platform",
+        "rifle",
+        "blankets/clothing on lying actor",
+        "bags/props on platform",
+        "camera monitor"
+      ]
+    }
+  ],
+  "characters_present": [
+    "ACTOR_LYING_DOWN",
+    "ACTOR_SITTING_WITH_RIFLE",
+    "CREW_MEMBER"
+  ],
+  "dominant_mood": "neutral",
+  "technical_notes": [
+    "boom pole visible at top center of frame",
+    "lighting equipment visible in frame",
+    "crew member visible in frame"
+  ]
+}

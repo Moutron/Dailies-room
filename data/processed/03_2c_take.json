@@ -1,0 +1,28 @@
+{
+  "clip_id": "03_2c_take",
+  "summary": "A man in a dark jacket aims a futuristic rifle with a scope and bipod against a green screen background.",
+  "dialogue": [],
+  "visuals": [
+    {
+      "start_s": 0.0,
+      "end_s": 9.0,
+      "description": "A man, seen from the side, is aiming a large, futuristic rifle with a scope and bipod. He is wearing a dark, padded jacket. Concrete balusters are in the foreground and background, with a bright green screen behind them.",
+      "shot_type": "medium_close",
+      "characters_visible": [
+        "UNKNOWN_MAN"
+      ],
+      "camera_movement": "static",
+      "notable_elements": [
+        "futuristic rifle with scope and bipod",
+        "dark padded jacket",
+        "concrete balusters",
+        "green screen background"
+      ]
+    }
+  ],
+  "characters_present": [
+    "UNKNOWN_MAN"
+  ],
+  "dominant_mood": "focused",
+  "technical_notes": []
+}
