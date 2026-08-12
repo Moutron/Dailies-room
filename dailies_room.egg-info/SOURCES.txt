@@ -5,6 +5,11 @@ agent/__init__.py
 agent/agent.py
 agent/config.py
 agent/prompts.py
+agent/tools/__init__.py
+agent/tools/_errors.py
+agent/tools/coverage.py
+agent/tools/search.py
+agent/tools/takes.py
 dailies_room.egg-info/PKG-INFO
 dailies_room.egg-info/SOURCES.txt
 dailies_room.egg-info/dependency_links.txt
@@ -13,5 +18,11 @@ dailies_room.egg-info/top_level.txt
 pipeline/__init__.py
 pipeline/embed.py
 pipeline/ingest.py
+pipeline/schema.py
 pipeline/segment.py
 pipeline/understand.py
+ui/__init__.py
+ui/server/__init__.py
+ui/server/agent_runner.py
+ui/server/clips.py
+ui/server/main.py

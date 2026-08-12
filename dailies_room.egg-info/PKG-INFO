@@ -16,4 +16,9 @@ Requires-Dist: pytest; extra == "dev"
 Requires-Dist: pytest-asyncio; extra == "dev"
 Requires-Dist: ruff; extra == "dev"
 Requires-Dist: pre-commit; extra == "dev"
+Provides-Extra: ui
+Requires-Dist: fastapi; extra == "ui"
+Requires-Dist: uvicorn[standard]; extra == "ui"
+Provides-Extra: deploy
+Requires-Dist: google-cloud-aiplatform[adk,agent_engines]; extra == "deploy"
 Dynamic: license-file

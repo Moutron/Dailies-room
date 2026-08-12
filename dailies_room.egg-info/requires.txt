@@ -7,8 +7,15 @@ pydantic
 python-dotenv
 tenacity
 
+[deploy]
+google-cloud-aiplatform[adk,agent_engines]
+
 [dev]
 pytest
 pytest-asyncio
 ruff
 pre-commit
+
+[ui]
+fastapi
+uvicorn[standard]

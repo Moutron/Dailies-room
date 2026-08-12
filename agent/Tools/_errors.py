@@ -14,7 +14,7 @@ def reports_index_errors(fn):
     def wrapper(*args, **kwargs):
         try:
             return fn(*args, **kwargs)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 — any ClickHouse/network failure must become a result, not a crash
             return [{"error": f"The footage index is unreachable ({exc.__class__.__name__})."}]
 
     return wrapper

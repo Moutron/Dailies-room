@@ -109,7 +109,7 @@ FPS = 24
 
 def timecode(seconds: float, fps: int = FPS) -> str:
     """Seconds -> HH:MM:SS:FF, the format an editor actually reads."""
-    total_frames = int(round(seconds * fps))
+    total_frames = round(seconds * fps)
     frames = total_frames % fps
     total_seconds = total_frames // fps
     return (
