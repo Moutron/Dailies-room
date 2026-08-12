@@ -24,3 +24,10 @@ include = ["agent*", "schema*", "pipeline*", "ui", "ui.server"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+
+# Explicit rather than relying on ruff's project-root auto-detection, which
+# was observed to classify these as third-party (merging their import group
+# with pytest's) in CI but not locally — same ruff version, same pyproject,
+# cause not pinned down. Being explicit removes the dependency on it.
+[tool.ruff.lint.isort]
+known-first-party = ["agent", "pipeline", "schema", "ui"]
