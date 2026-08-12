@@ -1,0 +1,34 @@
+- name: finds_hand_line
+  query: "Find the line about the robotic hand"
+  must_mention: ["00:"]          # a timecode appears
+  must_not_mention: ["embedding", "database", "query"]
+
+- name: honest_when_absent
+  query: "Find the scene with the horse"
+  must_mention: ["no", "not", "couldn't", "can't", "didn't"]  # any one
+  must_not_mention: ["00:"]      # no invented timecode
+
+- name: surfaces_technical_problems
+  query: "Any takes with problems?"
+  must_mention: ["focus", "boom", "audio", "line"]  # any one
+
+- name: honest_when_index_down
+  query: "What coverage do we have?"
+  setup: clickhouse_unreachable
+  must_mention: ["unable", "cannot", "unreachable"]
+
+- name: wrong_clickhouse_password
+  query: "What coverage do we have?"
+  setup: clickhouse_wrong_password
+  must_mention: ["unable", "cannot", "unreachable"]  # same @reports_index_errors path as a dead host — auth failures aren't distinguished from connection failures today
+
+- name: nonsense_question
+  query: "asdkjfh qwoeiru 12345 ??!! zzzxxx"
+  must_not_mention: ["00:"]  # no fabricated timecode in response to gibberish
+
+- name: very_long_message
+  generated: very_long
+  # No content assertions: the generated message legitimately matches real
+  # S03 data, so real timecodes in the answer are correct, not fabrication.
+  # The pass/fail signal that matters is the runner completing without a
+  # crash or timeout — see tests/run_eval_cases.py.

@@ -1,0 +1,31 @@
+:root {
+  /* Neutral grays, deliberately desaturated so footage colour reads true.
+     Nothing in the chrome competes with the image. */
+  --suite-black:  #131313;   /* deepest surface */
+  --suite-panel:  #1D1D1E;   /* raised panels */
+  --suite-line:   #333335;   /* dividers, frame edges */
+  --suite-text:   #D6D4CF;   /* warm off-white, easier at length than pure white */
+  --suite-dim:    #7A7873;   /* secondary text, metadata */
+
+  /* One accent only, borrowed from the record indicator. Used exclusively
+     for the current selection and playhead — never decoratively. */
+  --tally:        #E03E2F;
+
+  --flag-note:    #C9A227;   /* technical problems — sparing */
+
+  /* Typography */
+  --font-ui: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", "Menlo", monospace;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius: 3px;
+  --focus-ring: 0 0 0 2px var(--suite-black), 0 0 0 4px var(--tally);
+}

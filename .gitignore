@@ -1,5 +1,7 @@
 .venv/
 __pycache__/
+.adk/
+agent/.adk/
 *.pyc
 .env
 .env.*

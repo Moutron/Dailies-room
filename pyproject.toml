@@ -15,9 +15,11 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-asyncio", "ruff", "pre-commit"]
+ui = ["fastapi", "uvicorn[standard]"]
+deploy = ["google-cloud-aiplatform[adk,agent_engines]"]
 
 [tool.setuptools.packages.find]
-include = ["agent*", "schema*", "pipeline*"]
+include = ["agent*", "schema*", "pipeline*", "ui", "ui.server"]
 
 [tool.ruff]
 line-length = 100
