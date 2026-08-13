@@ -18,3 +18,5 @@ node_modules/
 dist/
 .pytest_cache/
 .ruff_cache/
+.clickhouse-local/
+*.egg-info/

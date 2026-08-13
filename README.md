@@ -41,8 +41,10 @@ design notes in `docs/UI.md`.
 
 ## Demo
 
-See `docs/RUNBOOK.md` for how to run it live. A recorded walkthrough is
-linked from the submission (Phase 10 — this repo doesn't embed video).
+Live: https://dailies-ui-nz35hyam4a-uc.a.run.app
+
+See `docs/RUNBOOK.md` for how to run it live. A recorded walkthrough:
+`TODO — demo video link (added with the Devpost submission)`.
 
 ## Running it yourself
 

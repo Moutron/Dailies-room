@@ -1,3 +1,0 @@
-2026.08.10 12:16:23.483505 [ 12107982 ] {} <Warning> Context: Maximum number of threads is lower than 30000. There could be problems with handling a lot of simultaneous queries.
-2026.08.10 12:16:23.509251 [ 12107982 ] {} <Warning> Access(local_directory): File /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/users.list doesn't exist
-2026.08.10 12:16:23.509260 [ 12107982 ] {} <Warning> Access(local_directory): Recovering lists in directory /Users/corymouton/Dailies-Room/Dailies-room/.clickhouse-local/access/
