@@ -39,6 +39,23 @@ describe("ToolTrace", () => {
     ).toBeInTheDocument();
   });
 
+  it("describes an embedding_mismatch error result distinctly from unreachable", () => {
+    const events: ToolEvent[] = [
+      { kind: "call", tool: "get_coverage", args: {} },
+      {
+        kind: "result",
+        tool: "get_coverage",
+        rows: [{ error: "bad dims", error_type: "embedding_mismatch" }],
+        isError: true,
+      },
+    ];
+    render(<ToolTrace events={events} />);
+
+    expect(
+      screen.getByText("Pulled coverage for every scene, the search index is misconfigured.")
+    ).toBeInTheDocument();
+  });
+
   it("pluralizes the summary count for multiple calls", () => {
     const events: ToolEvent[] = [
       { kind: "call", tool: "get_coverage", args: {} },

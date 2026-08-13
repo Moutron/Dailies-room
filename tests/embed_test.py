@@ -2,7 +2,15 @@
 
 from unittest.mock import MagicMock, patch
 
-from pipeline.embed import dialogue_text, embed_batch, visual_text
+import pytest
+
+from pipeline.embed import (
+    EMBEDDING_DIM,
+    EmbeddingDimensionError,
+    dialogue_text,
+    embed_batch,
+    visual_text,
+)
 
 
 class TestDialogueText:
@@ -45,12 +53,24 @@ class TestEmbedBatch:
 
             def embed_content(model, contents):
                 resp = MagicMock()
-                resp.embeddings = [MagicMock(values=[len(contents) * 1.0])]
+                resp.embeddings = [MagicMock(values=[len(contents) * 1.0] * EMBEDDING_DIM)]
                 return resp
 
             mock_client.models.embed_content.side_effect = embed_content
 
             result = embed_batch(["a", "bb"])
 
-            assert result == [[1.0], [2.0]]
+            assert result == [[1.0] * EMBEDDING_DIM, [2.0] * EMBEDDING_DIM]
             assert mock_client.models.embed_content.call_count == 2
+
+    def test_raises_on_unexpected_dimension(self):
+        with patch("pipeline.embed.genai.Client") as mock_client_cls:
+            mock_client = MagicMock()
+            mock_client_cls.return_value = mock_client
+
+            resp = MagicMock()
+            resp.embeddings = [MagicMock(values=[0.1, 0.2])]
+            mock_client.models.embed_content.return_value = resp
+
+            with pytest.raises(EmbeddingDimensionError):
+                embed_batch(["a"])

@@ -28,6 +28,14 @@ class TestTimecode:
     def test_custom_fps(self):
         assert timecode(1.0, fps=30) == "00:00:01:00"
 
+    def test_offset_shifts_to_source_timecode(self):
+        # offset_s is the clip's tc_start_s — without it every clip's
+        # results would report the same clip-relative range from zero.
+        assert timecode(1.0, offset_s=3600.0) == "01:00:01:00"
+
+    def test_zero_offset_is_clip_relative(self):
+        assert timecode(1.0, offset_s=0.0) == "00:00:01:00"
+
     def test_frame_rollover_stays_integer_no_float_artifacts(self):
         # Regression: total_frames must be int, not float, or the %/// below
         # would produce non-integer HH:MM:SS:FF components.
@@ -44,8 +52,17 @@ def mock_client_and_embed():
     ):
         mock_embed.return_value = [[0.1, 0.2, 0.3]]
         result = MagicMock()
-        result.column_names = ["clip_id", "scene", "take", "start_s", "end_s", "distance"]
-        result.result_rows = [["clip_1", "S03", 1, 1.0, 2.0, 0.05]]
+        result.column_names = [
+            "clip_id",
+            "scene",
+            "take",
+            "start_s",
+            "end_s",
+            "reel",
+            "tc_start_s",
+            "distance",
+        ]
+        result.result_rows = [["clip_1", "S03", 1, 1.0, 2.0, "A001", 0.0, 0.05]]
         mock_client.return_value.query.return_value = result
         yield mock_client, mock_embed
 
@@ -64,16 +81,22 @@ class TestSearchDialogue:
             "text",
             "delivery",
             "intensity",
+            "reel",
+            "tc_start_s",
             "distance",
         ]
-        result.result_rows = [["clip_1", "S03", 1, 1.0, 2.5, "CELIA", "Hi", "flat", 0.1, 0.05]]
+        result.result_rows = [
+            ["clip_1", "S03", 1, 1.0, 2.5, "CELIA", "Hi", "flat", 0.1, "A008", 3600.0, 0.05]
+        ]
         mock_client.return_value.query.return_value = result
 
         rows = search_dialogue("hello")
 
         assert len(rows) == 1
-        assert rows[0]["timecode_in"] == "00:00:01:00"
-        assert rows[0]["timecode_out"] == "00:00:02:12"
+        assert rows[0]["timecode_in"] == "01:00:01:00"
+        assert rows[0]["timecode_out"] == "01:00:02:12"
+        assert rows[0]["reel"] == "A008"
+        assert "tc_start_s" not in rows[0]
         mock_embed.assert_called_once_with(["hello"])
 
     def test_scene_and_speaker_filters_build_where_clause(self, mock_client_and_embed):
@@ -99,7 +122,12 @@ class TestSearchDialogue:
 
         rows = search_dialogue("hello")
 
-        assert rows == [{"error": "The footage index is unreachable (RuntimeError)."}]
+        assert rows == [
+            {
+                "error": "The footage index is unreachable (RuntimeError).",
+                "error_type": "unreachable",
+            }
+        ]
 
 
 class TestSearchVisuals:
@@ -117,4 +145,6 @@ class TestSearchVisuals:
 
         rows = search_visuals("a hallway")
 
-        assert rows == [{"error": "The footage index is unreachable (ValueError)."}]
+        assert rows == [
+            {"error": "The footage index is unreachable (ValueError).", "error_type": "unreachable"}
+        ]

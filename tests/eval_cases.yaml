@@ -3,6 +3,14 @@
   must_mention: ["00:"]          # a timecode appears
   must_not_mention: ["embedding", "database", "query"]
 
+- name: resolves_line_without_asking_scene
+  query: "Do we have a clean take of the line about the robotic hand?"
+  # No scene named — the agent must resolve it via search_dialogue rather
+  # than asking "which scene." A tool call it hasn't made yet is not a
+  # reason to ask a clarifying question (see agent/prompts.py).
+  must_mention: ["00:"]
+  must_not_mention: ["which scene", "what scene", "can you specify", "could you clarify"]
+
 - name: honest_when_absent
   query: "Find the scene with the horse"
   must_mention: ["no", "not", "couldn't", "can't", "didn't"]  # any one

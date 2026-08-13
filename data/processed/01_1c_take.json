@@ -1,0 +1,43 @@
+{
+  "clip_id": "01_1c_take",
+  "summary": "A woman with a prosthetic arm confronts a man on a bridge, who then admits he is freaked out.",
+  "dialogue": [
+    {
+      "start_s": 1.48,
+      "end_s": 3.0,
+      "speaker": "UNKNOWN",
+      "text": "All right, fine. I'm freaked out.",
+      "delivery": "Resigned, slightly exasperated, admitting defeat",
+      "intensity": 0.6
+    }
+  ],
+  "visuals": [
+    {
+      "start_s": 0.0,
+      "end_s": 3.0,
+      "description": "A man and a woman stand facing each other on a bridge. The woman has a detailed prosthetic arm and gestures with it towards the man. The man looks at her, then down, then back up as he speaks.",
+      "shot_type": "medium",
+      "characters_visible": [
+        "Man",
+        "Woman"
+      ],
+      "camera_movement": "static",
+      "notable_elements": [
+        "Man's dark blue jacket",
+        "Man's patterned grey shirt",
+        "Woman's black and blue athletic jacket",
+        "Woman's black leggings with pink stripe",
+        "Woman's elaborate prosthetic right arm",
+        "Metal bridge railing",
+        "Green trees in background",
+        "City buildings in background"
+      ]
+    }
+  ],
+  "characters_present": [
+    "Man",
+    "Woman"
+  ],
+  "dominant_mood": "Tense, confrontational, resigned",
+  "technical_notes": []
+}

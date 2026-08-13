@@ -158,10 +158,25 @@ Already deployed; redeploy after code changes with:
 gcloud run deploy dailies-ui --source . --region=us-central1 --project=dailies-room
 ```
 
-Runs as the Compute Engine default service account — see
-`docs/SECURITY.md` for its grants and the one documented broader-than-
-necessary grant (project-level `storage.objectViewer`, needed only for
-Cloud Build's source-tarball read during this exact deploy command).
+Runs as the dedicated `dailies-ui@dailies-room.iam.gserviceaccount.com`
+service account (`--service-account` flag) — see `docs/SECURITY.md` for
+its grants and the one documented broader-than-necessary grant left on
+the Compute Engine default SA (project-level `storage.objectViewer`,
+needed only for Cloud Build's source-tarball read during this exact
+deploy command, unrelated to the runtime identity).
+
+**Gotcha:** `ui/server/clips.py`'s signed-URL minting impersonates
+whichever SA the `GCS_SIGNER_SA` env var names, via IAM `signBlob` —
+it does **not** derive that from the runtime's own ambient credentials.
+If you change `--service-account` on a redeploy, update `GCS_SIGNER_SA`
+to match (`gcloud run services update dailies-ui --update-env-vars
+GCS_SIGNER_SA=<new-sa-email>`) and make sure that SA has
+`roles/iam.serviceAccountTokenCreator` **on itself** — otherwise clip
+playback URLs fail with a generic `TransportError`, since the runtime
+token's principal won't be authorized to impersonate the (now stale)
+`GCS_SIGNER_SA`. Caught live during the Phase-A3 SA hardening: switching
+Cloud Run to `dailies-ui` without updating this var broke `/clip/*/url`
+until the env var was corrected.
 
 ### 2. Vertex AI Agent Engine (`dailies-agent`) — judging-day only, not left running
 
@@ -245,6 +260,16 @@ from the top-level `pipeline/` package. `--otel_to_cloud` enables tracing
 and structured-log-friendly telemetry (Phase 9.3) — see
 `docs/AGENT_QUALITY.md`'s "Inspecting a conversation's tool calls" section
 for how to read it back.
+
+**Known gap, not yet verified against a real Agent Engine deploy:**
+`agent/tools/coverage.py`'s `_character_aliases()` reads `data/manifest.json`
+from disk at request time (path resolved relative to the source file). The
+Cloud Run image explicitly `COPY`s that file in (see `Dockerfile`); nothing
+here stages it into the Agent Engine package, and `data/` isn't a Python
+package `--extra_packages` can name. Confirm `get_coverage` works after
+deploying (or redeploying) Agent Engine — if it fails, the error will
+misleadingly say "the footage index is unreachable" rather than naming the
+missing file (see `agent/tools/_errors.py`).
 
 Redeploy to the **same** resource (updates in place, doesn't create a
 duplicate) by adding `--agent_engine_id=<the resource name>`:

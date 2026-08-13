@@ -1,0 +1,49 @@
+{
+  "clip_id": "01_1a_take",
+  "summary": "A man passionately discusses following passions and being 'awesome in space' with a woman who listens intently on a bridge.",
+  "dialogue": [
+    {
+      "start_s": 0.001,
+      "end_s": 0.025,
+      "speaker": "MAN",
+      "text": "we have to follow our passions.",
+      "delivery": "earnest and slightly pleading, with conviction",
+      "intensity": 0.7
+    },
+    {
+      "start_s": 0.025,
+      "end_s": 0.05,
+      "speaker": "MAN",
+      "text": "You have your robotics and I just want to be awesome in space.",
+      "delivery": "enthusiastic and determined, with a hopeful tone",
+      "intensity": 0.8
+    }
+  ],
+  "visuals": [
+    {
+      "start_s": 0.0,
+      "end_s": 5.0,
+      "description": "A man and a woman stand on a bridge, leaning against the railing. The man speaks animatedly, gesturing with his hands, while the woman listens with a thoughtful expression. A canal and buildings are visible in the background.",
+      "shot_type": "medium",
+      "characters_visible": [
+        "MAN",
+        "WOMAN"
+      ],
+      "camera_movement": "static",
+      "notable_elements": [
+        "MAN: dark blue bomber jacket, patterned grey/white long-sleeve shirt, dark jeans",
+        "WOMAN: black puffer vest, blue long-sleeve top, black leggings with pink stripes, robotic arm on right arm",
+        "Black metal bridge railing",
+        "Canal with boats in background",
+        "Green trees and buildings in background",
+        "Overcast sky"
+      ]
+    }
+  ],
+  "characters_present": [
+    "MAN",
+    "WOMAN"
+  ],
+  "dominant_mood": "earnest and contemplative",
+  "technical_notes": []
+}

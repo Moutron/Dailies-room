@@ -8,6 +8,7 @@ that aborts the whole run. See docs/RUNBOOK.md and the module docstring.
 import pytest
 
 from agent.tools._errors import reports_index_errors
+from pipeline.embed import EmbeddingDimensionError
 
 
 class TestReportsIndexErrors:
@@ -23,14 +24,36 @@ class TestReportsIndexErrors:
         def boom():
             raise ConnectionError("timed out")
 
-        assert boom() == [{"error": "The footage index is unreachable (ConnectionError)."}]
+        assert boom() == [
+            {
+                "error": "The footage index is unreachable (ConnectionError).",
+                "error_type": "unreachable",
+            }
+        ]
+
+    def test_reports_embedding_dimension_errors_distinctly(self):
+        @reports_index_errors
+        def boom():
+            raise EmbeddingDimensionError("embed_content returned a 2-dim vector, expected 3072")
+
+        result = boom()
+        assert result == [
+            {
+                "error": "Embedding configuration mismatch: embed_content returned a "
+                "2-dim vector, expected 3072",
+                "error_type": "embedding_mismatch",
+            }
+        ]
+        assert "unreachable" not in result[0]["error"]
 
     def test_catches_exceptions_of_arbitrary_type(self):
         @reports_index_errors
         def boom():
             raise ValueError("bad row")
 
-        assert boom() == [{"error": "The footage index is unreachable (ValueError)."}]
+        assert boom() == [
+            {"error": "The footage index is unreachable (ValueError).", "error_type": "unreachable"}
+        ]
 
     def test_does_not_swallow_baseexception_like_keyboardinterrupt(self):
         @reports_index_errors

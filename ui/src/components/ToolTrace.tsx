@@ -25,7 +25,13 @@ function describeCall(call: ToolCallEvent): string {
 }
 
 function describeResult(result: ToolResultEvent): string {
-  if (result.isError) return "the footage index was unreachable";
+  if (result.isError) {
+    // error_type lets us say something more useful than "unreachable" when
+    // that's not actually what went wrong (see agent/tools/_errors.py).
+    return result.rows[0]?.error_type === "embedding_mismatch"
+      ? "the search index is misconfigured"
+      : "the footage index was unreachable";
+  }
   const n = result.rows.length;
   if (n === 0) return "found nothing";
   const scenes = new Set(result.rows.map((r) => r.scene).filter(Boolean));

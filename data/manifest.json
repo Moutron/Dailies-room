@@ -1,4 +1,5 @@
-[
+{
+  "clips": [
     {
       "clip_id": "03_2a_take",
       "source": "tears_of_steel_finished",
@@ -9,7 +10,9 @@
       "characters_expected": ["Bruno"],
       "day_night": "NIGHT",
       "int_ext": "EXT",
-      "notes": "Wide/establishing shot of stakeout position - sniper at railing, two crew lying in sleeping bags foreground. Green-screen stage plate, background TBD in comp."
+      "reel": "A007",
+      "tc_start_s": 5400.0,
+      "notes": "Wide/establishing shot of stakeout position - sniper at railing, two crew lying in sleeping bags foreground. Green-screen stage plate, background TBD in comp. reel/tc_start_s are plausible synthetic source timecode, not recovered from real camera metadata (none is available for this footage) - see docs/RUNBOOK.md."
     },
     {
       "clip_id": "03_2c_take",
@@ -21,6 +24,8 @@
       "characters_expected": ["Bruno"],
       "day_night": "NIGHT",
       "int_ext": "EXT",
+      "reel": "A007",
+      "tc_start_s": 6120.0,
       "notes": "Close-up, sniper aiming rifle through railing. Green-screen stage plate."
     },
     {
@@ -33,6 +38,56 @@
       "characters_expected": ["Bruno", "Unidentified (newspaper reader)"],
       "day_night": "NIGHT",
       "int_ext": "EXT",
+      "reel": "A007",
+      "tc_start_s": 6900.0,
       "notes": "Two-shot: figure lying down with newspaper ('De Amsterdammer - Roboticist Creates Killer Robots' prop) over face in foreground, sniper aiming in background. Green-screen stage plate."
+    },
+    {
+      "clip_id": "01_1a_take",
+      "source": "tears_of_steel_theatrical_cut",
+      "scene": "S01",
+      "slate": "1A",
+      "take": 1,
+      "location": "Amsterdam canal bridge",
+      "characters_expected": ["Thom", "Celia"],
+      "day_night": "DAY",
+      "int_ext": "EXT",
+      "reel": "A002",
+      "tc_start_s": 3606.0,
+      "notes": "Opening argument, first beat: Celia and Thom on the bridge railing - 'You're a jerk, Thom' through 'you have your robotics, and I just want to be awesome in space.' Sourced from the theatrical cut (tears_of_steel_720p.mov, mango.blender.org), not raw dailies - the raw ToS camera plates (used for S03) have no audio track, so no CC-BY dailies footage with dialogue exists for this project. Slate/take numbers here are sequential labels for this ingestion, not verified production slate codes. reel/tc_start_s are plausible synthetic source timecode for the same reason."
+    },
+    {
+      "clip_id": "01_1b_take",
+      "source": "tears_of_steel_theatrical_cut",
+      "scene": "S01",
+      "slate": "1A",
+      "take": 1,
+      "location": "Amsterdam canal bridge",
+      "characters_expected": ["Thom", "Celia"],
+      "day_night": "DAY",
+      "int_ext": "EXT",
+      "reel": "A002",
+      "tc_start_s": 3611.5,
+      "notes": "Opening argument, second beat, same continuous shot as 01_1a_take: Celia raises her robotic hand - 'Why don't you just admit that you're freaked out by my robot hand?' / 'I'm not freaked out by- it's... alright, fine!' This is the line tests/eval_cases.yaml's finds_hand_line case looks for. tc_start_s follows on from 01_1a_take's source timecode, since it's the next beat of the same continuous shot."
+    },
+    {
+      "clip_id": "01_1c_take",
+      "source": "tears_of_steel_theatrical_cut",
+      "scene": "S01",
+      "slate": "1A",
+      "take": 1,
+      "location": "Amsterdam canal bridge",
+      "characters_expected": ["Thom", "Celia"],
+      "day_night": "DAY",
+      "int_ext": "EXT",
+      "reel": "A002",
+      "tc_start_s": 3617.5,
+      "notes": "Opening argument, third beat, same continuous shot as 01_1a/01_1b: Thom's reaction - 'I'm freaked out! I have nightmares that I'm being chased by these giant robotic claws of death...'"
     }
-  ]
+  ],
+  "character_aliases": {
+    "Bruno": ["ACTOR_SITTING_WITH_RIFLE", "UNKNOWN_MAN", "Man in Tactical Gear"],
+    "Thom": ["MAN", "Man"],
+    "Celia": ["WOMAN", "Woman"]
+  }
+}

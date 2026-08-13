@@ -4,6 +4,22 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+# Single source of truth for shot-type vocabulary, so agent/tools/coverage.py's
+# tight-shot classification can't silently drift from what the model is
+# actually allowed to emit.
+SHOT_TYPES: tuple[str, ...] = (
+    "extreme_wide",
+    "wide",
+    "medium",
+    "medium_close",
+    "close",
+    "extreme_close",
+    "insert",
+    "unknown",
+)
+
+TIGHT_SHOT_TYPES: frozenset[str] = frozenset({"close", "extreme_close", "medium_close"})
+
 
 class DialogueSegment(BaseModel):
     start_s: float = Field(description="Seconds from clip start")
@@ -20,16 +36,7 @@ class VisualSegment(BaseModel):
     start_s: float
     end_s: float
     description: str = Field(description="What is visible, plainly stated")
-    shot_type: Literal[
-        "extreme_wide",
-        "wide",
-        "medium",
-        "medium_close",
-        "close",
-        "extreme_close",
-        "insert",
-        "unknown",
-    ]
+    shot_type: Literal[SHOT_TYPES]
     characters_visible: list[str]
     camera_movement: str = Field(description="static, pan, tilt, handheld, dolly")
     notable_elements: list[str] = Field(

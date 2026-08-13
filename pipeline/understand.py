@@ -58,7 +58,14 @@ def analyse_clip(clip_id: str, gcs_uri: str) -> ClipAnalysis:
 
 
 def process(clip_id: str, gcs_uri: str, force: bool = False) -> ClipAnalysis:
-    """Analyse a clip, or return the cached result if we already have it."""
+    """Analyse a clip, or return the cached result if we already have it.
+
+    No caller in this repo currently loops this over multiple clips -- each
+    clip has been processed individually so far. If a batch script is added
+    later, isolate failures per clip there (this function still raises after
+    analyse_clip()'s 3 retries are exhausted) so one bad clip doesn't abort
+    the whole run.
+    """
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     cache = PROCESSED_DIR / f"{clip_id}.json"
 

@@ -17,6 +17,9 @@ from agent.agent import root_agent
 APP_NAME = "dailies-room"
 
 _runner = InMemoryRunner(agent=root_agent, app_name=APP_NAME)
+# Per-process only -- not shared across Cloud Run instances. See
+# docs/SECURITY.md's "Session state is in-process, not shared across
+# instances" for why this matters and how it's mitigated (session affinity).
 _known_sessions: set[str] = set()
 
 

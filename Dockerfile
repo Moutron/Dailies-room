@@ -21,6 +21,12 @@ COPY schema/ ./schema/
 COPY ui/__init__.py ./ui/__init__.py
 COPY ui/server/ ./ui/server/
 COPY data/thumbs/ ./data/thumbs/
+# agent/tools/coverage.py reads this at request time to resolve character
+# aliases (Gemini names the same person differently per clip) — without it
+# in the image, get_coverage fails with FileNotFoundError on every call,
+# which @reports_index_errors then mislabels as "the footage index is
+# unreachable" (a ClickHouse-shaped error for a completely unrelated cause).
+COPY data/manifest.json ./data/manifest.json
 
 RUN pip install --no-cache-dir .[ui]
 

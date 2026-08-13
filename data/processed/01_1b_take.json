@@ -1,0 +1,53 @@
+{
+  "clip_id": "01_1b_take",
+  "summary": "A woman confronts a man on a bridge, accusing him of being freaked out by her robotic hand, which he denies.",
+  "dialogue": [
+    {
+      "start_s": 0.0,
+      "end_s": 0.04,
+      "speaker": "WOMAN",
+      "text": "Why don't you just admit that you're freaked out by my robot hand?",
+      "delivery": "Accusatory, frustrated, gesturing with her robotic arm",
+      "intensity": 0.8
+    },
+    {
+      "start_s": 0.04,
+      "end_s": 0.05,
+      "speaker": "MAN",
+      "text": "I'm not freaked out by it's...",
+      "delivery": "Defensive, slightly flustered, cut off",
+      "intensity": 0.6
+    }
+  ],
+  "visuals": [
+    {
+      "start_s": 0.0,
+      "end_s": 0.05,
+      "description": "A woman with a robotic arm on her right side stands on a bridge, leaning on the railing, and confronts a man who is also leaning on the railing, facing her. They are outdoors with trees and buildings in the background.",
+      "shot_type": "medium",
+      "characters_visible": [
+        "WOMAN",
+        "MAN"
+      ],
+      "camera_movement": "static",
+      "notable_elements": [
+        "WOMAN's black and blue bomber jacket",
+        "WOMAN's black and pink leggings",
+        "WOMAN's robotic right arm",
+        "MAN's dark blue jacket",
+        "MAN's patterned grey sweater",
+        "Dark green metal bridge railing",
+        "Green trees in background",
+        "European-style buildings in background"
+      ]
+    }
+  ],
+  "characters_present": [
+    "WOMAN",
+    "MAN"
+  ],
+  "dominant_mood": "Confrontational",
+  "technical_notes": [
+    "MAN's dialogue is cut off abruptly"
+  ]
+}

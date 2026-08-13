@@ -28,7 +28,8 @@ def search_dialogue(
         speaker: Optionally restrict to one character.
 
     Returns:
-        Matching lines with clip_id, timecode, speaker, text and delivery.
+        Matching lines with clip_id, reel, source timecode, speaker, text
+        and delivery.
     """
     vec = embed_batch([query])[0]
 
@@ -44,7 +45,7 @@ def search_dialogue(
 
     sql = f"""
         SELECT clip_id, scene, take, start_s, end_s,
-               speaker, text, delivery, intensity,
+               speaker, text, delivery, intensity, reel, tc_start_s,
                cosineDistance(embedding, %(vec)s) AS distance
         FROM {config.CH_DATABASE}.dialogue
         {clause}
@@ -54,8 +55,9 @@ def search_dialogue(
     result = client().query(sql, parameters=params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
     for row in rows:
-        row["timecode_in"] = timecode(row["start_s"])
-        row["timecode_out"] = timecode(row["end_s"])
+        offset = row.pop("tc_start_s")
+        row["timecode_in"] = timecode(row["start_s"], offset)
+        row["timecode_out"] = timecode(row["end_s"], offset)
     logger.info(
         "search_dialogue",
         extra={"query": query, "results": len(rows), "scene": scene, "speaker": speaker},
@@ -85,7 +87,7 @@ def search_visuals(query: str, limit: int = 8, shot_type: str | None = None) -> 
     sql = f"""
         SELECT clip_id, scene, take, start_s, end_s, description,
                shot_type, camera_movement, characters_visible,
-               notable_elements,
+               notable_elements, reel, tc_start_s,
                cosineDistance(embedding, %(vec)s) AS distance
         FROM {config.CH_DATABASE}.visuals
         {clause}
@@ -95,8 +97,9 @@ def search_visuals(query: str, limit: int = 8, shot_type: str | None = None) -> 
     result = client().query(sql, parameters=params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
     for row in rows:
-        row["timecode_in"] = timecode(row["start_s"])
-        row["timecode_out"] = timecode(row["end_s"])
+        offset = row.pop("tc_start_s")
+        row["timecode_in"] = timecode(row["start_s"], offset)
+        row["timecode_out"] = timecode(row["end_s"], offset)
     logger.info(
         "search_visuals",
         extra={"query": query, "results": len(rows), "shot_type": shot_type},
@@ -107,9 +110,15 @@ def search_visuals(query: str, limit: int = 8, shot_type: str | None = None) -> 
 FPS = 24
 
 
-def timecode(seconds: float, fps: int = FPS) -> str:
-    """Seconds -> HH:MM:SS:FF, the format an editor actually reads."""
-    total_frames = round(seconds * fps)
+def timecode(seconds: float, offset_s: float = 0.0, fps: int = FPS) -> str:
+    """Seconds from clip start -> HH:MM:SS:FF, the format an editor actually reads.
+
+    `offset_s` is the clip's source timecode at frame zero (`tc_start_s`).
+    Without it this returns a clip-relative range that resets to
+    00:00:00:00 for every clip — useless for finding the shot on the
+    actual card, and indistinguishable from every other result.
+    """
+    total_frames = round((seconds + offset_s) * fps)
     frames = total_frames % fps
     total_seconds = total_frames // fps
     return (

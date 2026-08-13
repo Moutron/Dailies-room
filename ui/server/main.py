@@ -9,6 +9,7 @@ from pydantic import BaseModel
 
 from ui.server.agent_runner import stream_chat
 from ui.server.clips import THUMBS_DIR, signed_clip_url, thumbnails
+from ui.server.rate_limit import allow
 
 app = FastAPI(title="Dailies Room")
 
@@ -26,6 +27,10 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 async def chat(req: ChatRequest):
     """Stream the agent's reply, including which tools it called."""
+    if not allow(req.session_id):
+        raise HTTPException(
+            status_code=429, detail="Too many requests. Please wait a moment and try again."
+        )
     return StreamingResponse(
         stream_chat(req.message, req.session_id), media_type="text/event-stream"
     )
@@ -50,8 +55,13 @@ def clip_thumbnails(clip_id: str):
 
 @app.get("/thumbs/{filename}")
 def thumb_file(filename: str):
-    path = os.path.join(THUMBS_DIR, filename)
-    if not os.path.isfile(path):
+    # filename comes straight from the URL path; a value like "../../etc/passwd"
+    # (or a %2F-encoded slash smuggled through as part of the segment) must not
+    # be allowed to resolve outside THUMBS_DIR, so check the *resolved* path
+    # rather than trusting os.path.join alone.
+    thumbs_root = os.path.realpath(THUMBS_DIR)
+    path = os.path.realpath(os.path.join(thumbs_root, filename))
+    if os.path.commonpath([thumbs_root, path]) != thumbs_root or not os.path.isfile(path):
         raise HTTPException(status_code=404, detail="No such thumbnail.")
     return FileResponse(path)
 

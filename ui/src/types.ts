@@ -36,6 +36,7 @@ export interface ResultRow {
   no_tight_shot?: string[];
   wide_coverage?: string[];
   error?: string;
+  error_type?: "unreachable" | "embedding_mismatch";
   [key: string]: unknown;
 }
 

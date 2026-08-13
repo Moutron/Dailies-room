@@ -15,8 +15,10 @@ CUT_LIST = [
     # ... fill in from watching the film
 ]
 
-# Same setup, three takes. Same cut list gets applied to each one so you
-# can compare takes clip-by-clip.
+# Three different setups (slates 2A/2C/2E) of scene S03, not three takes of
+# one setup — see data/manifest.json. Same cut list gets applied to each one
+# regardless, since CUT_LIST describes production-unit boundaries, not
+# per-setup timing.
 TAKES = [
     Path("data/03_2a_take.mp4"),
     Path("data/03_2c_take.mp4"),
