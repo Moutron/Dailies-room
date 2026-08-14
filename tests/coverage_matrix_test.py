@@ -16,8 +16,7 @@ COLUMNS = [
     "dialogue_count",
 ]
 
-# The real six-clip index (DESIGN_IMPLEMENTATION_PLAN.md's "What actually
-# landed" for Prompt 5): S01/1A has three clips (all medium, no tight
+# The real six-clip index: S01/1A has three clips (all medium, no tight
 # coverage); S03 has three separate slates, one of which (2C) is
 # medium_close, i.e. tight.
 REAL_INDEX_ROWS = [

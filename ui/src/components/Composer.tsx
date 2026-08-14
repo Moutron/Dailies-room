@@ -1,12 +1,6 @@
 import type { KeyboardEvent } from "react";
-import { PLACEHOLDER_CHROME } from "../shell/chrome";
+import { DEMO_PROMPTS } from "../agentCopy";
 import type { SessionContext } from "../types";
-
-const SUGGESTIONS = [
-  "What coverage do we have on the bridge scene?",
-  "Which take of 2A plays best?",
-  "Show me every close-up we shot.",
-];
 
 export function Composer({
   value,
@@ -38,7 +32,7 @@ export function Composer({
   return (
     <div className="composer">
       <div className="composer__chips">
-        {SUGGESTIONS.map((s) => (
+        {DEMO_PROMPTS.map((s) => (
           <button type="button" key={s} className="composer__chip" onClick={() => onChange(s)}>
             {s}
           </button>
@@ -75,7 +69,7 @@ export function Composer({
         ) : (
           activeReel && (
             <span className="composer__scope mono">
-              {activeReel} · {PLACEHOLDER_CHROME.breadcrumb[1]}
+              {activeReel}
             </span>
           )
         )}

@@ -118,6 +118,8 @@ def search_visuals(
     return rows
 
 
+# 24fps -- Tears of Steel's source frame rate, this dataset's footage. An
+# assumption, not derived from clip metadata (manifest.json has no fps field).
 FPS = 24
 
 

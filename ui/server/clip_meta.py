@@ -67,7 +67,7 @@ def clip_dialogue(clip_id: str) -> list[dict] | None:
     """Real dialogue rows for one clip, in playback order — clip detail's
     transcript panel and its dialogue-region overlay both read this
     directly rather than reinventing the shape `ResultRow.dialogue` already
-    carries elsewhere (see DESIGN_IMPLEMENTATION_PLAN.md's notes for Prompt 4).
+    carries elsewhere.
 
     Returns None (not an empty list) when the clip itself isn't indexed, so
     the caller can tell "no such clip" (404) apart from "indexed clip with

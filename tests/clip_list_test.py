@@ -6,7 +6,7 @@ from ui.server.clip_list import clip_list
 
 COLUMNS = ["clip_id", "reel", "scene", "slate", "take", "duration_s", "shot_type", "circled"]
 
-# The real six-clip index (DESIGN_IMPLEMENTATION_PLAN.md's Prompt 5/6 notes):
+# The real six-clip index:
 # all three S01 clips share scene=S01/slate=1A/take=1 -- different
 # performances of the same setup, not different takes.
 REAL_INDEX_ROWS = [

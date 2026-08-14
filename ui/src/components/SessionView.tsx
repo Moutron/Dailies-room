@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { rowsFromToolResult, streamChat } from "../api";
 import {
+  DEMO_PROMPTS,
   detectClarifyingQuestion,
   detectNoDialogueAnswer,
   lastResult,
@@ -17,12 +18,6 @@ import { EvidenceRow } from "./EvidenceRow";
 import { NoDialogueCard, NoDialogueClipStrip } from "./NoDialogueCard";
 import { RateLimitNotice } from "./RateLimitNotice";
 import { TakesTable } from "./TakesTable";
-
-const EXAMPLE_PROMPTS = [
-  "What coverage do we have on the bridge scene?",
-  "Which take of 2A plays best?",
-  "Show me every close-up we shot.",
-];
 
 function newId(): string {
   return crypto.randomUUID();
@@ -141,7 +136,7 @@ export function SessionView({
             <p className="empty-state__lead">Ask the footage a question.</p>
             <p>Try:</p>
             <ul>
-              {EXAMPLE_PROMPTS.map((p) => (
+              {DEMO_PROMPTS.map((p) => (
                 <li key={p}>
                   <button type="button" className="empty-state__prompt" onClick={() => setInput(p)}>
                     {p}

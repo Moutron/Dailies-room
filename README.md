@@ -5,6 +5,10 @@
 
 Agentic Cinema Hackathon · Gemini + ADK + ClickHouse
 
+**Partner track: ClickHouse.** ClickHouse is the footage index: it serves
+both structured filters and vector search over Gemini's own analysis of the
+footage (`schema/clickhouse.sql`, `agent/tools/search.py`).
+
 ## The problem
 
 On a shoot, dailies review means someone — usually the editor or the
@@ -24,8 +28,8 @@ Gemini's own video analysis of every clip. Ask "find the shot with the
 newspaper headline," "any takes with technical problems," or "which take
 of the rooftop setup has the fewest problems" and it searches the real
 index, not a script. It's built to be honest when the footage isn't
-there: no character named Celia in this dataset gets "I can't find that,"
-not a fabricated close-up.
+there: asking for a shot that was never filmed, like a horse, gets "I
+can't find that," not a fabricated close-up or timecode.
 
 ## Architecture
 

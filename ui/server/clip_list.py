@@ -2,8 +2,7 @@
 
 Reuses `ui/server/coverage_matrix.py`'s `SHOT_COLUMNS` mapping for the
 shot-type filter vocabulary (WIDE/MED/MCU/CU/INSERT) rather than
-re-deriving the 8-value enum -> 5-column mapping a third time (see
-DESIGN_IMPLEMENTATION_PLAN.md's notes for Prompt 6). Real `take` is not a
+re-deriving the 8-value enum -> 5-column mapping a third time. Real `take` is not a
 unique per-clip label -- all three S01 clips share scene=S01/slate=1A/
 take=1 (different performances of the same setup, not different takes; see
 schema/clickhouse.sql's comment on `clips` and coverage_matrix.py's

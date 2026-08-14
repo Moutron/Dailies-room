@@ -7,6 +7,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from ui.server.agent_runner import stream_chat
 from ui.server.circle import set_circled
@@ -186,6 +187,26 @@ def health():
     return {"status": "ok"}
 
 
+class SPAStaticFiles(StaticFiles):
+    """Serves the built SPA, falling back to index.html for unknown paths.
+
+    React Router owns /ask, /coverage, /reels, /shot-list, /ingest, and
+    /clip/{id} (see ui/src/App.tsx). Plain StaticFiles(html=True) 404s those
+    on a direct load or refresh -- it only serves index.html for exact "/"
+    requests, never as a catch-all. ui/vite.config.ts already solves the same
+    API-route-vs-page-route collision for the dev server; this is the
+    production half of it.
+    """
+
+    async def get_response(self, path, scope):
+        try:
+            return await super().get_response(path, scope)
+        except StarletteHTTPException as exc:
+            if exc.status_code == 404:
+                return await super().get_response("index.html", scope)
+            raise
+
+
 _DIST = os.path.join(os.path.dirname(__file__), "..", "dist")
 if os.path.isdir(_DIST):
-    app.mount("/", StaticFiles(directory=_DIST, html=True), name="static")
+    app.mount("/", SPAStaticFiles(directory=_DIST, html=True), name="static")

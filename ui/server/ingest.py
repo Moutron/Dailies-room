@@ -2,8 +2,7 @@
 counts for the ingest pipeline strip.
 
 No job runner, status table, or polling endpoint exists -- pipeline/ingest.py
-is an offline batch script with no notion of "in flight" (see
-DESIGN_IMPLEMENTATION_PLAN.md's Prompt 8 notes). Every clip currently in the
+is an offline batch script with no notion of "in flight". Every clip currently in the
 index has already finished the same four stages, so this reads the same
 `clips`/`dialogue` tables the rest of the app already reads rather than
 fabricating an in-flight or queued row -- there is nothing in this schema

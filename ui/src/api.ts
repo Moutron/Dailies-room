@@ -12,6 +12,9 @@ import type {
   Thumbnail,
 } from "./types";
 
+/** 24fps -- Tears of Steel's source frame rate, this dataset's footage. An
+ * assumption, not derived from clip metadata (manifest.json has no fps
+ * field). */
 const FPS = 24;
 
 /** "HH:MM:SS:FF" -> seconds. Inverse of agent/tools/search.py's timecode(). */

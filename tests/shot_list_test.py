@@ -11,8 +11,7 @@ from unittest.mock import MagicMock, patch
 
 from ui.server.shot_list import generate_rows, list_rows, set_selected
 
-# The real coverage_matrix() shape (DESIGN_IMPLEMENTATION_PLAN.md's Prompt 5
-# notes, extended with `classification` for Prompt 7): S01/1A is a
+# The real coverage_matrix() shape: S01/1A is a
 # coverage gap (MED only), S03/2A and S03/2E are wide-coverage-only, S03/2C
 # is complete (no classification).
 MATRIX_ROWS = [

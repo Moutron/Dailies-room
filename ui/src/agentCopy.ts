@@ -1,5 +1,14 @@
 import type { ChatMessage, ClipMeta, ResultRow, SessionContext, ToolEvent } from "./types";
 
+/** Demo prompts shown as composer chips and empty-state suggestions —
+ * real questions this dataset can answer, shared so the two surfaces
+ * can't drift out of sync. */
+export const DEMO_PROMPTS = [
+  "What coverage do we have on the bridge scene?",
+  "Which take of 2A plays best?",
+  "Show me every close-up we shot.",
+];
+
 const SHOT_LABELS: Record<string, string> = {
   extreme_wide: "WIDE",
   wide: "WIDE",
@@ -124,7 +133,7 @@ export interface ClarifyingQuestion {
   options: ClarifyingOption[];
   /** Only set when the candidate rows actually share a take number — never
    * the mockup's blanket "take numbers repeat across slates" claim, which
-   * isn't true of this index (see DESIGN_IMPLEMENTATION_PLAN.md 1.3). */
+   * isn't true of this index. */
   reason: string | null;
 }
 

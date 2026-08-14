@@ -5,7 +5,7 @@ Semantic reuses `agent/tools/search.py`'s real `search_dialogue`/
 %(vec)s) AS distance`, and `distance` survives into the returned rows
 unused by the agent path. Keyword is new: an `ILIKE` path over
 `dialogue.text` and `visuals.description`, since semantic search already
-existed and keyword didn't (DESIGN_IMPLEMENTATION_PLAN.md's Prompt 6).
+existed and keyword didn't.
 
 Both modes search across dialogue lines *and* visual descriptions rather
 than dialogue alone, so a hit can be either kind -- `kind` distinguishes
@@ -25,7 +25,7 @@ _LIMIT = 6
 def _similarity(distance: float) -> float:
     """cosineDistance -> a 0..1-ish similarity score for the score badge.
     Both search_dialogue/search_visuals `ORDER BY distance ASC` (lower =
-    better match -- DESIGN_IMPLEMENTATION_PLAN.md's 1.6), so the score must
+    better match), so the score must
     move the opposite direction. Clamped at 0: a sufficiently dissimilar
     pair can return a distance > 1.
     """

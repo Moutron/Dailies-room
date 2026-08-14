@@ -6,7 +6,7 @@ from ui.server.ingest import ingest_summary
 
 CLIP_COLUMNS = ["clip_id", "duration_s", "ingested_at", "dialogue_count"]
 
-# The real six-clip index (DESIGN_IMPLEMENTATION_PLAN.md's Prompt 4/5 notes):
+# The real six-clip index:
 # S01 clips have 1/2/1 dialogue lines post the timing fix, S03 clips have 0.
 REAL_INDEX_ROWS = [
     ["03_2e_take", 5.8, "2026-08-12 21:50:10", 0],

@@ -58,7 +58,7 @@ signed URL minted server-side (`ui/server/clips.py`). See `docs/UI.md`.
 
 Cloud Run's `dailies-ui` service grants `roles/run.invoker` to
 `allUsers` — anyone with the URL can use the chat endpoint, with no
-login, API key, or rate limiting. This is a deliberate choice for a
+login or API key. This is a deliberate choice for a
 hackathon demo (judges need to hit the live URL with zero setup), not an
 oversight, but it is a real gap for anything beyond a demo:
 

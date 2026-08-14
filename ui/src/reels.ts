@@ -3,8 +3,7 @@ import type { ClipListItem } from "./types";
 /** The design's five shot-size display buckets, same vocabulary as
  * ui/server/coverage_matrix.py's SHOT_COLUMNS — reused for the reel
  * screen's filter checkboxes rather than re-deriving the 8-value enum
- * mapping a third time (DESIGN_IMPLEMENTATION_PLAN.md's notes for
- * Prompt 6). */
+ * mapping a third time. */
 export const SHOT_TYPE_BUCKETS = ["WIDE", "MED", "MCU", "CU", "INSERT"] as const;
 export type ShotTypeBucket = (typeof SHOT_TYPE_BUCKETS)[number];
 

@@ -15,7 +15,7 @@ vi.mock("../api", async () => {
 
 const mockGetIngestSummary = vi.mocked(getIngestSummary);
 
-// The real six-clip index (DESIGN_IMPLEMENTATION_PLAN.md's Prompt 4/5 notes):
+// The real six-clip index:
 // S01 clips have 1/2/1 dialogue lines, S03 clips have 0.
 const SUMMARY: IngestSummary = {
   clips: [

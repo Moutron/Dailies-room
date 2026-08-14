@@ -4,15 +4,18 @@ The agent runner and clip-signing logic are mocked out here so these tests
 don't need real Gemini or ClickHouse access.
 """
 
+import os
 from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
 
 from ui.server import rate_limit
-from ui.server.main import app
+from ui.server.main import _DIST, app
 
 client = TestClient(app)
+
+_dist_built = os.path.isdir(_DIST)
 
 
 @pytest.fixture(autouse=True)
@@ -332,6 +335,22 @@ def test_poster_file_blocks_path_traversal_outside_posters_dir(tmp_path):
             assert exc.status_code == 404
         else:
             raise AssertionError("expected poster_file to reject a path-traversal filename")
+
+
+@pytest.mark.skipif(not _dist_built, reason="requires a built ui/dist (npm run build)")
+def test_spa_fallback_serves_index_html_for_a_react_router_path():
+    resp = client.get("/ask")
+
+    assert resp.status_code == 200
+    assert "text/html" in resp.headers["content-type"]
+
+
+@pytest.mark.skipif(not _dist_built, reason="requires a built ui/dist (npm run build)")
+def test_spa_fallback_serves_index_html_for_a_dynamic_clip_route():
+    resp = client.get("/clip/abc")
+
+    assert resp.status_code == 200
+    assert "text/html" in resp.headers["content-type"]
 
 
 def test_thumb_file_blocks_path_traversal_outside_thumbs_dir(tmp_path):

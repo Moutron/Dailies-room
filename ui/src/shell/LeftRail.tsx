@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
-import { PLACEHOLDER_CHROME } from "./chrome";
 import type { SessionTurn } from "../types";
 
 interface NavItem {
@@ -74,17 +73,6 @@ export function LeftRail({ sessionTurns, filters }: LeftRailProps) {
           </div>
         </>
       )}
-
-      <div className="left-rail__spacer" />
-      <div className="left-rail__user">
-        <div className="left-rail__user-avatar mono" aria-hidden="true">
-          {PLACEHOLDER_CHROME.userInitials}
-        </div>
-        <div>
-          <div className="left-rail__user-name">{PLACEHOLDER_CHROME.userName}</div>
-          <div className="left-rail__user-role mono">{PLACEHOLDER_CHROME.userRole}</div>
-        </div>
-      </div>
     </nav>
   );
 }
