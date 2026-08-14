@@ -15,6 +15,7 @@ RESULT_COLUMNS = [
     "technical_notes",
     "characters_present",
     "summary",
+    "duration_s",
     "reel",
     "tc_start_s",
     "dialogue_lines",
@@ -33,6 +34,7 @@ def _clip_row(
     mood="neutral",
     reel="A001",
     tc_start_s=0.0,
+    duration_s=5.0,
 ):
     return [
         clip_id,
@@ -43,6 +45,7 @@ def _clip_row(
         [],
         ["CELIA"],
         "summary",
+        duration_s,
         reel,
         tc_start_s,
         dialogue_lines,

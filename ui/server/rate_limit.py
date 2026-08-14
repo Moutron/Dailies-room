@@ -43,3 +43,19 @@ def allow(session_id: str) -> bool:
         bucket.tokens -= 1
         return True
     return False
+
+
+def retry_after(session_id: str) -> float:
+    """Seconds until this session_id will next have a token available (0 if
+    it already does), for a real `Retry-After` header instead of a made-up
+    number. Read-only: unlike `allow()`, it doesn't consume a token or write
+    back the refill, so calling it doesn't change when the wait actually
+    ends. Only meaningful right after `allow()` returned False for the same
+    session_id — the bucket may have refilled further by the time this runs.
+    """
+    bucket = _buckets[session_id]
+    elapsed = time.monotonic() - bucket.updated
+    projected_tokens = min(CAPACITY, bucket.tokens + elapsed / REFILL_SECONDS)
+    if projected_tokens >= 1:
+        return 0.0
+    return (1 - projected_tokens) * REFILL_SECONDS

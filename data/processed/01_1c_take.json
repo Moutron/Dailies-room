@@ -1,13 +1,13 @@
 {
   "clip_id": "01_1c_take",
-  "summary": "A woman with a prosthetic arm confronts a man on a bridge, who then admits he is freaked out.",
+  "summary": "A young woman with a prosthetic arm confronts a young man on a bridge, who reluctantly admits he is freaked out.",
   "dialogue": [
     {
-      "start_s": 1.48,
+      "start_s": 1.2,
       "end_s": 3.0,
-      "speaker": "UNKNOWN",
+      "speaker": "MAN",
       "text": "All right, fine. I'm freaked out.",
-      "delivery": "Resigned, slightly exasperated, admitting defeat",
+      "delivery": "Reluctant, slightly exasperated admission",
       "intensity": 0.6
     }
   ],
@@ -15,29 +15,30 @@
     {
       "start_s": 0.0,
       "end_s": 3.0,
-      "description": "A man and a woman stand facing each other on a bridge. The woman has a detailed prosthetic arm and gestures with it towards the man. The man looks at her, then down, then back up as he speaks.",
+      "description": "A young man and a young woman stand on a bridge, facing each other. The woman has a mechanical prosthetic arm extended towards the man. Both are leaning against the bridge railing with trees and buildings in the background.",
       "shot_type": "medium",
       "characters_visible": [
-        "Man",
-        "Woman"
+        "MAN",
+        "WOMAN"
       ],
       "camera_movement": "static",
       "notable_elements": [
-        "Man's dark blue jacket",
-        "Man's patterned grey shirt",
-        "Woman's black and blue athletic jacket",
-        "Woman's black leggings with pink stripe",
-        "Woman's elaborate prosthetic right arm",
-        "Metal bridge railing",
+        "MAN's dark blue bomber jacket",
+        "MAN's patterned grey/white shirt",
+        "WOMAN's black and blue athletic jacket",
+        "WOMAN's black leggings with pink stripe",
+        "WOMAN's mechanical prosthetic right arm/glove",
+        "Green metal bridge railing",
         "Green trees in background",
-        "City buildings in background"
+        "European-style buildings in background",
+        "Overcast lighting"
       ]
     }
   ],
   "characters_present": [
-    "Man",
-    "Woman"
+    "MAN",
+    "WOMAN"
   ],
-  "dominant_mood": "Tense, confrontational, resigned",
+  "dominant_mood": "Tense",
   "technical_notes": []
 }

@@ -2,8 +2,11 @@
 
 import logging
 
+from google.adk.tools import ToolContext
+
 from agent import config
 from agent.tools._errors import reports_index_errors
+from agent.tools._evidence import run_query
 from agent.tools.search import timecode
 from pipeline.embed import embed_batch
 from pipeline.ingest import client
@@ -19,7 +22,12 @@ LINE_MATCH_DISTANCE_THRESHOLD = 0.5
 
 
 @reports_index_errors
-def compare_takes(scene: str, slate: str | None = None, query: str | None = None) -> list[dict]:
+def compare_takes(
+    scene: str,
+    slate: str | None = None,
+    query: str | None = None,
+    tool_context: ToolContext | None = None,
+) -> list[dict]:
     """Get every take of a setup, with performance and technical detail, for comparison.
 
     Use for "which take is best" or "which take plays angriest" style
@@ -90,13 +98,13 @@ def compare_takes(scene: str, slate: str | None = None, query: str | None = None
         WITH matched_clips AS (
             SELECT c.clip_id, c.scene, c.slate, c.take, c.dominant_mood,
                    c.technical_notes, c.characters_present, c.summary,
-                   c.reel, c.tc_start_s
+                   c.duration_s, c.reel, c.tc_start_s
             FROM {config.CH_DATABASE}.clips AS c
             WHERE {clause}
         )
         SELECT mc.clip_id AS clip_id, mc.scene, mc.slate, mc.take, mc.dominant_mood,
                mc.technical_notes, mc.characters_present, mc.summary,
-               mc.reel, mc.tc_start_s,
+               mc.duration_s, mc.reel, mc.tc_start_s,
                dlg.lines AS dialogue_lines,
                vis.start_s AS vis_start_s, vis.end_s AS vis_end_s
         FROM matched_clips AS mc
@@ -113,7 +121,8 @@ def compare_takes(scene: str, slate: str | None = None, query: str | None = None
         ) AS vis ON vis.clip_id = mc.clip_id
         ORDER BY mc.slate, mc.take
     """
-    result = client().query(sql, parameters=params)
+    call_id = tool_context.function_call_id if tool_context else None
+    result = run_query(client(), call_id, "clips, dialogue, visuals", sql, params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
 
     matched_rows = []

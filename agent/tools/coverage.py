@@ -5,8 +5,11 @@ import json
 import logging
 from pathlib import Path
 
+from google.adk.tools import ToolContext
+
 from agent import config
 from agent.tools._errors import reports_index_errors
+from agent.tools._evidence import run_query
 from agent.tools.search import timecode
 from pipeline.ingest import client
 from pipeline.schema import TIGHT_SHOT_TYPES
@@ -41,7 +44,7 @@ def _known_scenes() -> list[str]:
     return [row[0] for row in client().query(sql).result_rows]
 
 
-def _scene_gap_sets(scene: str) -> dict[str, list[str]]:
+def _scene_gap_sets(scene: str, call_id: str | None) -> dict[str, list[str]]:
     """Character sets for gap analysis, aggregated across the whole scene in SQL.
 
     Previously these were accumulated in Python by iterating the listing
@@ -65,12 +68,13 @@ def _scene_gap_sets(scene: str) -> dict[str, list[str]]:
         LEFT JOIN {config.CH_DATABASE}.visuals AS v ON v.clip_id = c.clip_id
         WHERE c.scene = %(scene)s
     """
-    result = client().query(sql, parameters={"scene": scene, "tight_types": list(TIGHT_SHOT_TYPES)})
+    params = {"scene": scene, "tight_types": list(TIGHT_SHOT_TYPES)}
+    result = run_query(client(), call_id, "clips, visuals", sql, params)
     return dict(zip(result.column_names, result.result_rows[0]))
 
 
 @reports_index_errors
-def get_coverage(scene: str | None = None) -> list[dict]:
+def get_coverage(scene: str | None = None, tool_context: ToolContext | None = None) -> list[dict]:
     """List the setups (slates) shot for a scene, with shot type, content, and gaps.
 
     Use for "what coverage do we have" or "are we missing anything" style
@@ -110,7 +114,7 @@ def get_coverage(scene: str | None = None) -> list[dict]:
     sql = f"""
         SELECT c.clip_id, c.scene, c.slate, c.take, c.location, c.day_night,
                c.summary, c.characters_present, c.characters_expected,
-               c.technical_notes, c.reel, c.tc_start_s,
+               c.technical_notes, c.duration_s, c.reel, c.tc_start_s,
                v.shot_type, v.camera_movement,
                min(v.start_s) AS start_s, max(v.end_s) AS end_s
         FROM {config.CH_DATABASE}.clips AS c
@@ -118,11 +122,12 @@ def get_coverage(scene: str | None = None) -> list[dict]:
         {where}
         GROUP BY c.clip_id, c.scene, c.slate, c.take, c.location, c.day_night,
                  c.summary, c.characters_present, c.characters_expected,
-                 c.technical_notes, c.reel, c.tc_start_s, v.shot_type,
+                 c.technical_notes, c.duration_s, c.reel, c.tc_start_s, v.shot_type,
                  v.camera_movement
         ORDER BY c.scene, c.slate, c.take
     """
-    result = client().query(sql, parameters=params)
+    call_id = tool_context.function_call_id if tool_context else None
+    result = run_query(client(), call_id, "clips, visuals", sql, params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
 
     if scene and not rows:
@@ -150,7 +155,7 @@ def get_coverage(scene: str | None = None) -> list[dict]:
         ]
 
     if scene and rows:
-        gap_sets = _scene_gap_sets(scene)
+        gap_sets = _scene_gap_sets(scene, call_id)
         expected: set[str] = set(gap_sets["expected"])
         present: set[str] = set(gap_sets["present"])
         any_shot_chars: set[str] = set(gap_sets["any_shot_chars"])

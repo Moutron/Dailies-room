@@ -1,53 +1,53 @@
 {
   "clip_id": "01_1b_take",
-  "summary": "A woman confronts a man on a bridge, accusing him of being freaked out by her robotic hand, which he denies.",
+  "summary": "A woman with a robotic arm confronts a man on a bridge, accusing him of being freaked out by her arm, which he denies.",
   "dialogue": [
     {
       "start_s": 0.0,
-      "end_s": 0.04,
-      "speaker": "WOMAN",
+      "end_s": 3.8,
+      "speaker": "ROBOT_ARM_WOMAN",
       "text": "Why don't you just admit that you're freaked out by my robot hand?",
-      "delivery": "Accusatory, frustrated, gesturing with her robotic arm",
+      "delivery": "Accusatory and frustrated, with a slight upward inflection at the end.",
       "intensity": 0.8
     },
     {
-      "start_s": 0.04,
-      "end_s": 0.05,
+      "start_s": 4.0,
+      "end_s": 4.9,
       "speaker": "MAN",
-      "text": "I'm not freaked out by it's...",
-      "delivery": "Defensive, slightly flustered, cut off",
+      "text": "I'm not freaked out by, but it's...",
+      "delivery": "Defensive and slightly flustered, trailing off as if searching for words.",
       "intensity": 0.6
     }
   ],
   "visuals": [
     {
       "start_s": 0.0,
-      "end_s": 0.05,
-      "description": "A woman with a robotic arm on her right side stands on a bridge, leaning on the railing, and confronts a man who is also leaning on the railing, facing her. They are outdoors with trees and buildings in the background.",
+      "end_s": 5.0,
+      "description": "A man and a woman stand on a bridge railing, facing each other. The woman, wearing a black and blue jacket and a robotic arm, gestures towards the man. The man, in a dark jacket and patterned sweater, listens intently and then begins to speak. A canal and green trees are visible in the background.",
       "shot_type": "medium",
       "characters_visible": [
-        "WOMAN",
+        "ROBOT_ARM_WOMAN",
         "MAN"
       ],
       "camera_movement": "static",
       "notable_elements": [
-        "WOMAN's black and blue bomber jacket",
-        "WOMAN's black and pink leggings",
-        "WOMAN's robotic right arm",
-        "MAN's dark blue jacket",
-        "MAN's patterned grey sweater",
+        "ROBOT_ARM_WOMAN's black and blue bomber jacket",
+        "ROBOT_ARM_WOMAN's black leggings with pink stripe",
+        "ROBOT_ARM_WOMAN's metallic robotic right arm",
+        "MAN's dark blue bomber jacket",
+        "MAN's patterned grey and white sweater",
         "Dark green metal bridge railing",
-        "Green trees in background",
-        "European-style buildings in background"
+        "Green trees and foliage",
+        "Canal water",
+        "Distant buildings",
+        "Overcast lighting"
       ]
     }
   ],
   "characters_present": [
-    "WOMAN",
+    "ROBOT_ARM_WOMAN",
     "MAN"
   ],
   "dominant_mood": "Confrontational",
-  "technical_notes": [
-    "MAN's dialogue is cut off abruptly"
-  ]
+  "technical_notes": []
 }

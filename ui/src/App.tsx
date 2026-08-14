@@ -1,29 +1,27 @@
-import { useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Attribution } from "./components/Attribution";
-import { ClipPlayer } from "./components/ClipPlayer";
-import { SessionView } from "./components/SessionView";
-import type { ActiveClip } from "./types";
+import { AskPage } from "./pages/AskPage";
+import { ClipDetailPage } from "./pages/ClipDetailPage";
+import { CoveragePage } from "./pages/CoveragePage";
+import { IngestPage } from "./pages/IngestPage";
+import { ReelsPage } from "./pages/ReelsPage";
+import { ShotListPage } from "./pages/ShotListPage";
 
 export default function App() {
-  const [active, setActive] = useState<ActiveClip | null>(null);
-
-  function onSeek(clipId: string, seconds: number) {
-    setActive((prev) => ({
-      clipId,
-      seekSeconds: seconds,
-      nonce: (prev?.nonce ?? 0) + 1,
-    }));
-  }
-
   return (
     <div className="app">
-      <header className="app__header">
-        <h1>The Dailies Room</h1>
-      </header>
-      <main className="app__main">
-        <SessionView onSeek={onSeek} />
-        <ClipPlayer active={active} />
-      </main>
+      <div className="app__routes">
+        <Routes>
+          <Route path="/" element={<Navigate to="/ask" replace />} />
+          <Route path="/ask" element={<AskPage />} />
+          <Route path="/coverage" element={<CoveragePage />} />
+          <Route path="/reels" element={<ReelsPage />} />
+          <Route path="/shot-list" element={<ShotListPage />} />
+          <Route path="/ingest" element={<IngestPage />} />
+          <Route path="/clip/:clipId" element={<ClipDetailPage />} />
+          <Route path="*" element={<Navigate to="/ask" replace />} />
+        </Routes>
+      </div>
       <Attribution />
     </div>
   );

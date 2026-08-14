@@ -2,8 +2,11 @@
 
 import logging
 
+from google.adk.tools import ToolContext
+
 from agent import config
 from agent.tools._errors import reports_index_errors
+from agent.tools._evidence import run_query
 from pipeline.embed import embed_batch
 from pipeline.ingest import client
 
@@ -16,6 +19,7 @@ def search_dialogue(
     limit: int = 8,
     scene: str | None = None,
     speaker: str | None = None,
+    tool_context: ToolContext | None = None,
 ) -> list[dict]:
     """Find spoken lines matching a description, meaning-based not keyword.
 
@@ -52,7 +56,8 @@ def search_dialogue(
         ORDER BY distance ASC
         LIMIT %(limit)s
     """
-    result = client().query(sql, parameters=params)
+    call_id = tool_context.function_call_id if tool_context else None
+    result = run_query(client(), call_id, "dialogue", sql, params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
     for row in rows:
         offset = row.pop("tc_start_s")
@@ -66,7 +71,12 @@ def search_dialogue(
 
 
 @reports_index_errors
-def search_visuals(query: str, limit: int = 8, shot_type: str | None = None) -> list[dict]:
+def search_visuals(
+    query: str,
+    limit: int = 8,
+    shot_type: str | None = None,
+    tool_context: ToolContext | None = None,
+) -> list[dict]:
     """Find shots matching a visual description.
 
     Use for questions about what is on screen — framing, action, props,
@@ -94,7 +104,8 @@ def search_visuals(query: str, limit: int = 8, shot_type: str | None = None) -> 
         ORDER BY distance ASC
         LIMIT %(limit)s
     """
-    result = client().query(sql, parameters=params)
+    call_id = tool_context.function_call_id if tool_context else None
+    result = run_query(client(), call_id, "visuals", sql, params)
     rows = [dict(zip(result.column_names, row)) for row in result.result_rows]
     for row in rows:
         offset = row.pop("tc_start_s")

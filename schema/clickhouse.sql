@@ -104,3 +104,39 @@ CREATE TABLE IF NOT EXISTS DailiesRoom.visuals (
 )
 ENGINE = ReplacingMergeTree(ingested_at)
 ORDER BY (scene, clip_id, start_s);
+
+-- The product's first write path: whether a clip is circled. Toggling
+-- inserts a new row rather than updating in place -- ReplacingMergeTree
+-- keyed on clip_id keeps that idempotent (see ui/server/circle.py, which
+-- also documents why every read resolves the winner with argMax(circled,
+-- updated_at) instead of trusting a plain SELECT to already be
+-- deduplicated). updated_at is DateTime64(3), not plain DateTime: a
+-- second-resolution version column made two toggles within the same
+-- second indistinguishable to argMax, which then broke ties arbitrarily
+-- -- confirmed live (circle, then un-circle inside one second, and the
+-- read-back stayed circled about half the time).
+CREATE TABLE IF NOT EXISTS DailiesRoom.circled_takes (
+    clip_id    String,
+    circled    UInt8,
+    updated_at DateTime64(3) DEFAULT now64(3)
+)
+ENGINE = ReplacingMergeTree(updated_at)
+ORDER BY clip_id;
+
+-- Screen #1g's shot list. Rows are never authored by hand -- generated
+-- live from coverage_matrix.py's real per-row classification and upserted
+-- (see ui/server/shot_list.py). row_id is deterministic (scene-slate), so
+-- regenerating lands in the same slot and a user's `selected` toggle
+-- survives it. created_at is DateTime64(3) for the same tie-breaking
+-- reason as circled_takes.updated_at above.
+CREATE TABLE IF NOT EXISTS DailiesRoom.shot_list (
+    row_id         String,
+    title          String,
+    reason         String,
+    source_clip    String,
+    classification String,
+    selected       UInt8,
+    created_at     DateTime64(3) DEFAULT now64(3)
+)
+ENGINE = ReplacingMergeTree(created_at)
+ORDER BY row_id;

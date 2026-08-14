@@ -13,6 +13,7 @@ from google.adk.runners import InMemoryRunner
 from google.genai import types
 
 from agent.agent import root_agent
+from agent.tools import _evidence
 
 APP_NAME = "dailies-room"
 
@@ -50,6 +51,9 @@ async def stream_chat(message: str, session_id: str) -> AsyncIterator[str]:
 
             for resp in event.get_function_responses():
                 yield _sse("tool_result", {"tool": resp.name, "result": resp.response})
+                evidence = _evidence.pop(resp.id)
+                if evidence:
+                    yield _sse("tool_evidence", {"tool": resp.name, "queries": evidence})
 
             if event.content and event.content.parts:
                 text = "".join(p.text for p in event.content.parts if getattr(p, "text", None))
@@ -59,4 +63,19 @@ async def stream_chat(message: str, session_id: str) -> AsyncIterator[str]:
         yield _sse("error", {"message": f"The agent failed to respond ({exc.__class__.__name__})."})
         return
 
-    yield _sse("done", {})
+    yield _sse("done", {"turn_count": await _user_turn_count(session_id)})
+
+
+async def _user_turn_count(session_id: str) -> int:
+    """How many user turns this session actually has, from the real ADK
+    session history — not the client's local count. If Cloud Run routes a
+    later request in the same session to an instance that never saw the
+    earlier ones (session affinity miss), `_ensure_session` above silently
+    starts a fresh session under the same id; this is how the client can
+    tell that happened, by comparing against how many turns *it* sent."""
+    session = await _runner.session_service.get_session(
+        app_name=APP_NAME, user_id="director", session_id=session_id
+    )
+    if session is None:
+        return 0
+    return sum(1 for event in session.events if event.author == "user")

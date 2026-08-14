@@ -1,29 +1,21 @@
 {
   "clip_id": "01_1a_take",
-  "summary": "A man passionately discusses following passions and being 'awesome in space' with a woman who listens intently on a bridge.",
+  "summary": "A man passionately tells a woman on a bridge that they need to follow their passions, contrasting her robotics with his desire to be \"awesome in space.\"",
   "dialogue": [
     {
-      "start_s": 0.001,
-      "end_s": 0.025,
+      "start_s": 0.0,
+      "end_s": 4.8,
       "speaker": "MAN",
-      "text": "we have to follow our passions.",
-      "delivery": "earnest and slightly pleading, with conviction",
+      "text": "Lia, we have to follow our passions. You have your robotics and I just want to be awesome in space.",
+      "delivery": "Animated and earnest, expressing a strong belief in pursuing individual dreams.",
       "intensity": 0.7
-    },
-    {
-      "start_s": 0.025,
-      "end_s": 0.05,
-      "speaker": "MAN",
-      "text": "You have your robotics and I just want to be awesome in space.",
-      "delivery": "enthusiastic and determined, with a hopeful tone",
-      "intensity": 0.8
     }
   ],
   "visuals": [
     {
       "start_s": 0.0,
       "end_s": 5.0,
-      "description": "A man and a woman stand on a bridge, leaning against the railing. The man speaks animatedly, gesturing with his hands, while the woman listens with a thoughtful expression. A canal and buildings are visible in the background.",
+      "description": "A man and a woman stand on a black metal bridge railing over a canal. The man, on the left, speaks animatedly, gesturing with his hands. The woman, on the right, listens intently, leaning on the railing with her robotic right arm. Trees and buildings line the canal in the background under an overcast sky.",
       "shot_type": "medium",
       "characters_visible": [
         "MAN",
@@ -31,12 +23,17 @@
       ],
       "camera_movement": "static",
       "notable_elements": [
-        "MAN: dark blue bomber jacket, patterned grey/white long-sleeve shirt, dark jeans",
-        "WOMAN: black puffer vest, blue long-sleeve top, black leggings with pink stripes, robotic arm on right arm",
+        "MAN's black bomber jacket",
+        "MAN's patterned grey sweater",
+        "WOMAN's black puffer vest",
+        "WOMAN's blue long-sleeve shirt",
+        "WOMAN's pink and black leggings",
+        "WOMAN's silver robotic right arm",
         "Black metal bridge railing",
-        "Canal with boats in background",
-        "Green trees and buildings in background",
-        "Overcast sky"
+        "Green trees",
+        "Canal",
+        "Buildings",
+        "Overcast weather"
       ]
     }
   ],
@@ -44,6 +41,6 @@
     "MAN",
     "WOMAN"
   ],
-  "dominant_mood": "earnest and contemplative",
+  "dominant_mood": "Enthusiastic",
   "technical_notes": []
 }

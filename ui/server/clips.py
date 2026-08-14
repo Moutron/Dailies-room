@@ -52,6 +52,7 @@ def signed_clip_url(clip_id: str) -> str:
 
 THUMBS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "data", "thumbs")
 THUMB_INTERVAL_S = 2.0  # matches the ffmpeg `fps=0.5` used to generate them
+POSTERS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "data", "posters")
 
 
 def thumbnails(clip_id: str) -> list[dict]:

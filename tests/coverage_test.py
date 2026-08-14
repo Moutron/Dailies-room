@@ -17,6 +17,7 @@ COLUMNS = [
     "characters_present",
     "characters_expected",
     "technical_notes",
+    "duration_s",
     "reel",
     "tc_start_s",
     "shot_type",
@@ -38,6 +39,7 @@ def _row(
     characters_expected=None,
     reel="A001",
     tc_start_s=0.0,
+    duration_s=5.0,
 ):
     return [
         clip_id,
@@ -50,6 +52,7 @@ def _row(
         characters_present or characters_visible,
         characters_expected or ["CELIA", "THOM", "MARCO"],
         [],
+        duration_s,
         reel,
         tc_start_s,
         shot_type,

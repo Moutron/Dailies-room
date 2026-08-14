@@ -1,23 +1,64 @@
 :root {
-  /* Neutral grays, deliberately desaturated so footage colour reads true.
-     Nothing in the chrome competes with the image. */
-  --suite-black:  #131313;   /* deepest surface */
-  --suite-panel:  #1D1D1E;   /* raised panels */
-  --suite-line:   #333335;   /* dividers, frame edges */
-  --suite-text:   #D6D4CF;   /* warm off-white, easier at length than pure white */
-  --suite-dim:    #7A7873;   /* secondary text, metadata */
+  /* ---------- Color ---------- */
+  --bg: #08080a; /* page / content background */
+  --bg-chrome: #0a0a0d; /* top bar, rail, viewer panel */
+  --bg-surface: #0b0b0f; /* cards, tables */
+  --bg-surface-alt: #0e0e13; /* table headers */
+  --bg-raised: #0d0d11; /* composer input */
+  --bg-row-hl: #0f0e15; /* circled take row */
+  --bg-row-hl-2: #0d0c13; /* in-flight row */
+  --bg-bubble: #17161f; /* user message, active nav */
+  --bg-chip: #141419; /* neutral pills, secondary highlight */
+  --bg-chip-2: #1b1a24; /* take chips */
 
-  /* One accent only, borrowed from the record indicator. Used exclusively
-     for the current selection and playhead — never decoratively. */
-  --tally:        #E03E2F;
+  --border: #1b1b21; /* structural dividers */
+  --border-subtle: #17171d; /* table row separators */
+  --border-card: #1e1e26; /* card and table outlines */
+  --border-input: #26262f; /* inputs, secondary buttons */
+  --border-strong: #2c2c36; /* avatars, unselected controls */
+  --border-strong-2: #2a2a34; /* unselected controls, alt */
 
-  --flag-note:    #C9A227;   /* technical problems — sparing */
+  --accent: #7a6ff0; /* agent reasoning, primary actions */
+  --accent-hover: #8b81f3; /* primary button hover */
+  --accent-text: #9a92f5; /* violet text on dark */
+  --accent-text-soft: #c3bdfa; /* violet data text, clip ids */
+  --accent-bg: #100e1a; /* violet surfaces */
+  --accent-bg-2: #1c1a2b; /* violet pills */
+  --accent-bg-3: #211f33; /* violet chips */
+  --accent-bg-4: #171528; /* violet options */
+  --accent-border: #2e2a4a; /* violet outlines */
+  --accent-border-2: #3a3560; /* violet outlines, stronger */
+  --accent-muted: #3f3b5c; /* completed progress */
 
-  /* Typography */
-  --font-ui: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", "Menlo", monospace;
+  --text: #f6f5fa; /* page headlines */
+  --text-1: #f1f0f6; /* primary */
+  --text-2: #eeedf4; /* data values */
+  --text-2-alt: #e9e8ef; /* data values, alt */
+  --text-3: #d9d8e1; /* body prose */
+  --text-3-alt: #c9c7d4; /* body prose, alt */
+  --text-4: #b6b4c1; /* secondary prose */
+  --text-4-alt: #a9a7b4; /* secondary prose, alt */
+  --text-5: #8a8895; /* tertiary, captions */
+  --text-5-alt: #7f7d8b; /* tertiary, captions, alt */
+  --text-6: #5a5865; /* section labels */
+  --text-7: #4f4d5a; /* least emphasis */
+  --text-8: #3c3c46; /* placeholder text */
+  --text-8-alt: #38383f; /* separators */
+  --text-8-alt-2: #2f2f38; /* separators, alt */
 
-  /* Spacing scale */
+  --on-accent: #0a0a0c; /* text on violet */
+  --on-accent-2: #08080a; /* text on violet, alt */
+
+  --flag-note: #c9a227; /* technical problems — sparing */
+
+  /* ---------- Typography ---------- */
+  --font-ui: "Archivo Variable", "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+
+  /* ---------- Spacing ----------
+     4px base; new screens use literal px values per the handoff (it names
+     colors and radii as reusable tokens, not spacing). Legacy step scale
+     below is kept only for the pre-redesign shell (App/Attribution). */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -26,6 +67,43 @@
   --space-6: 32px;
   --space-7: 48px;
 
-  --radius: 3px;
-  --focus-ring: 0 0 0 2px var(--suite-black), 0 0 0 4px var(--tally);
+  /* ---------- Radii ---------- */
+  --radius-2: 2px; /* agent chip */
+  --radius-3: 3px; /* badges, small bars */
+  --radius-4: 4px; /* pills, cells */
+  --radius-5: 5px; /* nav, buttons */
+  --radius-6: 6px; /* players, notes */
+  --radius-7: 7px; /* cards */
+  --radius-8: 8px; /* cards */
+  --radius-9: 9px; /* composer, message bubble */
+  --radius-10: 10px; /* large tables */
+  --radius-20: 20px; /* search field, chips */
+  --radius-full: 50%; /* avatars, transport */
+
+  /* ---------- Placeholder fill ---------- */
+  --placeholder-fill: repeating-linear-gradient(115deg, #121218 0 9px, #0d0d12 9px 18px);
+  --placeholder-fill-tight: repeating-linear-gradient(115deg, #121218 0 6px, #0c0c10 6px 12px);
+  --placeholder-fill-accent: repeating-linear-gradient(115deg, #141420 0 9px, #0e0e15 9px 18px);
+
+  /* ---------- Focus ---------- */
+  --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+
+  /* Retained for the pre-redesign UI shell (App/Attribution) until it is rebuilt. */
+  --suite-black: var(--bg);
+  --suite-panel: var(--bg-surface);
+  --suite-line: var(--border);
+  --suite-text: var(--text-1);
+  --suite-dim: var(--text-5-alt);
+  --tally: var(--accent);
+  --radius: var(--radius-5);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }

@@ -1,5 +1,14 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { getClipUrl, getThumbnails, rowsFromToolResult, streamChat, timecodeToSeconds } from "./api";
+import {
+  getClipMeta,
+  getClipUrl,
+  getPosterUrl,
+  getStats,
+  getThumbnails,
+  rowsFromToolResult,
+  streamChat,
+  timecodeToSeconds,
+} from "./api";
 
 describe("timecodeToSeconds", () => {
   it("converts HH:MM:SS:FF back to seconds", () => {
@@ -88,6 +97,50 @@ describe("getThumbnails", () => {
   });
 });
 
+describe("getPosterUrl", () => {
+  it("builds a deterministic /posters path, no fetch involved", () => {
+    expect(getPosterUrl("01_1a_take")).toBe("/posters/01_1a_take.jpg");
+  });
+
+  it("encodes the clip id", () => {
+    expect(getPosterUrl("clip/weird id")).toBe("/posters/clip%2Fweird%20id.jpg");
+  });
+});
+
+describe("getClipMeta", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("returns the metadata on success", async () => {
+    const meta = { clip_id: "01_1a_take", scene: "S01" };
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(meta) }));
+    await expect(getClipMeta("01_1a_take")).resolves.toEqual(meta);
+  });
+
+  it("returns null on failure instead of throwing", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false, status: 404 }));
+    await expect(getClipMeta("missing")).resolves.toBeNull();
+  });
+});
+
+describe("getStats", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("returns real stats on success", async () => {
+    const stats = { clip_count: 6, total_duration_s: 29.83 };
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(stats) }));
+    await expect(getStats()).resolves.toEqual(stats);
+  });
+
+  it("returns null on failure instead of throwing", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false, status: 500 }));
+    await expect(getStats()).resolves.toBeNull();
+  });
+});
+
 describe("streamChat", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -125,6 +178,28 @@ describe("streamChat", () => {
     ]);
   });
 
+  it("parses a tool_evidence frame", async () => {
+    const frames =
+      'event: tool_evidence\ndata: {"tool": "search_dialogue", "queries": [{"table": "dialogue", "sql": "SELECT 1", "elapsed_ms": 1.2, "row_count": 3}]}\n\n';
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({ ok: true, body: bodyFromFrames(frames) })
+    );
+
+    const events = [];
+    for await (const event of streamChat("hi", "session-1")) {
+      events.push(event);
+    }
+
+    expect(events).toEqual([
+      {
+        type: "tool_evidence",
+        tool: "search_dialogue",
+        queries: [{ table: "dialogue", sql: "SELECT 1", elapsed_ms: 1.2, row_count: 3 }],
+      },
+    ]);
+  });
+
   it("yields an error event when the response is not ok", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false, status: 500, body: null }));
 
@@ -136,5 +211,43 @@ describe("streamChat", () => {
     expect(events).toEqual([
       { type: "error", message: "The server returned an unexpected response (500)." },
     ]);
+  });
+
+  it("yields a rate_limited event with the real Retry-After seconds on 429", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: false,
+        status: 429,
+        body: null,
+        headers: { get: (name: string) => (name === "Retry-After" ? "3" : null) },
+      })
+    );
+
+    const events = [];
+    for await (const event of streamChat("hi", "session-1")) {
+      events.push(event);
+    }
+
+    expect(events).toEqual([{ type: "rate_limited", retryAfterSeconds: 3 }]);
+  });
+
+  it("defaults retryAfterSeconds to 0 when the header is missing", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: false,
+        status: 429,
+        body: null,
+        headers: { get: () => null },
+      })
+    );
+
+    const events = [];
+    for await (const event of streamChat("hi", "session-1")) {
+      events.push(event);
+    }
+
+    expect(events).toEqual([{ type: "rate_limited", retryAfterSeconds: 0 }]);
   });
 });
