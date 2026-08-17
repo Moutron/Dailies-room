@@ -45,7 +45,7 @@ design notes in `docs/UI.md`.
 
 ## Demo
 
-Live: https://dailies-ui-nz35hyam4a-uc.a.run.app
+Live: https://dailies-ui-766122679114.us-central1.run.app
 
 See `docs/RUNBOOK.md` for how to run it live. A recorded walkthrough:
 `TODO — demo video link (added with the Devpost submission)`.

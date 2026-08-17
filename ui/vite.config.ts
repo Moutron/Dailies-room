@@ -20,6 +20,7 @@ export default defineConfig({
       '/stats': 'http://localhost:8001',
       '/coverage/matrix': 'http://localhost:8001',
       '/ingest/summary': 'http://localhost:8001',
+      '/ingest/upload': 'http://localhost:8001',
       '/clips': 'http://localhost:8001',
       '/search': 'http://localhost:8001',
       // Only the API leaves under /shot-list/rows/..., never the bare

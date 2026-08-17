@@ -29,6 +29,14 @@ COPY data/posters/ ./data/posters/
 # unreachable" (a ClickHouse-shaped error for a completely unrelated cause).
 COPY data/manifest.json ./data/manifest.json
 
+# pipeline/encode.py (frame-sequence uploads) and pipeline/posters.py
+# (poster extraction) both shell out to ffmpeg at request time, not just in
+# the offline pipeline scripts -- ui/server/upload.py calls them
+# synchronously inside POST /ingest/upload, so ffmpeg has to exist in the
+# runtime image itself, not just wherever the offline scripts happen to run.
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN pip install --no-cache-dir .[ui]
 
 COPY --from=frontend /app/ui/dist ./ui/dist

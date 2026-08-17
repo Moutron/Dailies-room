@@ -235,6 +235,34 @@ export interface IngestSummary {
   most_recent_ingested_at: string | null;
 }
 
+/** Metadata form fields for POST /ingest/upload (ui/server/upload.py).
+ * scene/slate/take are required; everything else is either optional or
+ * defaulted server-side to the same empty values ingest_all() already
+ * uses. Nothing here is inferred -- every value is what the user typed. */
+export interface UploadMetadata {
+  clipId: string;
+  scene: string;
+  slate: string;
+  take: string;
+  reel?: string;
+  tcStartS?: string;
+  location?: string;
+  dayNight?: string;
+  intExt?: string;
+  charactersExpected?: string;
+  fps?: string;
+}
+
+/** POST /ingest/upload's payload: either a single mp4 file, or an ordered
+ * set of still frames to be encoded server-side (pipeline/encode.py). */
+export type UploadPayload = { mode: "mp4"; file: File } | { mode: "frames"; files: File[] };
+
+/** Result of POST /ingest/upload. On failure, `error` is the server's own
+ * detail message, verbatim -- the form must show the real reason (bad
+ * clip_id, oversize upload, undecodable video, ...), never a generic
+ * "upload failed". */
+export type UploadResult = { ok: true; clip: IngestClip } | { ok: false; error: string };
+
 /** One result of GET /search — ui/server/search.py's browse_search(). A
  * dialogue hit carries a speaker and a real performance-note (delivery); a
  * visual hit has neither, and its note is the real camera_movement instead

@@ -19,6 +19,7 @@ from functools import lru_cache
 import google.auth
 from google.auth.transport.requests import Request
 from google.cloud import storage
+from google.cloud.exceptions import NotFound
 
 from agent import config
 
@@ -37,9 +38,9 @@ def _credentials():
     return creds
 
 
-def signed_clip_url(clip_id: str) -> str:
-    """A short-lived, signed GET URL for `clips/{clip_id}.mp4`."""
-    blob = _storage_client().bucket(config.GCS_BUCKET).blob(f"clips/{clip_id}.mp4")
+def signed_url_for(blob_name: str) -> str:
+    """A short-lived, signed GET URL for an arbitrary blob in the bucket."""
+    blob = _storage_client().bucket(config.GCS_BUCKET).blob(blob_name)
     creds = _credentials()
     return blob.generate_signed_url(
         version="v4",
@@ -48,6 +49,30 @@ def signed_clip_url(clip_id: str) -> str:
         service_account_email=SIGNER_SA_EMAIL,
         access_token=creds.token,
     )
+
+
+def signed_clip_url(clip_id: str) -> str:
+    """A short-lived, signed GET URL for `clips/{clip_id}.mp4`."""
+    return signed_url_for(f"clips/{clip_id}.mp4")
+
+
+def upload_blob(local_path: str, blob_name: str, content_type: str) -> None:
+    """Uploads a local file to `blob_name` in the bucket. Used by the upload
+    endpoint (ui/server/upload.py) to write an ingested clip's mp4 and
+    poster -- everything else in this module only ever reads."""
+    blob = _storage_client().bucket(config.GCS_BUCKET).blob(blob_name)
+    blob.upload_from_filename(local_path, content_type=content_type)
+
+
+def delete_blob(blob_name: str) -> None:
+    """Best-effort delete, for rolling back a partially-ingested upload.
+    A blob that was never written (a step failed before it got that far)
+    is not an error here."""
+    blob = _storage_client().bucket(config.GCS_BUCKET).blob(blob_name)
+    try:
+        blob.delete()
+    except NotFound:
+        pass
 
 
 THUMBS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "data", "thumbs")

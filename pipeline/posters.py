@@ -24,15 +24,10 @@ POSTER_WIDTH = 960
 POSTER_HEIGHT = 540  # 16:9
 
 
-def extract_poster(clip_id: str, out_dir: Path = POSTERS_DIR) -> Path:
-    """Writes {out_dir}/{clip_id}.jpg from the frame at the clip's midpoint."""
-    duration = clip_duration_s(clip_id)
-    if duration is None:
-        raise FileNotFoundError(f"no source clip for {clip_id!r} in {CLIPS_DIR}")
+def _extract_poster_from(source: Path, duration: float, out: Path) -> Path:
+    """Writes `out` from the frame at `source`'s midpoint (given duration)."""
     midpoint = duration / 2
-
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / f"{clip_id}.jpg"
+    out.parent.mkdir(parents=True, exist_ok=True)
     subprocess.run(
         [
             "ffmpeg",
@@ -40,7 +35,7 @@ def extract_poster(clip_id: str, out_dir: Path = POSTERS_DIR) -> Path:
             "-ss",
             f"{midpoint:.3f}",
             "-i",
-            str(CLIPS_DIR / f"{clip_id}.mp4"),
+            str(source),
             "-frames:v",
             "1",
             "-vf",
@@ -54,6 +49,14 @@ def extract_poster(clip_id: str, out_dir: Path = POSTERS_DIR) -> Path:
         capture_output=True,
     )
     return out
+
+
+def extract_poster(clip_id: str, out_dir: Path = POSTERS_DIR) -> Path:
+    """Writes {out_dir}/{clip_id}.jpg from the frame at the clip's midpoint."""
+    duration = clip_duration_s(clip_id)
+    if duration is None:
+        raise FileNotFoundError(f"no source clip for {clip_id!r} in {CLIPS_DIR}")
+    return _extract_poster_from(CLIPS_DIR / f"{clip_id}.mp4", duration, out_dir / f"{clip_id}.jpg")
 
 
 def extract_all_posters(out_dir: Path = POSTERS_DIR) -> list[Path]:

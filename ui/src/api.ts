@@ -10,6 +10,9 @@ import type {
   SearchResponse,
   ShotListRow,
   Thumbnail,
+  UploadMetadata,
+  UploadPayload,
+  UploadResult,
 } from "./types";
 
 /** 24fps -- Tears of Steel's source frame rate, this dataset's footage. An
@@ -235,4 +238,44 @@ export async function getIngestSummary(): Promise<IngestSummary | null> {
   const res = await fetch("/ingest/summary");
   if (!res.ok) return null;
   return res.json();
+}
+
+/** Runs an uploaded clip through the real pipeline synchronously — POST
+ * /ingest/upload (ui/server/upload.py). One request: GCS -> Gemini -> embed
+ * -> ClickHouse, so this doesn't resolve until the clip is either fully
+ * searchable or the whole thing has failed and been rolled back. Unlike
+ * this file's other getters, failure carries the server's own message
+ * (`ok: false, error`) rather than collapsing to null — there is no single
+ * generic reason an upload can fail, and the caller must show the real one. */
+export async function uploadFootage(
+  meta: UploadMetadata,
+  payload: UploadPayload,
+  sessionId: string
+): Promise<UploadResult> {
+  const form = new FormData();
+  form.set("session_id", sessionId);
+  form.set("clip_id", meta.clipId);
+  form.set("scene", meta.scene);
+  form.set("slate", meta.slate);
+  form.set("take", meta.take);
+  if (meta.reel) form.set("reel", meta.reel);
+  if (meta.tcStartS) form.set("tc_start_s", meta.tcStartS);
+  if (meta.location) form.set("location", meta.location);
+  if (meta.dayNight) form.set("day_night", meta.dayNight);
+  if (meta.intExt) form.set("int_ext", meta.intExt);
+  if (meta.charactersExpected) form.set("characters_expected", meta.charactersExpected);
+  if (payload.mode === "frames" && meta.fps) form.set("fps", meta.fps);
+
+  if (payload.mode === "mp4") {
+    form.set("mp4", payload.file);
+  } else {
+    for (const frame of payload.files) form.append("frames", frame);
+  }
+
+  const res = await fetch("/ingest/upload", { method: "POST", body: form });
+  const data = await res.json().catch(() => null);
+  if (!res.ok) {
+    return { ok: false, error: data?.detail ?? `The server returned an unexpected response (${res.status}).` };
+  }
+  return { ok: true, clip: data };
 }

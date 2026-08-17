@@ -2536,6 +2536,7 @@ a {
   }
 
   body.shot-list-print-target .top-bar,
+  body.shot-list-print-target .left-rail,
   body.shot-list-print-target .shot-list-page__actions {
     display: none !important;
   }
@@ -2750,6 +2751,116 @@ a {
   font-size: 10px;
   letter-spacing: 0.06em;
   color: var(--text-6);
+}
+
+.ingest-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  background: var(--bg-surface);
+}
+
+.ingest-upload__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ingest-upload__overline {
+  font: 600 9.5px/1 var(--font-mono);
+  letter-spacing: 0.16em;
+  color: var(--text-6);
+}
+
+.ingest-upload__mode {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: 600 9px/1 var(--font-mono);
+  color: var(--accent-text);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+
+.ingest-upload__file input[type="file"] {
+  font: 400 12px/1.4 var(--font-ui);
+  color: var(--text-4-alt);
+}
+
+.ingest-upload__frames-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-6);
+}
+
+.ingest-upload__fps-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ingest-upload__fps-input {
+  width: 52px;
+  padding: 4px 6px;
+  border: 1px solid var(--border-input);
+  border-radius: 5px;
+  background: transparent;
+  font: 400 11px/1 var(--font-mono);
+  color: var(--text-3-alt);
+}
+
+.ingest-upload__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.ingest-upload__fields input {
+  padding: 8px 10px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-20);
+  background: transparent;
+  font: 400 12px/1 var(--font-ui);
+  color: var(--text-3-alt);
+}
+
+.ingest-upload__fields input::placeholder {
+  color: var(--text-7);
+}
+
+.ingest-upload__status {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--accent-text-soft);
+}
+
+.ingest-upload__error {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-5-alt);
+}
+
+.ingest-upload__submit {
+  align-self: flex-start;
+  padding: 9px 18px;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-20);
+  background: var(--accent-bg);
+  font: 600 10px/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+.ingest-upload__submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .left-rail__stat {

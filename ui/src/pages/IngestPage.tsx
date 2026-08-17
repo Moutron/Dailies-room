@@ -1,7 +1,8 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import { getIngestSummary } from "../api";
 import { formatDuration } from "../agentCopy";
 import { formatIngestedAt } from "../clipDetail";
+import { IngestUpload } from "../components/IngestUpload";
 import { Shell } from "../shell/Shell";
 import type { IngestClip, IngestSummary } from "../types";
 
@@ -44,20 +45,20 @@ export function IngestPage() {
   const [summary, setSummary] = useState<IngestSummary | null>(null);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
-    let cancelled = false;
+  const refetch = useCallback(() => {
     getIngestSummary().then((s) => {
-      if (cancelled) return;
       if (!s) {
         setError(true);
         return;
       }
+      setError(false);
       setSummary(s);
     });
-    return () => {
-      cancelled = true;
-    };
   }, []);
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   const railStats = summary && (
     <>
@@ -75,6 +76,7 @@ export function IngestPage() {
   return (
     <Shell filters={railStats}>
       <div className="ingest-page">
+        <IngestUpload onUploaded={refetch} />
         {error && <p className="ingest-page__error">Could not load the pipeline index.</p>}
         {summary && (
           <>

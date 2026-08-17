@@ -74,7 +74,6 @@ export function ShotListPage() {
 
   return (
     <Shell
-      showRail={false}
       topBarRight={
         <div className="shot-list-page__actions">
           <button type="button" className="shot-list-page__btn" onClick={() => window.print()}>

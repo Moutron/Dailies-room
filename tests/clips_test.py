@@ -2,7 +2,9 @@
 
 from unittest.mock import MagicMock, patch
 
-from ui.server.clips import signed_clip_url, thumbnails
+from google.cloud.exceptions import NotFound
+
+from ui.server.clips import delete_blob, signed_clip_url, thumbnails, upload_blob
 
 
 class TestSignedClipUrl:
@@ -26,6 +28,41 @@ class TestSignedClipUrl:
             assert kwargs["version"] == "v4"
             assert kwargs["method"] == "GET"
             assert kwargs["access_token"] == "fake-token"
+
+
+class TestUploadBlob:
+    def test_uploads_the_local_file_with_content_type(self):
+        with patch("ui.server.clips._storage_client") as mock_storage:
+            mock_blob = MagicMock()
+            mock_storage.return_value.bucket.return_value.blob.return_value = mock_blob
+
+            upload_blob("/tmp/x.mp4", "clips/clip_1.mp4", content_type="video/mp4")
+
+            mock_storage.return_value.bucket.return_value.blob.assert_called_once_with(
+                "clips/clip_1.mp4"
+            )
+            mock_blob.upload_from_filename.assert_called_once_with(
+                "/tmp/x.mp4", content_type="video/mp4"
+            )
+
+
+class TestDeleteBlob:
+    def test_deletes_an_existing_blob(self):
+        with patch("ui.server.clips._storage_client") as mock_storage:
+            mock_blob = MagicMock()
+            mock_storage.return_value.bucket.return_value.blob.return_value = mock_blob
+
+            delete_blob("clips/clip_1.mp4")
+
+            mock_blob.delete.assert_called_once()
+
+    def test_missing_blob_is_not_an_error(self):
+        with patch("ui.server.clips._storage_client") as mock_storage:
+            mock_blob = MagicMock()
+            mock_blob.delete.side_effect = NotFound("gone")
+            mock_storage.return_value.bucket.return_value.blob.return_value = mock_blob
+
+            delete_blob("clips/does_not_exist.mp4")  # must not raise
 
 
 class TestThumbnails:

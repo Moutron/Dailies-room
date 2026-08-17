@@ -17,8 +17,10 @@ from ui.server.clip_meta import index_stats
 # clip_meta() and coverage_matrix.py's coverage_matrix() -- ClickHouse
 # doesn't support correlated subqueries, so the per-clip count comes from a
 # LEFT JOIN against a GROUP BY subquery rather than a fourth ad hoc version
-# of the same query.
-_SQL = f"""
+# of the same query. Shared between ingest_summary() (all clips) and
+# clip_summary_row() (one clip, for the upload endpoint's response) so the
+# row shape can't drift between the two call sites.
+_CLIP_ROWS_SQL = f"""
     SELECT c.clip_id AS clip_id, c.duration_s AS duration_s,
            c.ingested_at AS ingested_at,
            coalesce(dc.dialogue_count, 0) AS dialogue_count
@@ -28,8 +30,8 @@ _SQL = f"""
         FROM {config.CH_DATABASE}.dialogue
         GROUP BY clip_id
     ) AS dc ON dc.clip_id = c.clip_id
-    ORDER BY c.ingested_at DESC, c.clip_id
 """
+_SQL = _CLIP_ROWS_SQL + "    ORDER BY c.ingested_at DESC, c.clip_id\n"
 
 
 def _embeddings_count() -> int:
@@ -62,3 +64,18 @@ def ingest_summary() -> dict:
         "embeddings": _embeddings_count(),
         "most_recent_ingested_at": clips[0]["ingested_at"] if clips else None,
     }
+
+
+def clip_summary_row(clip_id: str) -> dict | None:
+    """One clip's `ingest_summary()["clips"]`-shaped row, straight after an
+    upload's insert_rows()+OPTIMIZE FINAL, for the upload endpoint's
+    response. None if the clip somehow isn't visible yet."""
+    result = client().query(
+        _CLIP_ROWS_SQL + "    WHERE c.clip_id = %(clip_id)s\n",
+        parameters={"clip_id": clip_id},
+    )
+    if not result.result_rows:
+        return None
+    row = dict(zip(result.column_names, result.result_rows[0]))
+    row["state"] = "READY"
+    return row

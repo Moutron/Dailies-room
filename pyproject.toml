@@ -15,7 +15,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-asyncio", "ruff", "pre-commit"]
-ui = ["fastapi", "uvicorn[standard]"]
+ui = ["fastapi", "uvicorn[standard]", "python-multipart"]
 deploy = ["google-cloud-aiplatform[adk,agent_engines]"]
 
 [tool.setuptools.packages.find]

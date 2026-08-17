@@ -46,6 +46,14 @@ export function SessionView({
   const [sessionResetNotice, setSessionResetNotice] = useState(false);
   const sessionId = useRef(newId());
   const sentTurnCount = useRef(0);
+  const logEndRef = useRef<HTMLDivElement>(null);
+
+  // Keeps the newest turn in view as messages arrive or stream in, so the
+  // user isn't left looking at an old message with the answer scrolled
+  // out of sight below the fold.
+  useEffect(() => {
+    logEndRef.current?.scrollIntoView?.({ block: "end" });
+  }, [messages]);
 
   useEffect(() => {
     if (!onSessionChange) return;
@@ -251,6 +259,7 @@ export function SessionView({
             Earlier context may no longer carry forward.
           </div>
         )}
+        <div ref={logEndRef} />
       </div>
 
       <Composer

@@ -318,6 +318,41 @@ def test_poster_file_serves_existing_file(tmp_path):
     assert resp.content == b"fake-jpeg-bytes"
 
 
+def test_poster_file_falls_back_to_a_signed_gcs_redirect(tmp_path):
+    with (
+        patch("ui.server.main.POSTERS_DIR", str(tmp_path)),
+        patch(
+            "ui.server.main.signed_url_for", return_value="https://signed.example/clip_1.jpg"
+        ) as mock_sign,
+    ):
+        resp = client.get("/posters/clip_1.jpg", follow_redirects=False)
+
+    assert resp.status_code in (302, 307)
+    assert resp.headers["location"] == "https://signed.example/clip_1.jpg"
+    mock_sign.assert_called_once_with("posters/clip_1.jpg")
+
+
+def test_poster_file_404s_when_the_gcs_fallback_itself_fails(tmp_path):
+    with (
+        patch("ui.server.main.POSTERS_DIR", str(tmp_path)),
+        patch("ui.server.main.signed_url_for", side_effect=RuntimeError("no creds")),
+    ):
+        resp = client.get("/posters/clip_1.jpg")
+
+    assert resp.status_code == 404
+
+
+def test_poster_file_rejects_a_non_clip_id_shaped_filename_without_hitting_gcs(tmp_path):
+    with (
+        patch("ui.server.main.POSTERS_DIR", str(tmp_path)),
+        patch("ui.server.main.signed_url_for") as mock_sign,
+    ):
+        resp = client.get("/posters/not-a-clip-id!.jpg")
+
+    assert resp.status_code == 404
+    mock_sign.assert_not_called()
+
+
 def test_poster_file_blocks_path_traversal_outside_posters_dir(tmp_path):
     from fastapi import HTTPException
 

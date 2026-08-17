@@ -2,7 +2,7 @@
 
 from unittest.mock import MagicMock, patch
 
-from ui.server.ingest import ingest_summary
+from ui.server.ingest import clip_summary_row, ingest_summary
 
 CLIP_COLUMNS = ["clip_id", "duration_s", "ingested_at", "dialogue_count"]
 
@@ -114,3 +114,25 @@ class TestIngestSummary:
 
         assert summary["most_recent_ingested_at"] is None
         assert summary["clips"] == []
+
+
+@patch("ui.server.ingest.client")
+class TestClipSummaryRow:
+    def test_returns_one_ready_row_for_the_given_clip(self, mock_client):
+        mock_client.return_value.query.return_value = _clips_result(
+            [["01_1a_take", 4.9, "2026-08-12 21:46:40", 1]]
+        )
+
+        row = clip_summary_row("01_1a_take")
+
+        assert row["clip_id"] == "01_1a_take"
+        assert row["dialogue_count"] == 1
+        assert row["state"] == "READY"
+        mock_client.return_value.query.assert_called_once()
+        _sql, kwargs = mock_client.return_value.query.call_args
+        assert kwargs["parameters"] == {"clip_id": "01_1a_take"}
+
+    def test_returns_none_when_the_clip_is_not_visible_yet(self, mock_client):
+        mock_client.return_value.query.return_value = _clips_result([])
+
+        assert clip_summary_row("does_not_exist") is None

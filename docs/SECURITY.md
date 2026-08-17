@@ -16,6 +16,24 @@ roles the code actually calls:
 
 Deployed with `--service-account=dailies-ui@dailies-room.iam.gserviceaccount.com`.
 
+**Not yet granted:** `POST /ingest/upload` (`ui/server/upload.py`) writes
+an uploaded clip's mp4 and poster to `gs://dailies-room-dailies` via
+`ui/server/clips.py::upload_blob()`, but the table above only grants
+`roles/storage.objectViewer` (read-only) — confirmed, not assumed, by
+reading this table. Uploads will fail on the GCS write step until the
+runtime SA also gets `roles/storage.objectCreator` (scoped to the same
+bucket, not project-wide, matching how `objectViewer` is scoped above):
+
+```bash
+gsutil iam ch \
+  serviceAccount:dailies-ui@dailies-room.iam.gserviceaccount.com:objectCreator \
+  gs://dailies-room-dailies
+```
+
+Run this (or the equivalent `gcloud storage buckets add-iam-policy-binding`)
+before relying on uploads in a live deployment — it has not been run as
+part of this change.
+
 ### `dailies-agent@dailies-room.iam.gserviceaccount.com` — Vertex AI Agent Engine
 
 Judging-day only (see `docs/ARCHITECTURE.md`). Same shape, plus the three
@@ -81,6 +99,32 @@ oversight, but it is a real gap for anything beyond a demo:
 Before running this beyond a demo: put `/chat` behind real auth (the
 `max-instances` cap and per-session rate limiting are done, but neither
 stops a determined client with many session IDs).
+
+## `/ingest/upload` is also intentionally unauthenticated, with tighter caps
+
+Same tradeoff as `/chat`, same `allUsers` `roles/run.invoker` binding — no
+login required, deliberate for a hackathon demo. It costs more per request
+than `/chat` (one real Gemini video-analysis call plus an embed call per
+upload, not just a chat turn), so it is capped harder:
+
+- A separate, stricter rate-limit bucket (`ui/server/rate_limit.py`'s
+  `namespace` param) — `UPLOAD_RATE_CAPACITY=2` requests, refilling at
+  1/60s, independent of `/chat`'s bucket for the same `session_id`. Same
+  per-process, not-shared-across-instances, unbounded-growth caveat as
+  `/chat`'s bucket.
+- `MAX_UPLOAD_BYTES` (30 MiB, under Cloud Run's 32 MiB HTTP/1 request-body
+  cap) and `MAX_FRAMES` (300) bound the size of any single request.
+- `clip_id` is validated against `^[a-z0-9_]{1,64}$` before it is ever used
+  to build a GCS blob path, so a request can't write outside
+  `clips/`/`posters/` in the bucket.
+
+**Residual cost exposure, not fully mitigated:** the rate limit is
+per-`session_id`, and `session_id` is client-generated and freely
+rotatable — the same gap `/chat`'s section above already documents. A
+client rotating session IDs can still drive real Gemini + embedding
+spend, one call per accepted upload, up to whatever `--max-instances`
+and budget alerts allow. Before running this beyond a demo: real
+per-user auth, same as `/chat`.
 
 ## Session state is in-process, not shared across instances
 

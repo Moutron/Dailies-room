@@ -2,9 +2,10 @@
 
 import math
 import os
+import re
 
 from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, RedirectResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -13,12 +14,13 @@ from ui.server.agent_runner import stream_chat
 from ui.server.circle import set_circled
 from ui.server.clip_list import clip_list
 from ui.server.clip_meta import clip_dialogue, clip_meta, index_stats
-from ui.server.clips import POSTERS_DIR, THUMBS_DIR, signed_clip_url, thumbnails
+from ui.server.clips import POSTERS_DIR, THUMBS_DIR, signed_clip_url, signed_url_for, thumbnails
 from ui.server.coverage_matrix import coverage_matrix
 from ui.server.ingest import ingest_summary
 from ui.server.rate_limit import allow, retry_after
 from ui.server.search import browse_search
 from ui.server.shot_list import list_rows, set_selected
+from ui.server.upload import CLIP_ID_PATTERN, upload_footage
 
 app = FastAPI(title="Dailies Room")
 
@@ -149,6 +151,9 @@ def ingest_summary_route():
     return ingest_summary()
 
 
+app.post("/ingest/upload")(upload_footage)
+
+
 @app.get("/search")
 def search_route(q: str, mode: str = "semantic"):
     """Screen #1d's search bar. `mode` is "semantic" (meaning-based,
@@ -177,9 +182,33 @@ def thumb_file(filename: str):
     return _serve_from(THUMBS_DIR, filename, "No such thumbnail.")
 
 
+_POSTER_FILENAME_RE = re.compile(rf"^{CLIP_ID_PATTERN}\.jpg$")
+
+
 @app.get("/posters/{filename}")
 def poster_file(filename: str):
-    return _serve_from(POSTERS_DIR, filename, "No such poster.")
+    """Local disk first (posters extracted by the offline pipeline live
+    here); a signed GCS redirect otherwise. An uploaded clip's poster is
+    written straight to GCS (ui/server/upload.py), never to this container's
+    disk -- with --max-instances=3, a poster written to one container's
+    filesystem 404s on the other two, so local disk alone isn't enough.
+
+    The GCS fallback only fires for a filename shaped like a real clip_id's
+    poster (`_POSTER_FILENAME_RE`) -- unlike the local-disk path, a GCS blob
+    name isn't a filesystem path and the traversal check above doesn't apply
+    to it, so this is what stops a "../secret" style filename from being
+    forwarded into a blob lookup instead of being rejected.
+    """
+    root = os.path.realpath(POSTERS_DIR)
+    path = os.path.realpath(os.path.join(root, filename))
+    if os.path.commonpath([root, path]) == root and os.path.isfile(path):
+        return FileResponse(path)
+    if _POSTER_FILENAME_RE.match(filename):
+        try:
+            return RedirectResponse(signed_url_for(f"posters/{filename}"))
+        except Exception:  # noqa: BLE001, S110 — any signing/credential failure means "no poster"
+            pass
+    raise HTTPException(status_code=404, detail="No such poster.")
 
 
 @app.get("/health")
